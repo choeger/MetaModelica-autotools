@@ -1,0 +1,6962 @@
+
+state 0:
+
+	module : . START_MODULE serialization_info module_interface_and_declarations EOF_SOFT 
+	module : . START_INTERFACE serialization_info module_interface 
+	module : . START_SERIALIZATION_INFO serialization_info 
+
+	START_SERIALIZATION_INFO	shift 3
+	START_INTERFACE	shift 2
+	START_MODULE	shift 1
+
+	module	goto 617
+
+	.	error
+
+
+state 1:
+
+	module : START_MODULE . serialization_info module_interface_and_declarations EOF_SOFT 
+
+	SERIALIZATION_INFO	shift 5
+
+	serialization_info	goto 4
+
+	.	error
+
+
+state 2:
+
+	module : START_INTERFACE . serialization_info module_interface 
+
+	SERIALIZATION_INFO	shift 5
+
+	serialization_info	goto 6
+
+	.	error
+
+
+state 3:
+
+	module : START_SERIALIZATION_INFO . serialization_info 
+
+	SERIALIZATION_INFO	shift 5
+
+	serialization_info	goto 7
+
+	.	error
+
+
+state 4:
+
+	module : START_MODULE serialization_info . module_interface_and_declarations EOF_SOFT 
+
+	MODULE	shift 9
+
+	module_interface_and_declarations	goto 8
+
+	.	error
+
+
+state 5:
+
+	serialization_info : SERIALIZATION_INFO . LPAR SCON SEMICOLON SCON SEMICOLON ICON RPAR 
+
+	LPAR	shift 10
+
+
+	.	error
+
+
+state 6:
+
+	module : START_INTERFACE serialization_info . module_interface 
+
+	MODULE	shift 12
+
+	module_interface	goto 11
+
+	.	error
+
+
+state 7:
+
+	module : START_SERIALIZATION_INFO serialization_info .  (reduce by rule 2)
+
+	EOF_HARD	reduce by rule 2
+	EOF_SOFT	reduce by rule 2
+	MODULE	reduce by rule 2
+	DECLARATIONS	reduce by rule 2
+
+
+	.	error
+
+
+state 8:
+
+	module : START_MODULE serialization_info module_interface_and_declarations . EOF_SOFT 
+
+	EOF_SOFT	shift 13
+
+
+	.	error
+
+
+state 9:
+
+	module_interface_and_declarations : MODULE . LPAR interface SEMICOLON info RPAR declarations 
+
+	LPAR	shift 14
+
+
+	.	error
+
+
+state 10:
+
+	serialization_info : SERIALIZATION_INFO LPAR . SCON SEMICOLON SCON SEMICOLON ICON RPAR 
+
+	SCON	shift 15
+
+
+	.	error
+
+
+state 11:
+
+	module : START_INTERFACE serialization_info module_interface .  (reduce by rule 1)
+
+	EOF_HARD	reduce by rule 1
+	EOF_SOFT	reduce by rule 1
+	MODULE	reduce by rule 1
+	DECLARATIONS	reduce by rule 1
+
+
+	.	error
+
+
+state 12:
+
+	module_interface : MODULE . LPAR interface SEMICOLON info RPAR 
+
+	LPAR	shift 16
+
+
+	.	error
+
+
+state 13:
+
+	module : START_MODULE serialization_info module_interface_and_declarations EOF_SOFT .  (reduce by rule 0)
+
+	EOF_HARD	reduce by rule 0
+	EOF_SOFT	reduce by rule 0
+	MODULE	reduce by rule 0
+	DECLARATIONS	reduce by rule 0
+
+
+	.	error
+
+
+state 14:
+
+	module_interface_and_declarations : MODULE LPAR . interface SEMICOLON info RPAR declarations 
+
+	INTERFACE	shift 18
+
+	interface	goto 17
+
+	.	error
+
+
+state 15:
+
+	serialization_info : SERIALIZATION_INFO LPAR SCON . SEMICOLON SCON SEMICOLON ICON RPAR 
+
+	SEMICOLON	shift 19
+
+
+	.	error
+
+
+state 16:
+
+	module_interface : MODULE LPAR . interface SEMICOLON info RPAR 
+
+	INTERFACE	shift 18
+
+	interface	goto 20
+
+	.	error
+
+
+state 17:
+
+	module_interface_and_declarations : MODULE LPAR interface . SEMICOLON info RPAR declarations 
+
+	SEMICOLON	shift 21
+
+
+	.	error
+
+
+state 18:
+
+	interface : INTERFACE . LPAR ident SEMICOLON LPAR spec_star RPAR SEMICOLON source SEMICOLON info RPAR 
+	interface : INTERFACE . LPAR DUMMY_INTERFACE RPAR 
+
+	LPAR	shift 22
+
+
+	.	error
+
+
+state 19:
+
+	serialization_info : SERIALIZATION_INFO LPAR SCON SEMICOLON . SCON SEMICOLON ICON RPAR 
+
+	SCON	shift 23
+
+
+	.	error
+
+
+state 20:
+
+	module_interface : MODULE LPAR interface . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 24
+
+
+	.	error
+
+
+state 21:
+
+	module_interface_and_declarations : MODULE LPAR interface SEMICOLON . info RPAR declarations 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 25
+
+	.	error
+
+
+state 22:
+
+	interface : INTERFACE LPAR . ident SEMICOLON LPAR spec_star RPAR SEMICOLON source SEMICOLON info RPAR 
+	interface : INTERFACE LPAR . DUMMY_INTERFACE RPAR 
+
+	LPAR	shift 29
+	DUMMY_INTERFACE	shift 28
+
+	ident	goto 27
+
+	.	error
+
+
+state 23:
+
+	serialization_info : SERIALIZATION_INFO LPAR SCON SEMICOLON SCON . SEMICOLON ICON RPAR 
+
+	SEMICOLON	shift 30
+
+
+	.	error
+
+
+state 24:
+
+	module_interface : MODULE LPAR interface SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 31
+
+	.	error
+
+
+state 25:
+
+	module_interface_and_declarations : MODULE LPAR interface SEMICOLON info . RPAR declarations 
+
+	RPAR	shift 32
+
+
+	.	error
+
+
+state 26:
+
+	info : ICON . COMMA ICON 
+
+	COMMA	shift 33
+
+
+	.	error
+
+
+state 27:
+
+	interface : INTERFACE LPAR ident . SEMICOLON LPAR spec_star RPAR SEMICOLON source SEMICOLON info RPAR 
+
+	SEMICOLON	shift 34
+
+
+	.	error
+
+
+state 28:
+
+	interface : INTERFACE LPAR DUMMY_INTERFACE . RPAR 
+
+	RPAR	shift 35
+
+
+	.	error
+
+
+state 29:
+
+	ident : LPAR . IDENT SEMICOLON info RPAR 
+	ident : LPAR . IDENT SEMICOLON ICON RPAR 
+
+	IDENT	shift 36
+
+
+	.	error
+
+
+state 30:
+
+	serialization_info : SERIALIZATION_INFO LPAR SCON SEMICOLON SCON SEMICOLON . ICON RPAR 
+
+	ICON	shift 37
+
+
+	.	error
+
+
+state 31:
+
+	module_interface : MODULE LPAR interface SEMICOLON info . RPAR 
+
+	RPAR	shift 38
+
+
+	.	error
+
+
+state 32:
+
+	module_interface_and_declarations : MODULE LPAR interface SEMICOLON info RPAR . declarations 
+
+	DECLARATIONS	shift 40
+
+	declarations	goto 39
+
+	.	error
+
+
+state 33:
+
+	info : ICON COMMA . ICON 
+
+	ICON	shift 41
+
+
+	.	error
+
+
+state 34:
+
+	interface : INTERFACE LPAR ident SEMICOLON . LPAR spec_star RPAR SEMICOLON source SEMICOLON info RPAR 
+
+	LPAR	shift 42
+
+
+	.	error
+
+
+state 35:
+
+	interface : INTERFACE LPAR DUMMY_INTERFACE RPAR .  (reduce by rule 14)
+
+	SEMICOLON	reduce by rule 14
+	RPAR	reduce by rule 14
+
+
+	.	error
+
+
+state 36:
+
+	ident : LPAR IDENT . SEMICOLON info RPAR 
+	ident : LPAR IDENT . SEMICOLON ICON RPAR 
+
+	SEMICOLON	shift 43
+
+
+	.	error
+
+
+state 37:
+
+	serialization_info : SERIALIZATION_INFO LPAR SCON SEMICOLON SCON SEMICOLON ICON . RPAR 
+
+	RPAR	shift 44
+
+
+	.	error
+
+
+state 38:
+
+	module_interface : MODULE LPAR interface SEMICOLON info RPAR .  (reduce by rule 5)
+
+	EOF_HARD	reduce by rule 5
+	EOF_SOFT	reduce by rule 5
+	MODULE	reduce by rule 5
+	DECLARATIONS	reduce by rule 5
+
+
+	.	error
+
+
+state 39:
+
+	module_interface_and_declarations : MODULE LPAR interface SEMICOLON info RPAR declarations .  (reduce by rule 4)
+
+	EOF_SOFT	reduce by rule 4
+
+
+	.	error
+
+
+state 40:
+
+	declarations : DECLARATIONS . LPAR dec_star RPAR 
+
+	LPAR	shift 45
+
+
+	.	error
+
+
+state 41:
+
+	info : ICON COMMA ICON .  (reduce by rule 7)
+
+	SEMICOLON	reduce by rule 7
+	RPAR	reduce by rule 7
+	RBRACE	reduce by rule 7
+
+
+	.	error
+
+
+state 42:
+
+	interface : INTERFACE LPAR ident SEMICOLON LPAR . spec_star RPAR SEMICOLON source SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 15
+	WITHspec	shift 53
+	ABSTYPEspec	shift 52
+	TYPEspec	shift 51
+	DATAspec	shift 50
+	VALspec	shift 49
+	RELspec	shift 48
+
+	spec_star	goto 47
+	spec	goto 46
+
+	.	error
+
+
+state 43:
+
+	ident : LPAR IDENT SEMICOLON . info RPAR 
+	ident : LPAR IDENT SEMICOLON . ICON RPAR 
+
+	ICON	shift 55
+	RPAR	reduce by rule 8
+
+	info	goto 54
+
+	.	error
+
+
+state 44:
+
+	serialization_info : SERIALIZATION_INFO LPAR SCON SEMICOLON SCON SEMICOLON ICON RPAR .  (reduce by rule 3)
+
+	EOF_HARD	reduce by rule 3
+	EOF_SOFT	reduce by rule 3
+	MODULE	reduce by rule 3
+	DECLARATIONS	reduce by rule 3
+
+
+	.	error
+
+
+state 45:
+
+	declarations : DECLARATIONS LPAR . dec_star RPAR 
+
+	RPAR	reduce by rule 24
+	WITHdec	shift 62
+	TYPEdec	shift 61
+	DATAdec	shift 60
+	VALdec	shift 59
+	RELdec	shift 58
+
+	dec_star	goto 57
+	dec	goto 56
+
+	.	error
+
+
+state 46:
+
+	spec_star : spec .  (reduce by rule 16)
+	spec_star : spec . COMMA spec_star 
+
+	COMMA	shift 63
+	RPAR	reduce by rule 16
+
+
+	.	error
+
+
+state 47:
+
+	interface : INTERFACE LPAR ident SEMICOLON LPAR spec_star . RPAR SEMICOLON source SEMICOLON info RPAR 
+
+	RPAR	shift 64
+
+
+	.	error
+
+
+state 48:
+
+	spec : RELspec . LPAR ident SEMICOLON ty SEMICOLON info RPAR 
+
+	LPAR	shift 65
+
+
+	.	error
+
+
+state 49:
+
+	spec : VALspec . LPAR ident SEMICOLON ty SEMICOLON info RPAR 
+
+	LPAR	shift 66
+
+
+	.	error
+
+
+state 50:
+
+	spec : DATAspec . LPAR datbind_plus SEMICOLON typbind_plus SEMICOLON info RPAR 
+
+	LPAR	shift 67
+
+
+	.	error
+
+
+state 51:
+
+	spec : TYPEspec . LPAR typbind_plus SEMICOLON info RPAR 
+
+	LPAR	shift 68
+
+
+	.	error
+
+
+state 52:
+
+	spec : ABSTYPEspec . LPAR ICON SEMICOLON tyvarseq SEMICOLON ident SEMICOLON info RPAR 
+
+	LPAR	shift 69
+
+
+	.	error
+
+
+state 53:
+
+	spec : WITHspec . LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 70
+
+
+	.	error
+
+
+state 54:
+
+	ident : LPAR IDENT SEMICOLON info . RPAR 
+
+	RPAR	shift 71
+
+
+	.	error
+
+
+state 55:
+
+	ident : LPAR IDENT SEMICOLON ICON . RPAR 
+	info : ICON . COMMA ICON 
+
+	COMMA	shift 33
+	RPAR	shift 72
+
+
+	.	error
+
+
+state 56:
+
+	dec_star : dec .  (reduce by rule 25)
+	dec_star : dec . COMMA dec_star 
+
+	COMMA	shift 73
+	RPAR	reduce by rule 25
+
+
+	.	error
+
+
+state 57:
+
+	declarations : DECLARATIONS LPAR dec_star . RPAR 
+
+	RPAR	shift 74
+
+
+	.	error
+
+
+state 58:
+
+	dec : RELdec . LPAR relbind_plus SEMICOLON info RPAR 
+
+	LPAR	shift 75
+
+
+	.	error
+
+
+state 59:
+
+	dec : VALdec . LPAR ident SEMICOLON exp SEMICOLON info RPAR 
+
+	LPAR	shift 76
+
+
+	.	error
+
+
+state 60:
+
+	dec : DATAdec . LPAR datbind_plus_protected SEMICOLON typbind_plus SEMICOLON info RPAR 
+
+	LPAR	shift 77
+
+
+	.	error
+
+
+state 61:
+
+	dec : TYPEdec . LPAR typbind_plus SEMICOLON info RPAR 
+
+	LPAR	shift 78
+
+
+	.	error
+
+
+state 62:
+
+	dec : WITHdec . LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 79
+
+
+	.	error
+
+
+state 63:
+
+	spec_star : spec COMMA . spec_star 
+
+	RPAR	reduce by rule 15
+	WITHspec	shift 53
+	ABSTYPEspec	shift 52
+	TYPEspec	shift 51
+	DATAspec	shift 50
+	VALspec	shift 49
+	RELspec	shift 48
+
+	spec_star	goto 80
+	spec	goto 46
+
+	.	error
+
+
+state 64:
+
+	interface : INTERFACE LPAR ident SEMICOLON LPAR spec_star RPAR . SEMICOLON source SEMICOLON info RPAR 
+
+	SEMICOLON	shift 81
+
+
+	.	error
+
+
+state 65:
+
+	spec : RELspec LPAR . ident SEMICOLON ty SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 82
+
+	.	error
+
+
+state 66:
+
+	spec : VALspec LPAR . ident SEMICOLON ty SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 83
+
+	.	error
+
+
+state 67:
+
+	spec : DATAspec LPAR . datbind_plus SEMICOLON typbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 47
+	DATBIND	shift 86
+
+	datbind_plus	goto 85
+	datbind	goto 84
+
+	.	error
+
+
+state 68:
+
+	spec : TYPEspec LPAR . typbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 40
+	TYPBIND	shift 89
+
+	typbind_plus	goto 88
+	typbind	goto 87
+
+	.	error
+
+
+state 69:
+
+	spec : ABSTYPEspec LPAR . ICON SEMICOLON tyvarseq SEMICOLON ident SEMICOLON info RPAR 
+
+	ICON	shift 90
+
+
+	.	error
+
+
+state 70:
+
+	spec : WITHspec LPAR . SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR 
+
+	SCON	shift 91
+
+
+	.	error
+
+
+state 71:
+
+	ident : LPAR IDENT SEMICOLON info RPAR .  (reduce by rule 121)
+
+	SEMICOLON	reduce by rule 121
+	RPAR	reduce by rule 121
+
+
+	.	error
+
+
+state 72:
+
+	ident : LPAR IDENT SEMICOLON ICON RPAR .  (reduce by rule 122)
+
+	SEMICOLON	reduce by rule 122
+	RPAR	reduce by rule 122
+
+
+	.	error
+
+
+state 73:
+
+	dec_star : dec COMMA . dec_star 
+
+	RPAR	reduce by rule 24
+	WITHdec	shift 62
+	TYPEdec	shift 61
+	DATAdec	shift 60
+	VALdec	shift 59
+	RELdec	shift 58
+
+	dec_star	goto 92
+	dec	goto 56
+
+	.	error
+
+
+state 74:
+
+	declarations : DECLARATIONS LPAR dec_star RPAR .  (reduce by rule 6)
+
+	EOF_SOFT	reduce by rule 6
+
+
+	.	error
+
+
+state 75:
+
+	dec : RELdec LPAR . relbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 32
+	RELBIND	shift 95
+
+	relbind	goto 94
+	relbind_plus	goto 93
+
+	.	error
+
+
+state 76:
+
+	dec : VALdec LPAR . ident SEMICOLON exp SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 96
+
+	.	error
+
+
+state 77:
+
+	dec : DATAdec LPAR . datbind_plus_protected SEMICOLON typbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 44
+	DATBIND	shift 99
+
+	datbind_plus_protected	goto 98
+	datbind_protected	goto 97
+
+	.	error
+
+
+state 78:
+
+	dec : TYPEdec LPAR . typbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 40
+	TYPBIND	shift 89
+
+	typbind_plus	goto 100
+	typbind	goto 87
+
+	.	error
+
+
+state 79:
+
+	dec : WITHdec LPAR . SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR 
+
+	SCON	shift 101
+
+
+	.	error
+
+
+state 80:
+
+	spec_star : spec COMMA spec_star .  (reduce by rule 17)
+
+	RPAR	reduce by rule 17
+
+
+	.	error
+
+
+state 81:
+
+	interface : INTERFACE LPAR ident SEMICOLON LPAR spec_star RPAR SEMICOLON . source SEMICOLON info RPAR 
+
+	SOURCE	shift 103
+
+	source	goto 102
+
+	.	error
+
+
+state 82:
+
+	spec : RELspec LPAR ident . SEMICOLON ty SEMICOLON info RPAR 
+
+	SEMICOLON	shift 104
+
+
+	.	error
+
+
+state 83:
+
+	spec : VALspec LPAR ident . SEMICOLON ty SEMICOLON info RPAR 
+
+	SEMICOLON	shift 105
+
+
+	.	error
+
+
+state 84:
+
+	datbind_plus : datbind .  (reduce by rule 48)
+	datbind_plus : datbind . COMMA datbind_plus 
+
+	COMMA	shift 106
+	SEMICOLON	reduce by rule 48
+
+
+	.	error
+
+
+state 85:
+
+	spec : DATAspec LPAR datbind_plus . SEMICOLON typbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	shift 107
+
+
+	.	error
+
+
+state 86:
+
+	datbind : DATBIND . LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus SEMICOLON info RPAR 
+
+	LPAR	shift 108
+
+
+	.	error
+
+
+state 87:
+
+	typbind_plus : typbind .  (reduce by rule 41)
+	typbind_plus : typbind . COMMA typbind_plus 
+
+	COMMA	shift 109
+	SEMICOLON	reduce by rule 41
+
+
+	.	error
+
+
+state 88:
+
+	spec : TYPEspec LPAR typbind_plus . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 110
+
+
+	.	error
+
+
+state 89:
+
+	typbind : TYPBIND . LPAR tyvarseq SEMICOLON ident SEMICOLON ty SEMICOLON info RPAR 
+
+	LPAR	shift 111
+
+
+	.	error
+
+
+state 90:
+
+	spec : ABSTYPEspec LPAR ICON . SEMICOLON tyvarseq SEMICOLON ident SEMICOLON info RPAR 
+
+	SEMICOLON	shift 112
+
+
+	.	error
+
+
+state 91:
+
+	spec : WITHspec LPAR SCON . SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 113
+
+
+	.	error
+
+
+state 92:
+
+	dec_star : dec COMMA dec_star .  (reduce by rule 26)
+
+	RPAR	reduce by rule 26
+
+
+	.	error
+
+
+state 93:
+
+	dec : RELdec LPAR relbind_plus . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 114
+
+
+	.	error
+
+
+state 94:
+
+	relbind_plus : relbind .  (reduce by rule 33)
+	relbind_plus : relbind . COMMA relbind_plus 
+
+	COMMA	shift 115
+	SEMICOLON	reduce by rule 33
+
+
+	.	error
+
+
+state 95:
+
+	relbind : RELBIND . LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	LPAR	shift 116
+
+
+	.	error
+
+
+state 96:
+
+	dec : VALdec LPAR ident . SEMICOLON exp SEMICOLON info RPAR 
+
+	SEMICOLON	shift 117
+
+
+	.	error
+
+
+state 97:
+
+	datbind_plus_protected : datbind_protected .  (reduce by rule 45)
+	datbind_plus_protected : datbind_protected . COMMA datbind_plus_protected 
+
+	COMMA	shift 118
+	SEMICOLON	reduce by rule 45
+
+
+	.	error
+
+
+state 98:
+
+	dec : DATAdec LPAR datbind_plus_protected . SEMICOLON typbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	shift 119
+
+
+	.	error
+
+
+state 99:
+
+	datbind_protected : DATBIND . LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus_protected SEMICOLON info RPAR 
+
+	LPAR	shift 120
+
+
+	.	error
+
+
+state 100:
+
+	dec : TYPEdec LPAR typbind_plus . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 121
+
+
+	.	error
+
+
+state 101:
+
+	dec : WITHdec LPAR SCON . SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 122
+
+
+	.	error
+
+
+state 102:
+
+	interface : INTERFACE LPAR ident SEMICOLON LPAR spec_star RPAR SEMICOLON source . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 123
+
+
+	.	error
+
+
+state 103:
+
+	source : SOURCE . LPAR SCON SEMICOLON SCON SEMICOLON LPAR lines RPAR SEMICOLON ICON RPAR 
+	source : SOURCE . LPAR DUMMY_SOURCE RPAR 
+
+	LPAR	shift 124
+
+
+	.	error
+
+
+state 104:
+
+	spec : RELspec LPAR ident SEMICOLON . ty SEMICOLON info RPAR 
+
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 125
+
+	.	error
+
+
+state 105:
+
+	spec : VALspec LPAR ident SEMICOLON . ty SEMICOLON info RPAR 
+
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 131
+
+	.	error
+
+
+state 106:
+
+	datbind_plus : datbind COMMA . datbind_plus 
+
+	SEMICOLON	reduce by rule 47
+	DATBIND	shift 86
+
+	datbind_plus	goto 132
+	datbind	goto 84
+
+	.	error
+
+
+state 107:
+
+	spec : DATAspec LPAR datbind_plus SEMICOLON . typbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 40
+	TYPBIND	shift 89
+
+	typbind_plus	goto 133
+	typbind	goto 87
+
+	.	error
+
+
+state 108:
+
+	datbind : DATBIND LPAR . tyvarseq SEMICOLON ident SEMICOLON conbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 115
+	LPAR	shift 136
+
+	tyvarseq	goto 135
+	tyvar	goto 134
+
+	.	error
+
+
+state 109:
+
+	typbind_plus : typbind COMMA . typbind_plus 
+
+	SEMICOLON	reduce by rule 40
+	TYPBIND	shift 89
+
+	typbind_plus	goto 137
+	typbind	goto 87
+
+	.	error
+
+
+state 110:
+
+	spec : TYPEspec LPAR typbind_plus SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 138
+
+	.	error
+
+
+state 111:
+
+	typbind : TYPBIND LPAR . tyvarseq SEMICOLON ident SEMICOLON ty SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 115
+	LPAR	shift 136
+
+	tyvarseq	goto 139
+	tyvar	goto 134
+
+	.	error
+
+
+state 112:
+
+	spec : ABSTYPEspec LPAR ICON SEMICOLON . tyvarseq SEMICOLON ident SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 115
+	LPAR	shift 136
+
+	tyvarseq	goto 140
+	tyvar	goto 134
+
+	.	error
+
+
+state 113:
+
+	spec : WITHspec LPAR SCON SEMICOLON . REF LPAR interface RPAR SEMICOLON info RPAR 
+
+	REF	shift 141
+
+
+	.	error
+
+
+state 114:
+
+	dec : RELdec LPAR relbind_plus SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 142
+
+	.	error
+
+
+state 115:
+
+	relbind_plus : relbind COMMA . relbind_plus 
+
+	SEMICOLON	reduce by rule 32
+	RELBIND	shift 95
+
+	relbind	goto 94
+	relbind_plus	goto 143
+
+	.	error
+
+
+state 116:
+
+	relbind : RELBIND LPAR . ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 144
+
+	.	error
+
+
+state 117:
+
+	dec : VALdec LPAR ident SEMICOLON . exp SEMICOLON info RPAR 
+
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 145
+
+	.	error
+
+
+state 118:
+
+	datbind_plus_protected : datbind_protected COMMA . datbind_plus_protected 
+
+	SEMICOLON	reduce by rule 44
+	DATBIND	shift 99
+
+	datbind_plus_protected	goto 150
+	datbind_protected	goto 97
+
+	.	error
+
+
+state 119:
+
+	dec : DATAdec LPAR datbind_plus_protected SEMICOLON . typbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 40
+	TYPBIND	shift 89
+
+	typbind_plus	goto 151
+	typbind	goto 87
+
+	.	error
+
+
+state 120:
+
+	datbind_protected : DATBIND LPAR . tyvarseq SEMICOLON ident SEMICOLON conbind_plus_protected SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 115
+	LPAR	shift 136
+
+	tyvarseq	goto 152
+	tyvar	goto 134
+
+	.	error
+
+
+state 121:
+
+	dec : TYPEdec LPAR typbind_plus SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 153
+
+	.	error
+
+
+state 122:
+
+	dec : WITHdec LPAR SCON SEMICOLON . REF LPAR interface RPAR SEMICOLON info RPAR 
+
+	REF	shift 154
+
+
+	.	error
+
+
+state 123:
+
+	interface : INTERFACE LPAR ident SEMICOLON LPAR spec_star RPAR SEMICOLON source SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 155
+
+	.	error
+
+
+state 124:
+
+	source : SOURCE LPAR . SCON SEMICOLON SCON SEMICOLON LPAR lines RPAR SEMICOLON ICON RPAR 
+	source : SOURCE LPAR . DUMMY_SOURCE RPAR 
+
+	SCON	shift 157
+	DUMMY_SOURCE	shift 156
+
+
+	.	error
+
+
+state 125:
+
+	spec : RELspec LPAR ident SEMICOLON ty . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 158
+
+
+	.	error
+
+
+state 126:
+
+	ty : TUPLEty . LPAR LPAR ty_seq RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 159
+
+
+	.	error
+
+
+state 127:
+
+	ty : NAMEDty . LPAR ident SEMICOLON ty SEMICOLON info RPAR 
+
+	LPAR	shift 160
+
+
+	.	error
+
+
+state 128:
+
+	ty : RELty . LPAR LPAR ty_seq RPAR SEMICOLON LPAR ty_seq RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 161
+
+
+	.	error
+
+
+state 129:
+
+	ty : CONSty . LPAR longorshortid SEMICOLON info RPAR 
+	ty : CONSty . LPAR ty_seq SEMICOLON longorshortid SEMICOLON info RPAR 
+
+	LPAR	shift 162
+
+
+	.	error
+
+
+state 130:
+
+	ty : VARty . tyvar 
+
+	LPAR	shift 136
+
+	tyvar	goto 163
+
+	.	error
+
+
+state 131:
+
+	spec : VALspec LPAR ident SEMICOLON ty . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 164
+
+
+	.	error
+
+
+state 132:
+
+	datbind_plus : datbind COMMA datbind_plus .  (reduce by rule 49)
+
+	SEMICOLON	reduce by rule 49
+
+
+	.	error
+
+
+state 133:
+
+	spec : DATAspec LPAR datbind_plus SEMICOLON typbind_plus . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 165
+
+
+	.	error
+
+
+state 134:
+
+	tyvarseq : tyvar .  (reduce by rule 116)
+	tyvarseq : tyvar . COMMA tyvarseq 
+
+	COMMA	shift 166
+	SEMICOLON	reduce by rule 116
+
+
+	.	error
+
+
+state 135:
+
+	datbind : DATBIND LPAR tyvarseq . SEMICOLON ident SEMICOLON conbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	shift 167
+
+
+	.	error
+
+
+state 136:
+
+	tyvar : LPAR . TYVAR SEMICOLON info RPAR 
+	tyvar : LPAR . TYVAR SEMICOLON ICON RPAR 
+
+	TYVAR	shift 168
+
+
+	.	error
+
+
+state 137:
+
+	typbind_plus : typbind COMMA typbind_plus .  (reduce by rule 42)
+
+	SEMICOLON	reduce by rule 42
+
+
+	.	error
+
+
+state 138:
+
+	spec : TYPEspec LPAR typbind_plus SEMICOLON info . RPAR 
+
+	RPAR	shift 169
+
+
+	.	error
+
+
+state 139:
+
+	typbind : TYPBIND LPAR tyvarseq . SEMICOLON ident SEMICOLON ty SEMICOLON info RPAR 
+
+	SEMICOLON	shift 170
+
+
+	.	error
+
+
+state 140:
+
+	spec : ABSTYPEspec LPAR ICON SEMICOLON tyvarseq . SEMICOLON ident SEMICOLON info RPAR 
+
+	SEMICOLON	shift 171
+
+
+	.	error
+
+
+state 141:
+
+	spec : WITHspec LPAR SCON SEMICOLON REF . LPAR interface RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 172
+
+
+	.	error
+
+
+state 142:
+
+	dec : RELdec LPAR relbind_plus SEMICOLON info . RPAR 
+
+	RPAR	shift 173
+
+
+	.	error
+
+
+state 143:
+
+	relbind_plus : relbind COMMA relbind_plus .  (reduce by rule 34)
+
+	SEMICOLON	reduce by rule 34
+
+
+	.	error
+
+
+state 144:
+
+	relbind : RELBIND LPAR ident . SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	SEMICOLON	shift 174
+
+
+	.	error
+
+
+state 145:
+
+	dec : VALdec LPAR ident SEMICOLON exp . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 175
+
+
+	.	error
+
+
+state 146:
+
+	exp : IDENTexp . LPAR longorshortid SEMICOLON REF LPAR exp RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 176
+
+
+	.	error
+
+
+state 147:
+
+	exp : STRUCTexp . LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_exp SEMICOLON info RPAR 
+	exp : STRUCTexp . LPAR NON SEMICOLON seq_exp SEMICOLON info RPAR 
+
+	LPAR	shift 177
+
+
+	.	error
+
+
+state 148:
+
+	exp : CONexp . LPAR longorshortid SEMICOLON info RPAR 
+
+	LPAR	shift 178
+
+
+	.	error
+
+
+state 149:
+
+	exp : LITexp . LPAR literal SEMICOLON info RPAR 
+
+	LPAR	shift 179
+
+
+	.	error
+
+
+state 150:
+
+	datbind_plus_protected : datbind_protected COMMA datbind_plus_protected .  (reduce by rule 46)
+
+	SEMICOLON	reduce by rule 46
+
+
+	.	error
+
+
+state 151:
+
+	dec : DATAdec LPAR datbind_plus_protected SEMICOLON typbind_plus . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 180
+
+
+	.	error
+
+
+state 152:
+
+	datbind_protected : DATBIND LPAR tyvarseq . SEMICOLON ident SEMICOLON conbind_plus_protected SEMICOLON info RPAR 
+
+	SEMICOLON	shift 181
+
+
+	.	error
+
+
+state 153:
+
+	dec : TYPEdec LPAR typbind_plus SEMICOLON info . RPAR 
+
+	RPAR	shift 182
+
+
+	.	error
+
+
+state 154:
+
+	dec : WITHdec LPAR SCON SEMICOLON REF . LPAR interface RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 183
+
+
+	.	error
+
+
+state 155:
+
+	interface : INTERFACE LPAR ident SEMICOLON LPAR spec_star RPAR SEMICOLON source SEMICOLON info . RPAR 
+
+	RPAR	shift 184
+
+
+	.	error
+
+
+state 156:
+
+	source : SOURCE LPAR DUMMY_SOURCE . RPAR 
+
+	RPAR	shift 185
+
+
+	.	error
+
+
+state 157:
+
+	source : SOURCE LPAR SCON . SEMICOLON SCON SEMICOLON LPAR lines RPAR SEMICOLON ICON RPAR 
+
+	SEMICOLON	shift 186
+
+
+	.	error
+
+
+state 158:
+
+	spec : RELspec LPAR ident SEMICOLON ty SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 187
+
+	.	error
+
+
+state 159:
+
+	ty : TUPLEty LPAR . LPAR ty_seq RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 188
+
+
+	.	error
+
+
+state 160:
+
+	ty : NAMEDty LPAR . ident SEMICOLON ty SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 189
+
+	.	error
+
+
+state 161:
+
+	ty : RELty LPAR . LPAR ty_seq RPAR SEMICOLON LPAR ty_seq RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 190
+
+
+	.	error
+
+
+state 162:
+
+	ty : CONSty LPAR . longorshortid SEMICOLON info RPAR 
+	ty : CONSty LPAR . ty_seq SEMICOLON longorshortid SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 112
+	LONGID	shift 195
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 194
+	ty_seq	goto 193
+	longid	goto 192
+	longorshortid	goto 191
+
+	.	error
+
+
+state 163:
+
+	ty : VARty tyvar .  (reduce by rule 111)
+
+	COMMA	reduce by rule 111
+	SEMICOLON	reduce by rule 111
+	RPAR	reduce by rule 111
+
+
+	.	error
+
+
+state 164:
+
+	spec : VALspec LPAR ident SEMICOLON ty SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 196
+
+	.	error
+
+
+state 165:
+
+	spec : DATAspec LPAR datbind_plus SEMICOLON typbind_plus SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 197
+
+	.	error
+
+
+state 166:
+
+	tyvarseq : tyvar COMMA . tyvarseq 
+
+	SEMICOLON	reduce by rule 115
+	LPAR	shift 136
+
+	tyvarseq	goto 198
+	tyvar	goto 134
+
+	.	error
+
+
+state 167:
+
+	datbind : DATBIND LPAR tyvarseq SEMICOLON . ident SEMICOLON conbind_plus SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 199
+
+	.	error
+
+
+state 168:
+
+	tyvar : LPAR TYVAR . SEMICOLON info RPAR 
+	tyvar : LPAR TYVAR . SEMICOLON ICON RPAR 
+
+	SEMICOLON	shift 200
+
+
+	.	error
+
+
+state 169:
+
+	spec : TYPEspec LPAR typbind_plus SEMICOLON info RPAR .  (reduce by rule 20)
+
+	COMMA	reduce by rule 20
+	RPAR	reduce by rule 20
+
+
+	.	error
+
+
+state 170:
+
+	typbind : TYPBIND LPAR tyvarseq SEMICOLON . ident SEMICOLON ty SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 201
+
+	.	error
+
+
+state 171:
+
+	spec : ABSTYPEspec LPAR ICON SEMICOLON tyvarseq SEMICOLON . ident SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 202
+
+	.	error
+
+
+state 172:
+
+	spec : WITHspec LPAR SCON SEMICOLON REF LPAR . interface RPAR SEMICOLON info RPAR 
+
+	INTERFACE	shift 18
+
+	interface	goto 203
+
+	.	error
+
+
+state 173:
+
+	dec : RELdec LPAR relbind_plus SEMICOLON info RPAR .  (reduce by rule 31)
+
+	COMMA	reduce by rule 31
+	RPAR	reduce by rule 31
+
+
+	.	error
+
+
+state 174:
+
+	relbind : RELBIND LPAR ident SEMICOLON . relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	SOM	shift 206
+	NON	shift 205
+
+	relbind_ty_opt	goto 204
+
+	.	error
+
+
+state 175:
+
+	dec : VALdec LPAR ident SEMICOLON exp SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 207
+
+	.	error
+
+
+state 176:
+
+	exp : IDENTexp LPAR . longorshortid SEMICOLON REF LPAR exp RPAR SEMICOLON info RPAR 
+
+	LONGID	shift 195
+
+	longid	goto 192
+	longorshortid	goto 208
+
+	.	error
+
+
+state 177:
+
+	exp : STRUCTexp LPAR . SOM LPAR longorshortid RPAR SEMICOLON seq_exp SEMICOLON info RPAR 
+	exp : STRUCTexp LPAR . NON SEMICOLON seq_exp SEMICOLON info RPAR 
+
+	SOM	shift 210
+	NON	shift 209
+
+
+	.	error
+
+
+state 178:
+
+	exp : CONexp LPAR . longorshortid SEMICOLON info RPAR 
+
+	LONGID	shift 195
+
+	longid	goto 192
+	longorshortid	goto 211
+
+	.	error
+
+
+state 179:
+
+	exp : LITexp LPAR . literal SEMICOLON info RPAR 
+
+	LPAR	shift 213
+
+	literal	goto 212
+
+	.	error
+
+
+state 180:
+
+	dec : DATAdec LPAR datbind_plus_protected SEMICOLON typbind_plus SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 214
+
+	.	error
+
+
+state 181:
+
+	datbind_protected : DATBIND LPAR tyvarseq SEMICOLON . ident SEMICOLON conbind_plus_protected SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 215
+
+	.	error
+
+
+state 182:
+
+	dec : TYPEdec LPAR typbind_plus SEMICOLON info RPAR .  (reduce by rule 28)
+
+	COMMA	reduce by rule 28
+	RPAR	reduce by rule 28
+
+
+	.	error
+
+
+state 183:
+
+	dec : WITHdec LPAR SCON SEMICOLON REF LPAR . interface RPAR SEMICOLON info RPAR 
+
+	INTERFACE	shift 18
+
+	interface	goto 216
+
+	.	error
+
+
+state 184:
+
+	interface : INTERFACE LPAR ident SEMICOLON LPAR spec_star RPAR SEMICOLON source SEMICOLON info RPAR .  (reduce by rule 13)
+
+	SEMICOLON	reduce by rule 13
+	RPAR	reduce by rule 13
+
+
+	.	error
+
+
+state 185:
+
+	source : SOURCE LPAR DUMMY_SOURCE RPAR .  (reduce by rule 12)
+
+	SEMICOLON	reduce by rule 12
+
+
+	.	error
+
+
+state 186:
+
+	source : SOURCE LPAR SCON SEMICOLON . SCON SEMICOLON LPAR lines RPAR SEMICOLON ICON RPAR 
+
+	SCON	shift 217
+
+
+	.	error
+
+
+state 187:
+
+	spec : RELspec LPAR ident SEMICOLON ty SEMICOLON info . RPAR 
+
+	RPAR	shift 218
+
+
+	.	error
+
+
+state 188:
+
+	ty : TUPLEty LPAR LPAR . ty_seq RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 112
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 194
+	ty_seq	goto 219
+
+	.	error
+
+
+state 189:
+
+	ty : NAMEDty LPAR ident . SEMICOLON ty SEMICOLON info RPAR 
+
+	SEMICOLON	shift 220
+
+
+	.	error
+
+
+state 190:
+
+	ty : RELty LPAR LPAR . ty_seq RPAR SEMICOLON LPAR ty_seq RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 112
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 194
+	ty_seq	goto 221
+
+	.	error
+
+
+state 191:
+
+	ty : CONSty LPAR longorshortid . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 222
+
+
+	.	error
+
+
+state 192:
+
+	longorshortid : longid .  (reduce by rule 119)
+
+	SEMICOLON	reduce by rule 119
+	RPAR	reduce by rule 119
+
+
+	.	error
+
+
+state 193:
+
+	ty : CONSty LPAR ty_seq . SEMICOLON longorshortid SEMICOLON info RPAR 
+
+	SEMICOLON	shift 223
+
+
+	.	error
+
+
+state 194:
+
+	ty_seq : ty .  (reduce by rule 113)
+	ty_seq : ty . COMMA ty_seq 
+
+	COMMA	shift 224
+	SEMICOLON	reduce by rule 113
+	RPAR	reduce by rule 113
+
+
+	.	error
+
+
+state 195:
+
+	longid : LONGID . LBRACE ident SEMICOLON ident SEMICOLON info RBRACE 
+	longorshortid : LONGID . ident 
+
+	LPAR	shift 29
+	LBRACE	shift 226
+
+	ident	goto 225
+
+	.	error
+
+
+state 196:
+
+	spec : VALspec LPAR ident SEMICOLON ty SEMICOLON info . RPAR 
+
+	RPAR	shift 227
+
+
+	.	error
+
+
+state 197:
+
+	spec : DATAspec LPAR datbind_plus SEMICOLON typbind_plus SEMICOLON info . RPAR 
+
+	RPAR	shift 228
+
+
+	.	error
+
+
+state 198:
+
+	tyvarseq : tyvar COMMA tyvarseq .  (reduce by rule 117)
+
+	SEMICOLON	reduce by rule 117
+
+
+	.	error
+
+
+state 199:
+
+	datbind : DATBIND LPAR tyvarseq SEMICOLON ident . SEMICOLON conbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	shift 229
+
+
+	.	error
+
+
+state 200:
+
+	tyvar : LPAR TYVAR SEMICOLON . info RPAR 
+	tyvar : LPAR TYVAR SEMICOLON . ICON RPAR 
+
+	ICON	shift 231
+	RPAR	reduce by rule 8
+
+	info	goto 230
+
+	.	error
+
+
+state 201:
+
+	typbind : TYPBIND LPAR tyvarseq SEMICOLON ident . SEMICOLON ty SEMICOLON info RPAR 
+
+	SEMICOLON	shift 232
+
+
+	.	error
+
+
+state 202:
+
+	spec : ABSTYPEspec LPAR ICON SEMICOLON tyvarseq SEMICOLON ident . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 233
+
+
+	.	error
+
+
+state 203:
+
+	spec : WITHspec LPAR SCON SEMICOLON REF LPAR interface . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 234
+
+
+	.	error
+
+
+state 204:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt . SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	SEMICOLON	shift 235
+
+
+	.	error
+
+
+state 205:
+
+	relbind_ty_opt : NON .  (reduce by rule 39)
+
+	SEMICOLON	reduce by rule 39
+
+
+	.	error
+
+
+state 206:
+
+	relbind_ty_opt : SOM . LPAR ty RPAR 
+
+	LPAR	shift 236
+
+
+	.	error
+
+
+state 207:
+
+	dec : VALdec LPAR ident SEMICOLON exp SEMICOLON info . RPAR 
+
+	RPAR	shift 237
+
+
+	.	error
+
+
+state 208:
+
+	exp : IDENTexp LPAR longorshortid . SEMICOLON REF LPAR exp RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 238
+
+
+	.	error
+
+
+state 209:
+
+	exp : STRUCTexp LPAR NON . SEMICOLON seq_exp SEMICOLON info RPAR 
+
+	SEMICOLON	shift 239
+
+
+	.	error
+
+
+state 210:
+
+	exp : STRUCTexp LPAR SOM . LPAR longorshortid RPAR SEMICOLON seq_exp SEMICOLON info RPAR 
+
+	LPAR	shift 240
+
+
+	.	error
+
+
+state 211:
+
+	exp : CONexp LPAR longorshortid . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 241
+
+
+	.	error
+
+
+state 212:
+
+	exp : LITexp LPAR literal . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 242
+
+
+	.	error
+
+
+state 213:
+
+	literal : LPAR . CCON SEMICOLON info RPAR 
+	literal : LPAR . ICON SEMICOLON info RPAR 
+	literal : LPAR . RCON SEMICOLON info RPAR 
+	literal : LPAR . SCON SEMICOLON info RPAR 
+
+	CCON	shift 246
+	ICON	shift 245
+	RCON	shift 244
+	SCON	shift 243
+
+
+	.	error
+
+
+state 214:
+
+	dec : DATAdec LPAR datbind_plus_protected SEMICOLON typbind_plus SEMICOLON info . RPAR 
+
+	RPAR	shift 247
+
+
+	.	error
+
+
+state 215:
+
+	datbind_protected : DATBIND LPAR tyvarseq SEMICOLON ident . SEMICOLON conbind_plus_protected SEMICOLON info RPAR 
+
+	SEMICOLON	shift 248
+
+
+	.	error
+
+
+state 216:
+
+	dec : WITHdec LPAR SCON SEMICOLON REF LPAR interface . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 249
+
+
+	.	error
+
+
+state 217:
+
+	source : SOURCE LPAR SCON SEMICOLON SCON . SEMICOLON LPAR lines RPAR SEMICOLON ICON RPAR 
+
+	SEMICOLON	shift 250
+
+
+	.	error
+
+
+state 218:
+
+	spec : RELspec LPAR ident SEMICOLON ty SEMICOLON info RPAR .  (reduce by rule 23)
+
+	COMMA	reduce by rule 23
+	RPAR	reduce by rule 23
+
+
+	.	error
+
+
+state 219:
+
+	ty : TUPLEty LPAR LPAR ty_seq . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 251
+
+
+	.	error
+
+
+state 220:
+
+	ty : NAMEDty LPAR ident SEMICOLON . ty SEMICOLON info RPAR 
+
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 252
+
+	.	error
+
+
+state 221:
+
+	ty : RELty LPAR LPAR ty_seq . RPAR SEMICOLON LPAR ty_seq RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 253
+
+
+	.	error
+
+
+state 222:
+
+	ty : CONSty LPAR longorshortid SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 254
+
+	.	error
+
+
+state 223:
+
+	ty : CONSty LPAR ty_seq SEMICOLON . longorshortid SEMICOLON info RPAR 
+
+	LONGID	shift 195
+
+	longid	goto 192
+	longorshortid	goto 255
+
+	.	error
+
+
+state 224:
+
+	ty_seq : ty COMMA . ty_seq 
+
+	SEMICOLON	reduce by rule 112
+	RPAR	reduce by rule 112
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 194
+	ty_seq	goto 256
+
+	.	error
+
+
+state 225:
+
+	longorshortid : LONGID ident .  (reduce by rule 120)
+
+	SEMICOLON	reduce by rule 120
+	RPAR	reduce by rule 120
+
+
+	.	error
+
+
+state 226:
+
+	longid : LONGID LBRACE . ident SEMICOLON ident SEMICOLON info RBRACE 
+
+	LPAR	shift 29
+
+	ident	goto 257
+
+	.	error
+
+
+state 227:
+
+	spec : VALspec LPAR ident SEMICOLON ty SEMICOLON info RPAR .  (reduce by rule 22)
+
+	COMMA	reduce by rule 22
+	RPAR	reduce by rule 22
+
+
+	.	error
+
+
+state 228:
+
+	spec : DATAspec LPAR datbind_plus SEMICOLON typbind_plus SEMICOLON info RPAR .  (reduce by rule 21)
+
+	COMMA	reduce by rule 21
+	RPAR	reduce by rule 21
+
+
+	.	error
+
+
+state 229:
+
+	datbind : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON . conbind_plus SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 52
+	CONcb	shift 261
+	CTORcb	shift 260
+
+	conbind_plus	goto 259
+	conbind	goto 258
+
+	.	error
+
+
+state 230:
+
+	tyvar : LPAR TYVAR SEMICOLON info . RPAR 
+
+	RPAR	shift 262
+
+
+	.	error
+
+
+state 231:
+
+	tyvar : LPAR TYVAR SEMICOLON ICON . RPAR 
+	info : ICON . COMMA ICON 
+
+	COMMA	shift 33
+	RPAR	shift 263
+
+
+	.	error
+
+
+state 232:
+
+	typbind : TYPBIND LPAR tyvarseq SEMICOLON ident SEMICOLON . ty SEMICOLON info RPAR 
+
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 264
+
+	.	error
+
+
+state 233:
+
+	spec : ABSTYPEspec LPAR ICON SEMICOLON tyvarseq SEMICOLON ident SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 265
+
+	.	error
+
+
+state 234:
+
+	spec : WITHspec LPAR SCON SEMICOLON REF LPAR interface RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 266
+
+
+	.	error
+
+
+state 235:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON . clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	CLAUSE1	shift 270
+	CLAUSE2	shift 269
+
+	clause_plus	goto 268
+	clause	goto 267
+
+	.	error
+
+
+state 236:
+
+	relbind_ty_opt : SOM LPAR . ty RPAR 
+
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 271
+
+	.	error
+
+
+state 237:
+
+	dec : VALdec LPAR ident SEMICOLON exp SEMICOLON info RPAR .  (reduce by rule 30)
+
+	COMMA	reduce by rule 30
+	RPAR	reduce by rule 30
+
+
+	.	error
+
+
+state 238:
+
+	exp : IDENTexp LPAR longorshortid SEMICOLON . REF LPAR exp RPAR SEMICOLON info RPAR 
+
+	REF	shift 272
+
+
+	.	error
+
+
+state 239:
+
+	exp : STRUCTexp LPAR NON SEMICOLON . seq_exp SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 88
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 274
+	seq_exp	goto 273
+
+	.	error
+
+
+state 240:
+
+	exp : STRUCTexp LPAR SOM LPAR . longorshortid RPAR SEMICOLON seq_exp SEMICOLON info RPAR 
+
+	LONGID	shift 195
+
+	longid	goto 192
+	longorshortid	goto 275
+
+	.	error
+
+
+state 241:
+
+	exp : CONexp LPAR longorshortid SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 276
+
+	.	error
+
+
+state 242:
+
+	exp : LITexp LPAR literal SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 277
+
+	.	error
+
+
+state 243:
+
+	literal : LPAR SCON . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 278
+
+
+	.	error
+
+
+state 244:
+
+	literal : LPAR RCON . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 279
+
+
+	.	error
+
+
+state 245:
+
+	literal : LPAR ICON . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 280
+
+
+	.	error
+
+
+state 246:
+
+	literal : LPAR CCON . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 281
+
+
+	.	error
+
+
+state 247:
+
+	dec : DATAdec LPAR datbind_plus_protected SEMICOLON typbind_plus SEMICOLON info RPAR .  (reduce by rule 29)
+
+	COMMA	reduce by rule 29
+	RPAR	reduce by rule 29
+
+
+	.	error
+
+
+state 248:
+
+	datbind_protected : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON . conbind_plus_protected SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 55
+	CONcb	shift 285
+	CTORcb	shift 284
+
+	conbind_plus_protected	goto 283
+	conbind_protected	goto 282
+
+	.	error
+
+
+state 249:
+
+	dec : WITHdec LPAR SCON SEMICOLON REF LPAR interface RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 286
+
+
+	.	error
+
+
+state 250:
+
+	source : SOURCE LPAR SCON SEMICOLON SCON SEMICOLON . LPAR lines RPAR SEMICOLON ICON RPAR 
+
+	LPAR	shift 287
+
+
+	.	error
+
+
+state 251:
+
+	ty : TUPLEty LPAR LPAR ty_seq RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 288
+
+
+	.	error
+
+
+state 252:
+
+	ty : NAMEDty LPAR ident SEMICOLON ty . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 289
+
+
+	.	error
+
+
+state 253:
+
+	ty : RELty LPAR LPAR ty_seq RPAR . SEMICOLON LPAR ty_seq RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 290
+
+
+	.	error
+
+
+state 254:
+
+	ty : CONSty LPAR longorshortid SEMICOLON info . RPAR 
+
+	RPAR	shift 291
+
+
+	.	error
+
+
+state 255:
+
+	ty : CONSty LPAR ty_seq SEMICOLON longorshortid . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 292
+
+
+	.	error
+
+
+state 256:
+
+	ty_seq : ty COMMA ty_seq .  (reduce by rule 114)
+
+	SEMICOLON	reduce by rule 114
+	RPAR	reduce by rule 114
+
+
+	.	error
+
+
+state 257:
+
+	longid : LONGID LBRACE ident . SEMICOLON ident SEMICOLON info RBRACE 
+
+	SEMICOLON	shift 293
+
+
+	.	error
+
+
+state 258:
+
+	conbind_plus : conbind .  (reduce by rule 53)
+	conbind_plus : conbind . COMMA conbind_plus 
+
+	COMMA	shift 294
+	SEMICOLON	reduce by rule 53
+
+
+	.	error
+
+
+state 259:
+
+	datbind : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 295
+
+
+	.	error
+
+
+state 260:
+
+	conbind : CTORcb . LPAR ident SEMICOLON ty_seq SEMICOLON info RPAR 
+
+	LPAR	shift 296
+
+
+	.	error
+
+
+state 261:
+
+	conbind : CONcb . LPAR ident SEMICOLON info RPAR 
+
+	LPAR	shift 297
+
+
+	.	error
+
+
+state 262:
+
+	tyvar : LPAR TYVAR SEMICOLON info RPAR .  (reduce by rule 123)
+
+	COMMA	reduce by rule 123
+	SEMICOLON	reduce by rule 123
+	RPAR	reduce by rule 123
+
+
+	.	error
+
+
+state 263:
+
+	tyvar : LPAR TYVAR SEMICOLON ICON RPAR .  (reduce by rule 124)
+
+	COMMA	reduce by rule 124
+	SEMICOLON	reduce by rule 124
+	RPAR	reduce by rule 124
+
+
+	.	error
+
+
+state 264:
+
+	typbind : TYPBIND LPAR tyvarseq SEMICOLON ident SEMICOLON ty . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 298
+
+
+	.	error
+
+
+state 265:
+
+	spec : ABSTYPEspec LPAR ICON SEMICOLON tyvarseq SEMICOLON ident SEMICOLON info . RPAR 
+
+	RPAR	shift 299
+
+
+	.	error
+
+
+state 266:
+
+	spec : WITHspec LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 300
+
+	.	error
+
+
+state 267:
+
+	clause_plus : clause .  (reduce by rule 62)
+
+	SEMICOLON	reduce by rule 62
+
+
+	.	error
+
+
+state 268:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus . SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	SEMICOLON	shift 301
+
+
+	.	error
+
+
+state 269:
+
+	clause_plus : CLAUSE2 . LPAR clause SEMICOLON clause_plus SEMICOLON info RPAR 
+
+	LPAR	shift 302
+
+
+	.	error
+
+
+state 270:
+
+	clause : CLAUSE1 . LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+	clause : CLAUSE1 . LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 303
+
+
+	.	error
+
+
+state 271:
+
+	relbind_ty_opt : SOM LPAR ty . RPAR 
+
+	RPAR	shift 304
+
+
+	.	error
+
+
+state 272:
+
+	exp : IDENTexp LPAR longorshortid SEMICOLON REF . LPAR exp RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 305
+
+
+	.	error
+
+
+state 273:
+
+	exp : STRUCTexp LPAR NON SEMICOLON seq_exp . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 306
+
+
+	.	error
+
+
+state 274:
+
+	seq_exp : exp .  (reduce by rule 89)
+	seq_exp : exp . COMMA seq_exp 
+
+	COMMA	shift 307
+	SEMICOLON	reduce by rule 89
+
+
+	.	error
+
+
+state 275:
+
+	exp : STRUCTexp LPAR SOM LPAR longorshortid . RPAR SEMICOLON seq_exp SEMICOLON info RPAR 
+
+	RPAR	shift 308
+
+
+	.	error
+
+
+state 276:
+
+	exp : CONexp LPAR longorshortid SEMICOLON info . RPAR 
+
+	RPAR	shift 309
+
+
+	.	error
+
+
+state 277:
+
+	exp : LITexp LPAR literal SEMICOLON info . RPAR 
+
+	RPAR	shift 310
+
+
+	.	error
+
+
+state 278:
+
+	literal : LPAR SCON SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 311
+
+	.	error
+
+
+state 279:
+
+	literal : LPAR RCON SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 312
+
+	.	error
+
+
+state 280:
+
+	literal : LPAR ICON SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 313
+
+	.	error
+
+
+state 281:
+
+	literal : LPAR CCON SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 314
+
+	.	error
+
+
+state 282:
+
+	conbind_plus_protected : conbind_protected .  (reduce by rule 56)
+	conbind_plus_protected : conbind_protected . COMMA conbind_plus_protected 
+
+	COMMA	shift 315
+	SEMICOLON	reduce by rule 56
+
+
+	.	error
+
+
+state 283:
+
+	datbind_protected : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus_protected . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 316
+
+
+	.	error
+
+
+state 284:
+
+	conbind_protected : CTORcb . LPAR ident SEMICOLON ty_seq SEMICOLON info RPAR 
+
+	LPAR	shift 317
+
+
+	.	error
+
+
+state 285:
+
+	conbind_protected : CONcb . LPAR ident SEMICOLON info RPAR 
+
+	LPAR	shift 318
+
+
+	.	error
+
+
+state 286:
+
+	dec : WITHdec LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 319
+
+	.	error
+
+
+state 287:
+
+	source : SOURCE LPAR SCON SEMICOLON SCON SEMICOLON LPAR . lines RPAR SEMICOLON ICON RPAR 
+
+	ICON	shift 321
+
+	lines	goto 320
+
+	.	error
+
+
+state 288:
+
+	ty : TUPLEty LPAR LPAR ty_seq RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 322
+
+	.	error
+
+
+state 289:
+
+	ty : NAMEDty LPAR ident SEMICOLON ty SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 323
+
+	.	error
+
+
+state 290:
+
+	ty : RELty LPAR LPAR ty_seq RPAR SEMICOLON . LPAR ty_seq RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 324
+
+
+	.	error
+
+
+state 291:
+
+	ty : CONSty LPAR longorshortid SEMICOLON info RPAR .  (reduce by rule 109)
+
+	COMMA	reduce by rule 109
+	SEMICOLON	reduce by rule 109
+	RPAR	reduce by rule 109
+
+
+	.	error
+
+
+state 292:
+
+	ty : CONSty LPAR ty_seq SEMICOLON longorshortid SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 325
+
+	.	error
+
+
+state 293:
+
+	longid : LONGID LBRACE ident SEMICOLON . ident SEMICOLON info RBRACE 
+
+	LPAR	shift 29
+
+	ident	goto 326
+
+	.	error
+
+
+state 294:
+
+	conbind_plus : conbind COMMA . conbind_plus 
+
+	SEMICOLON	reduce by rule 52
+	CONcb	shift 261
+	CTORcb	shift 260
+
+	conbind_plus	goto 327
+	conbind	goto 258
+
+	.	error
+
+
+state 295:
+
+	datbind : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 328
+
+	.	error
+
+
+state 296:
+
+	conbind : CTORcb LPAR . ident SEMICOLON ty_seq SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 329
+
+	.	error
+
+
+state 297:
+
+	conbind : CONcb LPAR . ident SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 330
+
+	.	error
+
+
+state 298:
+
+	typbind : TYPBIND LPAR tyvarseq SEMICOLON ident SEMICOLON ty SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 331
+
+	.	error
+
+
+state 299:
+
+	spec : ABSTYPEspec LPAR ICON SEMICOLON tyvarseq SEMICOLON ident SEMICOLON info RPAR .  (reduce by rule 19)
+
+	COMMA	reduce by rule 19
+	RPAR	reduce by rule 19
+
+
+	.	error
+
+
+state 300:
+
+	spec : WITHspec LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 332
+
+
+	.	error
+
+
+state 301:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON . LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	LPAR	shift 333
+
+
+	.	error
+
+
+state 302:
+
+	clause_plus : CLAUSE2 LPAR . clause SEMICOLON clause_plus SEMICOLON info RPAR 
+
+	CLAUSE1	shift 270
+
+	clause	goto 334
+
+	.	error
+
+
+state 303:
+
+	clause : CLAUSE1 LPAR . SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+	clause : CLAUSE1 LPAR . ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 29
+	SOM	shift 336
+
+	ident	goto 335
+
+	.	error
+
+
+state 304:
+
+	relbind_ty_opt : SOM LPAR ty RPAR .  (reduce by rule 38)
+
+	SEMICOLON	reduce by rule 38
+
+
+	.	error
+
+
+state 305:
+
+	exp : IDENTexp LPAR longorshortid SEMICOLON REF LPAR . exp RPAR SEMICOLON info RPAR 
+
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 337
+
+	.	error
+
+
+state 306:
+
+	exp : STRUCTexp LPAR NON SEMICOLON seq_exp SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 338
+
+	.	error
+
+
+state 307:
+
+	seq_exp : exp COMMA . seq_exp 
+
+	SEMICOLON	reduce by rule 88
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 274
+	seq_exp	goto 339
+
+	.	error
+
+
+state 308:
+
+	exp : STRUCTexp LPAR SOM LPAR longorshortid RPAR . SEMICOLON seq_exp SEMICOLON info RPAR 
+
+	SEMICOLON	shift 340
+
+
+	.	error
+
+
+state 309:
+
+	exp : CONexp LPAR longorshortid SEMICOLON info RPAR .  (reduce by rule 86)
+
+	COMMA	reduce by rule 86
+	SEMICOLON	reduce by rule 86
+	RPAR	reduce by rule 86
+
+
+	.	error
+
+
+state 310:
+
+	exp : LITexp LPAR literal SEMICOLON info RPAR .  (reduce by rule 85)
+
+	COMMA	reduce by rule 85
+	SEMICOLON	reduce by rule 85
+	RPAR	reduce by rule 85
+
+
+	.	error
+
+
+state 311:
+
+	literal : LPAR SCON SEMICOLON info . RPAR 
+
+	RPAR	shift 341
+
+
+	.	error
+
+
+state 312:
+
+	literal : LPAR RCON SEMICOLON info . RPAR 
+
+	RPAR	shift 342
+
+
+	.	error
+
+
+state 313:
+
+	literal : LPAR ICON SEMICOLON info . RPAR 
+
+	RPAR	shift 343
+
+
+	.	error
+
+
+state 314:
+
+	literal : LPAR CCON SEMICOLON info . RPAR 
+
+	RPAR	shift 344
+
+
+	.	error
+
+
+state 315:
+
+	conbind_plus_protected : conbind_protected COMMA . conbind_plus_protected 
+
+	SEMICOLON	reduce by rule 55
+	CONcb	shift 285
+	CTORcb	shift 284
+
+	conbind_plus_protected	goto 345
+	conbind_protected	goto 282
+
+	.	error
+
+
+state 316:
+
+	datbind_protected : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus_protected SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 346
+
+	.	error
+
+
+state 317:
+
+	conbind_protected : CTORcb LPAR . ident SEMICOLON ty_seq SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 347
+
+	.	error
+
+
+state 318:
+
+	conbind_protected : CONcb LPAR . ident SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 348
+
+	.	error
+
+
+state 319:
+
+	dec : WITHdec LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 349
+
+
+	.	error
+
+
+state 320:
+
+	source : SOURCE LPAR SCON SEMICOLON SCON SEMICOLON LPAR lines . RPAR SEMICOLON ICON RPAR 
+
+	RPAR	shift 350
+
+
+	.	error
+
+
+state 321:
+
+	lines : ICON .  (reduce by rule 9)
+	lines : ICON . COMMA lines 
+
+	COMMA	shift 351
+	RPAR	reduce by rule 9
+
+
+	.	error
+
+
+state 322:
+
+	ty : TUPLEty LPAR LPAR ty_seq RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 352
+
+
+	.	error
+
+
+state 323:
+
+	ty : NAMEDty LPAR ident SEMICOLON ty SEMICOLON info . RPAR 
+
+	RPAR	shift 353
+
+
+	.	error
+
+
+state 324:
+
+	ty : RELty LPAR LPAR ty_seq RPAR SEMICOLON LPAR . ty_seq RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 112
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 194
+	ty_seq	goto 354
+
+	.	error
+
+
+state 325:
+
+	ty : CONSty LPAR ty_seq SEMICOLON longorshortid SEMICOLON info . RPAR 
+
+	RPAR	shift 355
+
+
+	.	error
+
+
+state 326:
+
+	longid : LONGID LBRACE ident SEMICOLON ident . SEMICOLON info RBRACE 
+
+	SEMICOLON	shift 356
+
+
+	.	error
+
+
+state 327:
+
+	conbind_plus : conbind COMMA conbind_plus .  (reduce by rule 54)
+
+	SEMICOLON	reduce by rule 54
+
+
+	.	error
+
+
+state 328:
+
+	datbind : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus SEMICOLON info . RPAR 
+
+	RPAR	shift 357
+
+
+	.	error
+
+
+state 329:
+
+	conbind : CTORcb LPAR ident . SEMICOLON ty_seq SEMICOLON info RPAR 
+
+	SEMICOLON	shift 358
+
+
+	.	error
+
+
+state 330:
+
+	conbind : CONcb LPAR ident . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 359
+
+
+	.	error
+
+
+state 331:
+
+	typbind : TYPBIND LPAR tyvarseq SEMICOLON ident SEMICOLON ty SEMICOLON info . RPAR 
+
+	RPAR	shift 360
+
+
+	.	error
+
+
+state 332:
+
+	spec : WITHspec LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR .  (reduce by rule 18)
+
+	COMMA	reduce by rule 18
+	RPAR	reduce by rule 18
+
+
+	.	error
+
+
+state 333:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR . local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 70
+	LV	shift 363
+
+	local_var	goto 362
+	local_vars	goto 361
+
+	.	error
+
+
+state 334:
+
+	clause_plus : CLAUSE2 LPAR clause . SEMICOLON clause_plus SEMICOLON info RPAR 
+
+	SEMICOLON	shift 364
+
+
+	.	error
+
+
+state 335:
+
+	clause : CLAUSE1 LPAR ident . SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 365
+
+
+	.	error
+
+
+state 336:
+
+	clause : CLAUSE1 LPAR SOM . LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 366
+
+
+	.	error
+
+
+state 337:
+
+	exp : IDENTexp LPAR longorshortid SEMICOLON REF LPAR exp . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 367
+
+
+	.	error
+
+
+state 338:
+
+	exp : STRUCTexp LPAR NON SEMICOLON seq_exp SEMICOLON info . RPAR 
+
+	RPAR	shift 368
+
+
+	.	error
+
+
+state 339:
+
+	seq_exp : exp COMMA seq_exp .  (reduce by rule 90)
+
+	SEMICOLON	reduce by rule 90
+
+
+	.	error
+
+
+state 340:
+
+	exp : STRUCTexp LPAR SOM LPAR longorshortid RPAR SEMICOLON . seq_exp SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 88
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 274
+	seq_exp	goto 369
+
+	.	error
+
+
+state 341:
+
+	literal : LPAR SCON SEMICOLON info RPAR .  (reduce by rule 105)
+
+	SEMICOLON	reduce by rule 105
+
+
+	.	error
+
+
+state 342:
+
+	literal : LPAR RCON SEMICOLON info RPAR .  (reduce by rule 104)
+
+	SEMICOLON	reduce by rule 104
+
+
+	.	error
+
+
+state 343:
+
+	literal : LPAR ICON SEMICOLON info RPAR .  (reduce by rule 103)
+
+	SEMICOLON	reduce by rule 103
+
+
+	.	error
+
+
+state 344:
+
+	literal : LPAR CCON SEMICOLON info RPAR .  (reduce by rule 102)
+
+	SEMICOLON	reduce by rule 102
+
+
+	.	error
+
+
+state 345:
+
+	conbind_plus_protected : conbind_protected COMMA conbind_plus_protected .  (reduce by rule 57)
+
+	SEMICOLON	reduce by rule 57
+
+
+	.	error
+
+
+state 346:
+
+	datbind_protected : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus_protected SEMICOLON info . RPAR 
+
+	RPAR	shift 370
+
+
+	.	error
+
+
+state 347:
+
+	conbind_protected : CTORcb LPAR ident . SEMICOLON ty_seq SEMICOLON info RPAR 
+
+	SEMICOLON	shift 371
+
+
+	.	error
+
+
+state 348:
+
+	conbind_protected : CONcb LPAR ident . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 372
+
+
+	.	error
+
+
+state 349:
+
+	dec : WITHdec LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR .  (reduce by rule 27)
+
+	COMMA	reduce by rule 27
+	RPAR	reduce by rule 27
+
+
+	.	error
+
+
+state 350:
+
+	source : SOURCE LPAR SCON SEMICOLON SCON SEMICOLON LPAR lines RPAR . SEMICOLON ICON RPAR 
+
+	SEMICOLON	shift 373
+
+
+	.	error
+
+
+state 351:
+
+	lines : ICON COMMA . lines 
+
+	ICON	shift 321
+
+	lines	goto 374
+
+	.	error
+
+
+state 352:
+
+	ty : TUPLEty LPAR LPAR ty_seq RPAR SEMICOLON info RPAR .  (reduce by rule 107)
+
+	COMMA	reduce by rule 107
+	SEMICOLON	reduce by rule 107
+	RPAR	reduce by rule 107
+
+
+	.	error
+
+
+state 353:
+
+	ty : NAMEDty LPAR ident SEMICOLON ty SEMICOLON info RPAR .  (reduce by rule 108)
+
+	COMMA	reduce by rule 108
+	SEMICOLON	reduce by rule 108
+	RPAR	reduce by rule 108
+
+
+	.	error
+
+
+state 354:
+
+	ty : RELty LPAR LPAR ty_seq RPAR SEMICOLON LPAR ty_seq . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 375
+
+
+	.	error
+
+
+state 355:
+
+	ty : CONSty LPAR ty_seq SEMICOLON longorshortid SEMICOLON info RPAR .  (reduce by rule 110)
+
+	COMMA	reduce by rule 110
+	SEMICOLON	reduce by rule 110
+	RPAR	reduce by rule 110
+
+
+	.	error
+
+
+state 356:
+
+	longid : LONGID LBRACE ident SEMICOLON ident SEMICOLON . info RBRACE 
+
+	ICON	shift 26
+	RBRACE	reduce by rule 8
+
+	info	goto 376
+
+	.	error
+
+
+state 357:
+
+	datbind : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus SEMICOLON info RPAR .  (reduce by rule 50)
+
+	COMMA	reduce by rule 50
+	SEMICOLON	reduce by rule 50
+
+
+	.	error
+
+
+state 358:
+
+	conbind : CTORcb LPAR ident SEMICOLON . ty_seq SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 112
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 194
+	ty_seq	goto 377
+
+	.	error
+
+
+state 359:
+
+	conbind : CONcb LPAR ident SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 378
+
+	.	error
+
+
+state 360:
+
+	typbind : TYPBIND LPAR tyvarseq SEMICOLON ident SEMICOLON ty SEMICOLON info RPAR .  (reduce by rule 43)
+
+	COMMA	reduce by rule 43
+	SEMICOLON	reduce by rule 43
+
+
+	.	error
+
+
+state 361:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars . RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	RPAR	shift 379
+
+
+	.	error
+
+
+state 362:
+
+	local_vars : local_var .  (reduce by rule 71)
+	local_vars : local_var . COMMA local_vars 
+
+	COMMA	shift 380
+	RPAR	reduce by rule 71
+
+
+	.	error
+
+
+state 363:
+
+	local_var : LV . LPAR ident SEMICOLON ty_opt SEMICOLON exp_opt SEMICOLON attributes RPAR 
+
+	LPAR	shift 381
+
+
+	.	error
+
+
+state 364:
+
+	clause_plus : CLAUSE2 LPAR clause SEMICOLON . clause_plus SEMICOLON info RPAR 
+
+	CLAUSE1	shift 270
+	CLAUSE2	shift 269
+
+	clause_plus	goto 382
+	clause	goto 267
+
+	.	error
+
+
+state 365:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON . seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 383
+
+	.	error
+
+
+state 366:
+
+	clause : CLAUSE1 LPAR SOM LPAR . goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	CALLgoal	shift 398
+	EQUALgoal	shift 397
+	LETgoal	shift 396
+	NOTgoal	shift 395
+	ANDgoal	shift 394
+	CONDgoal	shift 393
+
+	goal	goto 392
+
+	.	error
+
+
+state 367:
+
+	exp : IDENTexp LPAR longorshortid SEMICOLON REF LPAR exp RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 399
+
+
+	.	error
+
+
+state 368:
+
+	exp : STRUCTexp LPAR NON SEMICOLON seq_exp SEMICOLON info RPAR .  (reduce by rule 84)
+
+	COMMA	reduce by rule 84
+	SEMICOLON	reduce by rule 84
+	RPAR	reduce by rule 84
+
+
+	.	error
+
+
+state 369:
+
+	exp : STRUCTexp LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_exp . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 400
+
+
+	.	error
+
+
+state 370:
+
+	datbind_protected : DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus_protected SEMICOLON info RPAR .  (reduce by rule 51)
+
+	COMMA	reduce by rule 51
+	SEMICOLON	reduce by rule 51
+
+
+	.	error
+
+
+state 371:
+
+	conbind_protected : CTORcb LPAR ident SEMICOLON . ty_seq SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 112
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 194
+	ty_seq	goto 401
+
+	.	error
+
+
+state 372:
+
+	conbind_protected : CONcb LPAR ident SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 402
+
+	.	error
+
+
+state 373:
+
+	source : SOURCE LPAR SCON SEMICOLON SCON SEMICOLON LPAR lines RPAR SEMICOLON . ICON RPAR 
+
+	ICON	shift 403
+
+
+	.	error
+
+
+state 374:
+
+	lines : ICON COMMA lines .  (reduce by rule 10)
+
+	RPAR	reduce by rule 10
+
+
+	.	error
+
+
+state 375:
+
+	ty : RELty LPAR LPAR ty_seq RPAR SEMICOLON LPAR ty_seq RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 404
+
+
+	.	error
+
+
+state 376:
+
+	longid : LONGID LBRACE ident SEMICOLON ident SEMICOLON info . RBRACE 
+
+	RBRACE	shift 405
+
+
+	.	error
+
+
+state 377:
+
+	conbind : CTORcb LPAR ident SEMICOLON ty_seq . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 406
+
+
+	.	error
+
+
+state 378:
+
+	conbind : CONcb LPAR ident SEMICOLON info . RPAR 
+
+	RPAR	shift 407
+
+
+	.	error
+
+
+state 379:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR . SEMICOLON matchexps_opt SEMICOLON info RPAR 
+
+	SEMICOLON	shift 408
+
+
+	.	error
+
+
+state 380:
+
+	local_vars : local_var COMMA . local_vars 
+
+	RPAR	reduce by rule 70
+	LV	shift 363
+
+	local_var	goto 362
+	local_vars	goto 409
+
+	.	error
+
+
+state 381:
+
+	local_var : LV LPAR . ident SEMICOLON ty_opt SEMICOLON exp_opt SEMICOLON attributes RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 410
+
+	.	error
+
+
+state 382:
+
+	clause_plus : CLAUSE2 LPAR clause SEMICOLON clause_plus . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 411
+
+
+	.	error
+
+
+state 383:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat . SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 412
+
+
+	.	error
+
+
+state 384:
+
+	seq_pat : pat .  (reduce by rule 100)
+	seq_pat : pat . COMMA seq_pat 
+
+	COMMA	shift 413
+	SEMICOLON	reduce by rule 100
+	RPAR	reduce by rule 100
+
+
+	.	error
+
+
+state 385:
+
+	pat : NAMEDpat . LPAR ident SEMICOLON pat SEMICOLON info RPAR 
+
+	LPAR	shift 414
+
+
+	.	error
+
+
+state 386:
+
+	pat : IDENTpat . LPAR ident SEMICOLON REF LPAR pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 415
+
+
+	.	error
+
+
+state 387:
+
+	pat : BINDpat . LPAR ident SEMICOLON pat SEMICOLON info RPAR 
+
+	LPAR	shift 416
+
+
+	.	error
+
+
+state 388:
+
+	pat : STRUCTpat . LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+	pat : STRUCTpat . LPAR NON SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 417
+
+
+	.	error
+
+
+state 389:
+
+	pat : CONpat . LPAR longorshortid SEMICOLON info RPAR 
+
+	LPAR	shift 418
+
+
+	.	error
+
+
+state 390:
+
+	pat : LITpat . LPAR literal SEMICOLON info RPAR 
+
+	LPAR	shift 419
+
+
+	.	error
+
+
+state 391:
+
+	pat : WILDpat . LPAR info RPAR 
+
+	LPAR	shift 420
+
+
+	.	error
+
+
+state 392:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal . RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 421
+
+
+	.	error
+
+
+state 393:
+
+	goal : CONDgoal . LPAR goal SEMICOLON goal SEMICOLON goal SEMICOLON info RPAR 
+
+	LPAR	shift 422
+
+
+	.	error
+
+
+state 394:
+
+	goal : ANDgoal . LPAR goal SEMICOLON goal SEMICOLON info RPAR 
+
+	LPAR	shift 423
+
+
+	.	error
+
+
+state 395:
+
+	goal : NOTgoal . LPAR goal SEMICOLON info RPAR 
+
+	LPAR	shift 424
+
+
+	.	error
+
+
+state 396:
+
+	goal : LETgoal . LPAR pat SEMICOLON exp SEMICOLON info RPAR 
+
+	LPAR	shift 425
+
+
+	.	error
+
+
+state 397:
+
+	goal : EQUALgoal . LPAR ident SEMICOLON exp SEMICOLON info RPAR 
+
+	LPAR	shift 426
+
+
+	.	error
+
+
+state 398:
+
+	goal : CALLgoal . LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 427
+
+
+	.	error
+
+
+state 399:
+
+	exp : IDENTexp LPAR longorshortid SEMICOLON REF LPAR exp RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 428
+
+	.	error
+
+
+state 400:
+
+	exp : STRUCTexp LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_exp SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 429
+
+	.	error
+
+
+state 401:
+
+	conbind_protected : CTORcb LPAR ident SEMICOLON ty_seq . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 430
+
+
+	.	error
+
+
+state 402:
+
+	conbind_protected : CONcb LPAR ident SEMICOLON info . RPAR 
+
+	RPAR	shift 431
+
+
+	.	error
+
+
+state 403:
+
+	source : SOURCE LPAR SCON SEMICOLON SCON SEMICOLON LPAR lines RPAR SEMICOLON ICON . RPAR 
+
+	RPAR	shift 432
+
+
+	.	error
+
+
+state 404:
+
+	ty : RELty LPAR LPAR ty_seq RPAR SEMICOLON LPAR ty_seq RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 433
+
+	.	error
+
+
+state 405:
+
+	longid : LONGID LBRACE ident SEMICOLON ident SEMICOLON info RBRACE .  (reduce by rule 118)
+
+	SEMICOLON	reduce by rule 118
+	RPAR	reduce by rule 118
+
+
+	.	error
+
+
+state 406:
+
+	conbind : CTORcb LPAR ident SEMICOLON ty_seq SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 434
+
+	.	error
+
+
+state 407:
+
+	conbind : CONcb LPAR ident SEMICOLON info RPAR .  (reduce by rule 60)
+
+	COMMA	reduce by rule 60
+	SEMICOLON	reduce by rule 60
+
+
+	.	error
+
+
+state 408:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON . matchexps_opt SEMICOLON info RPAR 
+
+	SOM	shift 437
+	NON	shift 436
+
+	matchexps_opt	goto 435
+
+	.	error
+
+
+state 409:
+
+	local_vars : local_var COMMA local_vars .  (reduce by rule 72)
+
+	RPAR	reduce by rule 72
+
+
+	.	error
+
+
+state 410:
+
+	local_var : LV LPAR ident . SEMICOLON ty_opt SEMICOLON exp_opt SEMICOLON attributes RPAR 
+
+	SEMICOLON	shift 438
+
+
+	.	error
+
+
+state 411:
+
+	clause_plus : CLAUSE2 LPAR clause SEMICOLON clause_plus SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 439
+
+	.	error
+
+
+state 412:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON . result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	RETURN	shift 442
+	FAIL	shift 441
+
+	result	goto 440
+
+	.	error
+
+
+state 413:
+
+	seq_pat : pat COMMA . seq_pat 
+
+	SEMICOLON	reduce by rule 99
+	RPAR	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 443
+
+	.	error
+
+
+state 414:
+
+	pat : NAMEDpat LPAR . ident SEMICOLON pat SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 444
+
+	.	error
+
+
+state 415:
+
+	pat : IDENTpat LPAR . ident SEMICOLON REF LPAR pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 445
+
+	.	error
+
+
+state 416:
+
+	pat : BINDpat LPAR . ident SEMICOLON pat SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 446
+
+	.	error
+
+
+state 417:
+
+	pat : STRUCTpat LPAR . SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+	pat : STRUCTpat LPAR . NON SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SOM	shift 448
+	NON	shift 447
+
+
+	.	error
+
+
+state 418:
+
+	pat : CONpat LPAR . longorshortid SEMICOLON info RPAR 
+
+	LONGID	shift 195
+
+	longid	goto 192
+	longorshortid	goto 449
+
+	.	error
+
+
+state 419:
+
+	pat : LITpat LPAR . literal SEMICOLON info RPAR 
+
+	LPAR	shift 213
+
+	literal	goto 450
+
+	.	error
+
+
+state 420:
+
+	pat : WILDpat LPAR . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 451
+
+	.	error
+
+
+state 421:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR . SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 452
+
+
+	.	error
+
+
+state 422:
+
+	goal : CONDgoal LPAR . goal SEMICOLON goal SEMICOLON goal SEMICOLON info RPAR 
+
+	CALLgoal	shift 398
+	EQUALgoal	shift 397
+	LETgoal	shift 396
+	NOTgoal	shift 395
+	ANDgoal	shift 394
+	CONDgoal	shift 393
+
+	goal	goto 453
+
+	.	error
+
+
+state 423:
+
+	goal : ANDgoal LPAR . goal SEMICOLON goal SEMICOLON info RPAR 
+
+	CALLgoal	shift 398
+	EQUALgoal	shift 397
+	LETgoal	shift 396
+	NOTgoal	shift 395
+	ANDgoal	shift 394
+	CONDgoal	shift 393
+
+	goal	goto 454
+
+	.	error
+
+
+state 424:
+
+	goal : NOTgoal LPAR . goal SEMICOLON info RPAR 
+
+	CALLgoal	shift 398
+	EQUALgoal	shift 397
+	LETgoal	shift 396
+	NOTgoal	shift 395
+	ANDgoal	shift 394
+	CONDgoal	shift 393
+
+	goal	goto 455
+
+	.	error
+
+
+state 425:
+
+	goal : LETgoal LPAR . pat SEMICOLON exp SEMICOLON info RPAR 
+
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 456
+
+	.	error
+
+
+state 426:
+
+	goal : EQUALgoal LPAR . ident SEMICOLON exp SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 457
+
+	.	error
+
+
+state 427:
+
+	goal : CALLgoal LPAR . longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	LONGID	shift 195
+
+	longid	goto 192
+	longorshortid	goto 458
+
+	.	error
+
+
+state 428:
+
+	exp : IDENTexp LPAR longorshortid SEMICOLON REF LPAR exp RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 459
+
+
+	.	error
+
+
+state 429:
+
+	exp : STRUCTexp LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_exp SEMICOLON info . RPAR 
+
+	RPAR	shift 460
+
+
+	.	error
+
+
+state 430:
+
+	conbind_protected : CTORcb LPAR ident SEMICOLON ty_seq SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 461
+
+	.	error
+
+
+state 431:
+
+	conbind_protected : CONcb LPAR ident SEMICOLON info RPAR .  (reduce by rule 58)
+
+	COMMA	reduce by rule 58
+	SEMICOLON	reduce by rule 58
+
+
+	.	error
+
+
+state 432:
+
+	source : SOURCE LPAR SCON SEMICOLON SCON SEMICOLON LPAR lines RPAR SEMICOLON ICON RPAR .  (reduce by rule 11)
+
+	SEMICOLON	reduce by rule 11
+
+
+	.	error
+
+
+state 433:
+
+	ty : RELty LPAR LPAR ty_seq RPAR SEMICOLON LPAR ty_seq RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 462
+
+
+	.	error
+
+
+state 434:
+
+	conbind : CTORcb LPAR ident SEMICOLON ty_seq SEMICOLON info . RPAR 
+
+	RPAR	shift 463
+
+
+	.	error
+
+
+state 435:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 464
+
+
+	.	error
+
+
+state 436:
+
+	matchexps_opt : NON .  (reduce by rule 35)
+
+	SEMICOLON	reduce by rule 35
+
+
+	.	error
+
+
+state 437:
+
+	matchexps_opt : SOM . LPAR exp SEMICOLON info SEMICOLON pat SEMICOLON info RPAR 
+
+	LPAR	shift 465
+
+
+	.	error
+
+
+state 438:
+
+	local_var : LV LPAR ident SEMICOLON . ty_opt SEMICOLON exp_opt SEMICOLON attributes RPAR 
+
+	SOM	shift 468
+	NON	shift 467
+
+	ty_opt	goto 466
+
+	.	error
+
+
+state 439:
+
+	clause_plus : CLAUSE2 LPAR clause SEMICOLON clause_plus SEMICOLON info . RPAR 
+
+	RPAR	shift 469
+
+
+	.	error
+
+
+state 440:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result . SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 470
+
+
+	.	error
+
+
+state 441:
+
+	result : FAIL . LPAR info RPAR 
+
+	LPAR	shift 471
+
+
+	.	error
+
+
+state 442:
+
+	result : RETURN . LPAR seq_exp SEMICOLON info RPAR 
+
+	LPAR	shift 472
+
+
+	.	error
+
+
+state 443:
+
+	seq_pat : pat COMMA seq_pat .  (reduce by rule 101)
+
+	SEMICOLON	reduce by rule 101
+	RPAR	reduce by rule 101
+
+
+	.	error
+
+
+state 444:
+
+	pat : NAMEDpat LPAR ident . SEMICOLON pat SEMICOLON info RPAR 
+
+	SEMICOLON	shift 473
+
+
+	.	error
+
+
+state 445:
+
+	pat : IDENTpat LPAR ident . SEMICOLON REF LPAR pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 474
+
+
+	.	error
+
+
+state 446:
+
+	pat : BINDpat LPAR ident . SEMICOLON pat SEMICOLON info RPAR 
+
+	SEMICOLON	shift 475
+
+
+	.	error
+
+
+state 447:
+
+	pat : STRUCTpat LPAR NON . SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 476
+
+
+	.	error
+
+
+state 448:
+
+	pat : STRUCTpat LPAR SOM . LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 477
+
+
+	.	error
+
+
+state 449:
+
+	pat : CONpat LPAR longorshortid . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 478
+
+
+	.	error
+
+
+state 450:
+
+	pat : LITpat LPAR literal . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 479
+
+
+	.	error
+
+
+state 451:
+
+	pat : WILDpat LPAR info . RPAR 
+
+	RPAR	shift 480
+
+
+	.	error
+
+
+state 452:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON . ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 29
+
+	ident	goto 481
+
+	.	error
+
+
+state 453:
+
+	goal : CONDgoal LPAR goal . SEMICOLON goal SEMICOLON goal SEMICOLON info RPAR 
+
+	SEMICOLON	shift 482
+
+
+	.	error
+
+
+state 454:
+
+	goal : ANDgoal LPAR goal . SEMICOLON goal SEMICOLON info RPAR 
+
+	SEMICOLON	shift 483
+
+
+	.	error
+
+
+state 455:
+
+	goal : NOTgoal LPAR goal . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 484
+
+
+	.	error
+
+
+state 456:
+
+	goal : LETgoal LPAR pat . SEMICOLON exp SEMICOLON info RPAR 
+
+	SEMICOLON	shift 485
+
+
+	.	error
+
+
+state 457:
+
+	goal : EQUALgoal LPAR ident . SEMICOLON exp SEMICOLON info RPAR 
+
+	SEMICOLON	shift 486
+
+
+	.	error
+
+
+state 458:
+
+	goal : CALLgoal LPAR longorshortid . SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 487
+
+
+	.	error
+
+
+state 459:
+
+	exp : IDENTexp LPAR longorshortid SEMICOLON REF LPAR exp RPAR SEMICOLON info RPAR .  (reduce by rule 87)
+
+	COMMA	reduce by rule 87
+	SEMICOLON	reduce by rule 87
+	RPAR	reduce by rule 87
+
+
+	.	error
+
+
+state 460:
+
+	exp : STRUCTexp LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_exp SEMICOLON info RPAR .  (reduce by rule 83)
+
+	COMMA	reduce by rule 83
+	SEMICOLON	reduce by rule 83
+	RPAR	reduce by rule 83
+
+
+	.	error
+
+
+state 461:
+
+	conbind_protected : CTORcb LPAR ident SEMICOLON ty_seq SEMICOLON info . RPAR 
+
+	RPAR	shift 488
+
+
+	.	error
+
+
+state 462:
+
+	ty : RELty LPAR LPAR ty_seq RPAR SEMICOLON LPAR ty_seq RPAR SEMICOLON info RPAR .  (reduce by rule 106)
+
+	COMMA	reduce by rule 106
+	SEMICOLON	reduce by rule 106
+	RPAR	reduce by rule 106
+
+
+	.	error
+
+
+state 463:
+
+	conbind : CTORcb LPAR ident SEMICOLON ty_seq SEMICOLON info RPAR .  (reduce by rule 61)
+
+	COMMA	reduce by rule 61
+	SEMICOLON	reduce by rule 61
+
+
+	.	error
+
+
+state 464:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 489
+
+	.	error
+
+
+state 465:
+
+	matchexps_opt : SOM LPAR . exp SEMICOLON info SEMICOLON pat SEMICOLON info RPAR 
+
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 490
+
+	.	error
+
+
+state 466:
+
+	local_var : LV LPAR ident SEMICOLON ty_opt . SEMICOLON exp_opt SEMICOLON attributes RPAR 
+
+	SEMICOLON	shift 491
+
+
+	.	error
+
+
+state 467:
+
+	ty_opt : NON .  (reduce by rule 66)
+
+	SEMICOLON	reduce by rule 66
+
+
+	.	error
+
+
+state 468:
+
+	ty_opt : SOM . LPAR ty RPAR 
+
+	LPAR	shift 492
+
+
+	.	error
+
+
+state 469:
+
+	clause_plus : CLAUSE2 LPAR clause SEMICOLON clause_plus SEMICOLON info RPAR .  (reduce by rule 63)
+
+	SEMICOLON	reduce by rule 63
+
+
+	.	error
+
+
+state 470:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON . REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	REF	shift 493
+
+
+	.	error
+
+
+state 471:
+
+	result : FAIL LPAR . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 494
+
+	.	error
+
+
+state 472:
+
+	result : RETURN LPAR . seq_exp SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 88
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 274
+	seq_exp	goto 495
+
+	.	error
+
+
+state 473:
+
+	pat : NAMEDpat LPAR ident SEMICOLON . pat SEMICOLON info RPAR 
+
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 496
+
+	.	error
+
+
+state 474:
+
+	pat : IDENTpat LPAR ident SEMICOLON . REF LPAR pat RPAR SEMICOLON info RPAR 
+
+	REF	shift 497
+
+
+	.	error
+
+
+state 475:
+
+	pat : BINDpat LPAR ident SEMICOLON . pat SEMICOLON info RPAR 
+
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 498
+
+	.	error
+
+
+state 476:
+
+	pat : STRUCTpat LPAR NON SEMICOLON . seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 499
+
+	.	error
+
+
+state 477:
+
+	pat : STRUCTpat LPAR SOM LPAR . longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	LONGID	shift 195
+
+	longid	goto 192
+	longorshortid	goto 500
+
+	.	error
+
+
+state 478:
+
+	pat : CONpat LPAR longorshortid SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 501
+
+	.	error
+
+
+state 479:
+
+	pat : LITpat LPAR literal SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 502
+
+	.	error
+
+
+state 480:
+
+	pat : WILDpat LPAR info RPAR .  (reduce by rule 94)
+
+	COMMA	reduce by rule 94
+	SEMICOLON	reduce by rule 94
+	RPAR	reduce by rule 94
+
+
+	.	error
+
+
+state 481:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident . SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 503
+
+
+	.	error
+
+
+state 482:
+
+	goal : CONDgoal LPAR goal SEMICOLON . goal SEMICOLON goal SEMICOLON info RPAR 
+
+	CALLgoal	shift 398
+	EQUALgoal	shift 397
+	LETgoal	shift 396
+	NOTgoal	shift 395
+	ANDgoal	shift 394
+	CONDgoal	shift 393
+
+	goal	goto 504
+
+	.	error
+
+
+state 483:
+
+	goal : ANDgoal LPAR goal SEMICOLON . goal SEMICOLON info RPAR 
+
+	CALLgoal	shift 398
+	EQUALgoal	shift 397
+	LETgoal	shift 396
+	NOTgoal	shift 395
+	ANDgoal	shift 394
+	CONDgoal	shift 393
+
+	goal	goto 505
+
+	.	error
+
+
+state 484:
+
+	goal : NOTgoal LPAR goal SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 506
+
+	.	error
+
+
+state 485:
+
+	goal : LETgoal LPAR pat SEMICOLON . exp SEMICOLON info RPAR 
+
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 507
+
+	.	error
+
+
+state 486:
+
+	goal : EQUALgoal LPAR ident SEMICOLON . exp SEMICOLON info RPAR 
+
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 508
+
+	.	error
+
+
+state 487:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON . seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 88
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 274
+	seq_exp	goto 509
+
+	.	error
+
+
+state 488:
+
+	conbind_protected : CTORcb LPAR ident SEMICOLON ty_seq SEMICOLON info RPAR .  (reduce by rule 59)
+
+	COMMA	reduce by rule 59
+	SEMICOLON	reduce by rule 59
+
+
+	.	error
+
+
+state 489:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info . RPAR 
+
+	RPAR	shift 510
+
+
+	.	error
+
+
+state 490:
+
+	matchexps_opt : SOM LPAR exp . SEMICOLON info SEMICOLON pat SEMICOLON info RPAR 
+
+	SEMICOLON	shift 511
+
+
+	.	error
+
+
+state 491:
+
+	local_var : LV LPAR ident SEMICOLON ty_opt SEMICOLON . exp_opt SEMICOLON attributes RPAR 
+
+	SOM	shift 514
+	NON	shift 513
+
+	exp_opt	goto 512
+
+	.	error
+
+
+state 492:
+
+	ty_opt : SOM LPAR . ty RPAR 
+
+	VARty	shift 130
+	CONSty	shift 129
+	RELty	shift 128
+	NAMEDty	shift 127
+	TUPLEty	shift 126
+
+	ty	goto 515
+
+	.	error
+
+
+state 493:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF . LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 516
+
+
+	.	error
+
+
+state 494:
+
+	result : FAIL LPAR info . RPAR 
+
+	RPAR	shift 517
+
+
+	.	error
+
+
+state 495:
+
+	result : RETURN LPAR seq_exp . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 518
+
+
+	.	error
+
+
+state 496:
+
+	pat : NAMEDpat LPAR ident SEMICOLON pat . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 519
+
+
+	.	error
+
+
+state 497:
+
+	pat : IDENTpat LPAR ident SEMICOLON REF . LPAR pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 520
+
+
+	.	error
+
+
+state 498:
+
+	pat : BINDpat LPAR ident SEMICOLON pat . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 521
+
+
+	.	error
+
+
+state 499:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat . SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 522
+
+
+	.	error
+
+
+state 500:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid . RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 523
+
+
+	.	error
+
+
+state 501:
+
+	pat : CONpat LPAR longorshortid SEMICOLON info . RPAR 
+
+	RPAR	shift 524
+
+
+	.	error
+
+
+state 502:
+
+	pat : LITpat LPAR literal SEMICOLON info . RPAR 
+
+	RPAR	shift 525
+
+
+	.	error
+
+
+state 503:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON . seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 526
+
+	.	error
+
+
+state 504:
+
+	goal : CONDgoal LPAR goal SEMICOLON goal . SEMICOLON goal SEMICOLON info RPAR 
+
+	SEMICOLON	shift 527
+
+
+	.	error
+
+
+state 505:
+
+	goal : ANDgoal LPAR goal SEMICOLON goal . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 528
+
+
+	.	error
+
+
+state 506:
+
+	goal : NOTgoal LPAR goal SEMICOLON info . RPAR 
+
+	RPAR	shift 529
+
+
+	.	error
+
+
+state 507:
+
+	goal : LETgoal LPAR pat SEMICOLON exp . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 530
+
+
+	.	error
+
+
+state 508:
+
+	goal : EQUALgoal LPAR ident SEMICOLON exp . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 531
+
+
+	.	error
+
+
+state 509:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp . SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 532
+
+
+	.	error
+
+
+state 510:
+
+	relbind : RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR .  (reduce by rule 37)
+
+	COMMA	reduce by rule 37
+	SEMICOLON	reduce by rule 37
+
+
+	.	error
+
+
+state 511:
+
+	matchexps_opt : SOM LPAR exp SEMICOLON . info SEMICOLON pat SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 8
+	ICON	shift 26
+
+	info	goto 533
+
+	.	error
+
+
+state 512:
+
+	local_var : LV LPAR ident SEMICOLON ty_opt SEMICOLON exp_opt . SEMICOLON attributes RPAR 
+
+	SEMICOLON	shift 534
+
+
+	.	error
+
+
+state 513:
+
+	exp_opt : NON .  (reduce by rule 68)
+
+	SEMICOLON	reduce by rule 68
+
+
+	.	error
+
+
+state 514:
+
+	exp_opt : SOM . LPAR exp RPAR 
+
+	LPAR	shift 535
+
+
+	.	error
+
+
+state 515:
+
+	ty_opt : SOM LPAR ty . RPAR 
+
+	RPAR	shift 536
+
+
+	.	error
+
+
+state 516:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR . seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 537
+
+	.	error
+
+
+state 517:
+
+	result : FAIL LPAR info RPAR .  (reduce by rule 76)
+
+	SEMICOLON	reduce by rule 76
+
+
+	.	error
+
+
+state 518:
+
+	result : RETURN LPAR seq_exp SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 538
+
+	.	error
+
+
+state 519:
+
+	pat : NAMEDpat LPAR ident SEMICOLON pat SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 539
+
+	.	error
+
+
+state 520:
+
+	pat : IDENTpat LPAR ident SEMICOLON REF LPAR . pat RPAR SEMICOLON info RPAR 
+
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 540
+
+	.	error
+
+
+state 521:
+
+	pat : BINDpat LPAR ident SEMICOLON pat SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 541
+
+	.	error
+
+
+state 522:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON . REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	REF	shift 542
+
+
+	.	error
+
+
+state 523:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR . SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 543
+
+
+	.	error
+
+
+state 524:
+
+	pat : CONpat LPAR longorshortid SEMICOLON info RPAR .  (reduce by rule 96)
+
+	COMMA	reduce by rule 96
+	SEMICOLON	reduce by rule 96
+	RPAR	reduce by rule 96
+
+
+	.	error
+
+
+state 525:
+
+	pat : LITpat LPAR literal SEMICOLON info RPAR .  (reduce by rule 95)
+
+	COMMA	reduce by rule 95
+	SEMICOLON	reduce by rule 95
+	RPAR	reduce by rule 95
+
+
+	.	error
+
+
+state 526:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat . SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 544
+
+
+	.	error
+
+
+state 527:
+
+	goal : CONDgoal LPAR goal SEMICOLON goal SEMICOLON . goal SEMICOLON info RPAR 
+
+	CALLgoal	shift 398
+	EQUALgoal	shift 397
+	LETgoal	shift 396
+	NOTgoal	shift 395
+	ANDgoal	shift 394
+	CONDgoal	shift 393
+
+	goal	goto 545
+
+	.	error
+
+
+state 528:
+
+	goal : ANDgoal LPAR goal SEMICOLON goal SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 546
+
+	.	error
+
+
+state 529:
+
+	goal : NOTgoal LPAR goal SEMICOLON info RPAR .  (reduce by rule 80)
+
+	SEMICOLON	reduce by rule 80
+	RPAR	reduce by rule 80
+
+
+	.	error
+
+
+state 530:
+
+	goal : LETgoal LPAR pat SEMICOLON exp SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 547
+
+	.	error
+
+
+state 531:
+
+	goal : EQUALgoal LPAR ident SEMICOLON exp SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 548
+
+	.	error
+
+
+state 532:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON . seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 549
+
+	.	error
+
+
+state 533:
+
+	matchexps_opt : SOM LPAR exp SEMICOLON info . SEMICOLON pat SEMICOLON info RPAR 
+
+	SEMICOLON	shift 550
+
+
+	.	error
+
+
+state 534:
+
+	local_var : LV LPAR ident SEMICOLON ty_opt SEMICOLON exp_opt SEMICOLON . attributes RPAR 
+
+	ICON	shift 552
+
+	attributes	goto 551
+
+	.	error
+
+
+state 535:
+
+	exp_opt : SOM LPAR . exp RPAR 
+
+	LITexp	shift 149
+	CONexp	shift 148
+	STRUCTexp	shift 147
+	IDENTexp	shift 146
+
+	exp	goto 553
+
+	.	error
+
+
+state 536:
+
+	ty_opt : SOM LPAR ty RPAR .  (reduce by rule 65)
+
+	SEMICOLON	reduce by rule 65
+
+
+	.	error
+
+
+state 537:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat . RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 554
+
+
+	.	error
+
+
+state 538:
+
+	result : RETURN LPAR seq_exp SEMICOLON info . RPAR 
+
+	RPAR	shift 555
+
+
+	.	error
+
+
+state 539:
+
+	pat : NAMEDpat LPAR ident SEMICOLON pat SEMICOLON info . RPAR 
+
+	RPAR	shift 556
+
+
+	.	error
+
+
+state 540:
+
+	pat : IDENTpat LPAR ident SEMICOLON REF LPAR pat . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 557
+
+
+	.	error
+
+
+state 541:
+
+	pat : BINDpat LPAR ident SEMICOLON pat SEMICOLON info . RPAR 
+
+	RPAR	shift 558
+
+
+	.	error
+
+
+state 542:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON REF . LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 559
+
+
+	.	error
+
+
+state 543:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON . seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 560
+
+	.	error
+
+
+state 544:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON . result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	RETURN	shift 442
+	FAIL	shift 441
+
+	result	goto 561
+
+	.	error
+
+
+state 545:
+
+	goal : CONDgoal LPAR goal SEMICOLON goal SEMICOLON goal . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 562
+
+
+	.	error
+
+
+state 546:
+
+	goal : ANDgoal LPAR goal SEMICOLON goal SEMICOLON info . RPAR 
+
+	RPAR	shift 563
+
+
+	.	error
+
+
+state 547:
+
+	goal : LETgoal LPAR pat SEMICOLON exp SEMICOLON info . RPAR 
+
+	RPAR	shift 564
+
+
+	.	error
+
+
+state 548:
+
+	goal : EQUALgoal LPAR ident SEMICOLON exp SEMICOLON info . RPAR 
+
+	RPAR	shift 565
+
+
+	.	error
+
+
+state 549:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat . SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 566
+
+
+	.	error
+
+
+state 550:
+
+	matchexps_opt : SOM LPAR exp SEMICOLON info SEMICOLON . pat SEMICOLON info RPAR 
+
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 567
+
+	.	error
+
+
+state 551:
+
+	local_var : LV LPAR ident SEMICOLON ty_opt SEMICOLON exp_opt SEMICOLON attributes . RPAR 
+
+	RPAR	shift 568
+
+
+	.	error
+
+
+state 552:
+
+	attributes : ICON .  (reduce by rule 64)
+
+	RPAR	reduce by rule 64
+
+
+	.	error
+
+
+state 553:
+
+	exp_opt : SOM LPAR exp . RPAR 
+
+	RPAR	shift 569
+
+
+	.	error
+
+
+state 554:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR . SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 570
+
+
+	.	error
+
+
+state 555:
+
+	result : RETURN LPAR seq_exp SEMICOLON info RPAR .  (reduce by rule 75)
+
+	SEMICOLON	reduce by rule 75
+
+
+	.	error
+
+
+state 556:
+
+	pat : NAMEDpat LPAR ident SEMICOLON pat SEMICOLON info RPAR .  (reduce by rule 98)
+
+	COMMA	reduce by rule 98
+	SEMICOLON	reduce by rule 98
+	RPAR	reduce by rule 98
+
+
+	.	error
+
+
+state 557:
+
+	pat : IDENTpat LPAR ident SEMICOLON REF LPAR pat RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 571
+
+
+	.	error
+
+
+state 558:
+
+	pat : BINDpat LPAR ident SEMICOLON pat SEMICOLON info RPAR .  (reduce by rule 91)
+
+	COMMA	reduce by rule 91
+	SEMICOLON	reduce by rule 91
+	RPAR	reduce by rule 91
+
+
+	.	error
+
+
+state 559:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON REF LPAR . seq_pat RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 572
+
+	.	error
+
+
+state 560:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat . SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 573
+
+
+	.	error
+
+
+state 561:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result . SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 574
+
+
+	.	error
+
+
+state 562:
+
+	goal : CONDgoal LPAR goal SEMICOLON goal SEMICOLON goal SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 575
+
+	.	error
+
+
+state 563:
+
+	goal : ANDgoal LPAR goal SEMICOLON goal SEMICOLON info RPAR .  (reduce by rule 81)
+
+	SEMICOLON	reduce by rule 81
+	RPAR	reduce by rule 81
+
+
+	.	error
+
+
+state 564:
+
+	goal : LETgoal LPAR pat SEMICOLON exp SEMICOLON info RPAR .  (reduce by rule 79)
+
+	SEMICOLON	reduce by rule 79
+	RPAR	reduce by rule 79
+
+
+	.	error
+
+
+state 565:
+
+	goal : EQUALgoal LPAR ident SEMICOLON exp SEMICOLON info RPAR .  (reduce by rule 78)
+
+	SEMICOLON	reduce by rule 78
+	RPAR	reduce by rule 78
+
+
+	.	error
+
+
+state 566:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON . REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	REF	shift 576
+
+
+	.	error
+
+
+state 567:
+
+	matchexps_opt : SOM LPAR exp SEMICOLON info SEMICOLON pat . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 577
+
+
+	.	error
+
+
+state 568:
+
+	local_var : LV LPAR ident SEMICOLON ty_opt SEMICOLON exp_opt SEMICOLON attributes RPAR .  (reduce by rule 69)
+
+	COMMA	reduce by rule 69
+	RPAR	reduce by rule 69
+
+
+	.	error
+
+
+state 569:
+
+	exp_opt : SOM LPAR exp RPAR .  (reduce by rule 67)
+
+	SEMICOLON	reduce by rule 67
+
+
+	.	error
+
+
+state 570:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON . LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 578
+
+
+	.	error
+
+
+state 571:
+
+	pat : IDENTpat LPAR ident SEMICOLON REF LPAR pat RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 579
+
+	.	error
+
+
+state 572:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 580
+
+
+	.	error
+
+
+state 573:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON . REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	REF	shift 581
+
+
+	.	error
+
+
+state 574:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON . REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	REF	shift 582
+
+
+	.	error
+
+
+state 575:
+
+	goal : CONDgoal LPAR goal SEMICOLON goal SEMICOLON goal SEMICOLON info . RPAR 
+
+	RPAR	shift 583
+
+
+	.	error
+
+
+state 576:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF . LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 584
+
+
+	.	error
+
+
+state 577:
+
+	matchexps_opt : SOM LPAR exp SEMICOLON info SEMICOLON pat SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 585
+
+	.	error
+
+
+state 578:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR . local_vars RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 70
+	LV	shift 363
+
+	local_var	goto 362
+	local_vars	goto 586
+
+	.	error
+
+
+state 579:
+
+	pat : IDENTpat LPAR ident SEMICOLON REF LPAR pat RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 587
+
+
+	.	error
+
+
+state 580:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 588
+
+
+	.	error
+
+
+state 581:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF . LPAR seq_pat RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 589
+
+
+	.	error
+
+
+state 582:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF . LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 590
+
+
+	.	error
+
+
+state 583:
+
+	goal : CONDgoal LPAR goal SEMICOLON goal SEMICOLON goal SEMICOLON info RPAR .  (reduce by rule 82)
+
+	SEMICOLON	reduce by rule 82
+	RPAR	reduce by rule 82
+
+
+	.	error
+
+
+state 584:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR . seq_pat RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 591
+
+	.	error
+
+
+state 585:
+
+	matchexps_opt : SOM LPAR exp SEMICOLON info SEMICOLON pat SEMICOLON info . RPAR 
+
+	RPAR	shift 592
+
+
+	.	error
+
+
+state 586:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 593
+
+
+	.	error
+
+
+state 587:
+
+	pat : IDENTpat LPAR ident SEMICOLON REF LPAR pat RPAR SEMICOLON info RPAR .  (reduce by rule 97)
+
+	COMMA	reduce by rule 97
+	SEMICOLON	reduce by rule 97
+	RPAR	reduce by rule 97
+
+
+	.	error
+
+
+state 588:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 594
+
+	.	error
+
+
+state 589:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR . seq_pat RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 595
+
+	.	error
+
+
+state 590:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR . seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 99
+	WILDpat	shift 391
+	LITpat	shift 390
+	CONpat	shift 389
+	STRUCTpat	shift 388
+	BINDpat	shift 387
+	IDENTpat	shift 386
+	NAMEDpat	shift 385
+
+	pat	goto 384
+	seq_pat	goto 596
+
+	.	error
+
+
+state 591:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 597
+
+
+	.	error
+
+
+state 592:
+
+	matchexps_opt : SOM LPAR exp SEMICOLON info SEMICOLON pat SEMICOLON info RPAR .  (reduce by rule 36)
+
+	SEMICOLON	reduce by rule 36
+
+
+	.	error
+
+
+state 593:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 598
+
+
+	.	error
+
+
+state 594:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 599
+
+
+	.	error
+
+
+state 595:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 600
+
+
+	.	error
+
+
+state 596:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat . RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 601
+
+
+	.	error
+
+
+state 597:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 602
+
+
+	.	error
+
+
+state 598:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 603
+
+	.	error
+
+
+state 599:
+
+	pat : STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR .  (reduce by rule 93)
+
+	COMMA	reduce by rule 93
+	SEMICOLON	reduce by rule 93
+	RPAR	reduce by rule 93
+
+
+	.	error
+
+
+state 600:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 604
+
+
+	.	error
+
+
+state 601:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR . SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	SEMICOLON	shift 605
+
+
+	.	error
+
+
+state 602:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 606
+
+	.	error
+
+
+state 603:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 607
+
+
+	.	error
+
+
+state 604:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 608
+
+	.	error
+
+
+state 605:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON . LPAR local_vars RPAR SEMICOLON info RPAR 
+
+	LPAR	shift 609
+
+
+	.	error
+
+
+state 606:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 610
+
+
+	.	error
+
+
+state 607:
+
+	clause : CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR .  (reduce by rule 74)
+
+	SEMICOLON	reduce by rule 74
+
+
+	.	error
+
+
+state 608:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 611
+
+
+	.	error
+
+
+state 609:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR . local_vars RPAR SEMICOLON info RPAR 
+
+	RPAR	reduce by rule 70
+	LV	shift 363
+
+	local_var	goto 362
+	local_vars	goto 612
+
+	.	error
+
+
+state 610:
+
+	goal : CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR .  (reduce by rule 77)
+
+	SEMICOLON	reduce by rule 77
+	RPAR	reduce by rule 77
+
+
+	.	error
+
+
+state 611:
+
+	pat : STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR .  (reduce by rule 92)
+
+	COMMA	reduce by rule 92
+	SEMICOLON	reduce by rule 92
+	RPAR	reduce by rule 92
+
+
+	.	error
+
+
+state 612:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars . RPAR SEMICOLON info RPAR 
+
+	RPAR	shift 613
+
+
+	.	error
+
+
+state 613:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR . SEMICOLON info RPAR 
+
+	SEMICOLON	shift 614
+
+
+	.	error
+
+
+state 614:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON . info RPAR 
+
+	ICON	shift 26
+	RPAR	reduce by rule 8
+
+	info	goto 615
+
+	.	error
+
+
+state 615:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info . RPAR 
+
+	RPAR	shift 616
+
+
+	.	error
+
+
+state 616:
+
+	clause : CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON LPAR local_vars RPAR SEMICOLON info RPAR .  (reduce by rule 73)
+
+	SEMICOLON	reduce by rule 73
+
+
+	.	error
+
+
+state 617:
+
+
+	EOF_HARD	accept
+	EOF_SOFT	accept
+	MODULE	accept
+	DECLARATIONS	accept
+
+
+	.	error
+
+699 of 1722 action table entries left after compaction
+255 goto table entries

@@ -1,0 +1,722 @@
+(* parser/rml.grm -- ML-Yacc grammar for the .mo persistency layer *)
+
+fun mkb(0) = ref false
+|	mkb(_) = ref true
+
+fun makeAttr(binary) =
+let fun radix2(x) =
+    	if x < 2
+    	then [x mod 2]
+    	else radix2(x div 2)@[x mod 2]
+    val bins = radix2(binary)
+    fun loop(i, bins) = if (i = 0) then bins else 0::loop(i-1, bins)
+	val bins = if (List.length bins < 8) then loop(8-List.length bins, bins) else bins
+    val p::f::v::par::c::i::out::b::nil = bins
+in
+	Absyn.ATTRIBUTES{
+		public = mkb(p),
+		final = mkb(f),
+		var=mkb(v),
+		param=mkb(par),
+		const=mkb(c),
+		input=mkb(i), 
+		output=mkb(out),
+		bidir=mkb(b)}
+end
+ 
+%%
+
+%name PERSISTENT
+%header (functor PERSISTENTLrValsFn(structure Token : TOKEN
+			     structure Absyn : ABSYN
+			     structure Cache : CACHE
+			     structure LexArgSimple : LEXARG_SIMPLE where type poz = Cache.poz
+			     sharing type Cache.restriction = LexArgSimple.restriction
+			     sharing type Cache.visibility = LexArgSimple.visibility
+			     ) : PERSISTENT_LRVALS)
+
+%nodefault
+
+%term	CCON of char	(* #"A" *)
+	|	COLON			(* : *)
+	|	COMMA			(* , *)
+	|	SEMICOLON		(* ; *)
+	|	EOF_HARD		(* <first eof> *)
+	|	EOF_SOFT		(* <second eof> *)
+	|	ICON of int		(* 34 *)
+	|	IDENT of string	(* eval *)
+	|	LPAR			(* ( *)
+	|	RCON of real	(* 3.14 *)
+	|	RPAR			(* ) *)
+	|   LBRACE			(* { *)
+	|   RBRACE			(* } *)	
+	|	SCON of string	(* "foo" *)
+	|	TYVAR of string	(* 'a *)
+	|	LONGID
+	|	VARty
+	|	CONSty
+	|	RELty
+	|	NAMEDty
+	|	TUPLEty
+	|	SOM
+	|	NON
+	|	WILDpat
+	|	LITpat
+	|	CONpat
+	|	STRUCTpat
+	|	BINDpat
+	|	IDENTpat
+	|	NAMEDpat
+	|	LITexp
+	|	CONexp
+	|	VARexp
+	|	STRUCTexp
+	|	IDENTexp
+	|	CALLgoal
+	|	EQUALgoal
+	|	LETgoal
+	|	NOTgoal
+	|	ANDgoal
+	|	CONDgoal	
+	|	RETURN
+	|	FAIL			
+	|	CLAUSE1
+	|	CLAUSE2
+	|	CONcb
+	|	CTORcb
+	|	DATBIND
+	|	TYPBIND
+	|	RELBIND
+	|	WITHspec
+	|	REF
+	|	ABSTYPEspec
+	|	TYPEspec
+	|	DATAspec
+	|	VALspec
+	|	RELspec
+	|	WITHdec
+	|	TYPEdec
+	|	DATAdec
+	|	VALdec
+	|	RELdec
+	|	INTERFACE
+	|	SOURCE
+	|	MODULE
+	|	INTERFACE_END
+	|   DECLARATIONS
+	|   DUMMY_SOURCE
+	|   DUMMY_INTERFACE	
+	|   SERIALIZATION_INFO
+	|   SERIALIZATION_INFO_END
+	|   START_SERIALIZATION_INFO
+	|   LV
+	|   ATTR
+	|   START_INTERFACE
+	|	START_MODULE	
+	
+%keyword
+  IDENT
+  LONGID
+  VARty 
+  CONSty
+  NAMEDty
+  RELty
+  TUPLEty
+  SOM
+  NON
+  WILDpat
+  LITpat
+  CONpat
+  STRUCTpat
+  BINDpat
+  IDENTpat
+  NAMEDpat
+  LITexp
+  CONexp
+  VARexp
+  STRUCTexp
+  IDENTexp
+  CALLgoal
+  EQUALgoal
+  LETgoal
+  NOTgoal
+  ANDgoal
+  CONDgoal
+  RETURN
+  FAIL
+  CLAUSE1
+  CLAUSE2
+  CONcb
+  CTORcb
+  DATBIND
+  TYPBIND
+  RELBIND
+  WITHspec
+  REF
+  ABSTYPEspec
+  TYPEspec
+  DATAspec
+  VALspec
+  RELspec
+  WITHdec
+  TYPEdec
+  DATAdec
+  VALdec
+  RELdec
+  INTERFACE
+  SOURCE
+  MODULE
+  INTERFACE_END
+  DECLARATIONS
+  DUMMY_SOURCE
+  DUMMY_INTERFACE
+  LV
+  ATTR
+  SERIALIZATION_INFO
+  SERIALIZATION_INFO_END
+
+%nonterm 
+		module of Absyn.serialized
+	|	module_interface of Absyn.module option
+	|	module_interface_and_declarations of Absyn.module option
+	|   declarations of Absyn.dec list
+	|   serialization_info of Absyn.serializationInfo
+	|	interface of Absyn.interface
+	|	source of Absyn.Source.source
+	|	lines of int list
+	|	spec_star of Absyn.spec list
+	|	spec of Absyn.spec
+	|	dec_star of Absyn.dec list
+	|	dec of Absyn.dec
+	|	matchexps_opt of (Absyn.exp * Absyn.info * Absyn.pat * Absyn.info) option
+	|	relbind of Absyn.relbind
+	|	relbind_plus of Absyn.relbind list
+	|	relbind_ty_opt of Absyn.ty option
+	|	typbind_plus of Absyn.typbind list
+	|	typbind of Absyn.typbind
+	|	datbind_plus_protected of Absyn.datbind list
+	|	datbind_protected of Absyn.datbind
+	|	conbind_plus_protected of Absyn.conbind list
+	|	conbind_protected of Absyn.conbind
+	|	datbind_plus of Absyn.datbind list
+	|	datbind of Absyn.datbind
+	|	conbind_plus of Absyn.conbind list
+	|	conbind of Absyn.conbind
+	|	clause_plus of Absyn.clause
+	|	clause of Absyn.clause
+	|	result of Absyn.result
+	|	goal of Absyn.goal
+	|	exp of Absyn.exp
+	|	exp_a of Absyn.exp
+	|	exp_b of Absyn.exp
+	|	exp_c of Absyn.exp
+	|	exp_d of Absyn.exp
+	|	seq_exp of Absyn.exp list
+	|	exp_star of Absyn.exp list
+	|	exp_comma_star of Absyn.exp list
+	|	exp_comma_plus of Absyn.exp list
+	|	pat of Absyn.pat
+	|	pat_a of Absyn.pat
+	|	pat_b of Absyn.pat
+	|	pat_c of Absyn.pat
+	|	pat_d of Absyn.pat
+	|	pat_e of Absyn.pat
+	|	seq_pat of Absyn.pat list
+	|	pat_star of Absyn.pat list
+	|	pat_comma_star of Absyn.pat list
+	|	pat_comma_plus of Absyn.pat list
+	|	pat_comma_star_list of Absyn.pat list
+	|	pat_comma_plus_list of Absyn.pat list	
+	|	literal of Absyn.lit
+	|	ty of Absyn.ty
+	|	ty_seq of Absyn.ty list
+	|	tyvarseq of Absyn.ident list
+	|	tyvar_comma_plus of Absyn.ident list
+	|	longid of Absyn.longid
+	|	longorshortid of Absyn.longid
+	|	ident of Absyn.ident
+	|	tyvar of Absyn.ident
+	|   info of Absyn.info
+	|	ty_opt of Absyn.ty option
+	|   exp_opt of Absyn.exp option
+	|	attributes of Absyn.attr
+	|	local_var of (Absyn.ident * Absyn.ty option * Absyn.exp option * Absyn.attr)
+	|	local_vars of (Absyn.ident * Absyn.ty option * Absyn.exp option * Absyn.attr) list
+
+%eop EOF_HARD EOF_SOFT MODULE DECLARATIONS
+%noshift EOF_HARD
+
+%pos LexArgSimple.pos
+%arg (lexArg) : LexArgSimple.lexarg
+(*%pure*)
+%verbose
+%start module
+
+%%
+
+module
+	: START_MODULE serialization_info module_interface_and_declarations EOF_SOFT
+		( 
+		  Absyn.SERIALIZED(serialization_info, module_interface_and_declarations) 
+		)
+	| START_INTERFACE serialization_info module_interface
+		( 
+		  Absyn.SERIALIZED(serialization_info, module_interface) 
+		)		
+	| START_SERIALIZATION_INFO serialization_info 
+		( 
+		  Absyn.SERIALIZED(serialization_info, NONE) 
+		)	
+				
+serialization_info
+	: SERIALIZATION_INFO LPAR SCON SEMICOLON SCON SEMICOLON ICON RPAR 
+	( 
+		LexArgSimple.isSerializationOf(lexArg) := SCON1;
+		Absyn.SERIALIZE({file=SCON1, date=SCON2, version=ICON}) 
+	)
+
+module_interface_and_declarations
+	: MODULE LPAR interface SEMICOLON info RPAR declarations
+		( SOME(Absyn.MODULE(interface, declarations, info)) )
+		
+module_interface
+	: MODULE LPAR interface SEMICOLON info RPAR 
+		( SOME(Absyn.MODULE(interface, [], info)) )
+	
+declarations
+	: DECLARATIONS LPAR dec_star RPAR
+		( dec_star )
+		
+info
+	: ICON COMMA ICON
+	  (
+	    Absyn.INFO(ICON1, ICON1+ICON2)
+	  )
+	| (* empty *)
+	  (
+	    Absyn.INFO(~1, ~1)
+	  )
+
+lines
+	: ICON
+		( [ICON] ) 
+	| ICON COMMA lines
+		( ICON::lines )
+
+source
+	: SOURCE LPAR SCON SEMICOLON SCON SEMICOLON LPAR lines RPAR SEMICOLON ICON RPAR
+	  ( Absyn.Source.getSource(SCON1,SCON2,lines,ICON) )
+	| SOURCE LPAR DUMMY_SOURCE RPAR
+	  ( Absyn.Source.dummy )
+	  
+interface
+	: INTERFACE LPAR ident SEMICOLON LPAR spec_star RPAR SEMICOLON source SEMICOLON info RPAR
+		( Absyn.INTERFACE({modid=ident, specs=spec_star, source=source}, info) )
+	| INTERFACE LPAR DUMMY_INTERFACE RPAR
+		( Absyn.dummyInterface )
+
+
+(* INTERFACE SPECIFICATIONS *)
+spec_star
+	: (*empty*)
+		( [] )
+	| spec 
+		( [spec] )
+	| spec COMMA spec_star
+		( spec :: spec_star )
+
+spec
+	: WITHspec LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR 
+	( 
+		let val Absyn.INFO(sp, ep) = info
+		in
+		 LexArgSimple.addImport(
+		 lexArg,
+		 SCON, 
+		 ((sp,~1,~1),(ep,~1,~1)),
+		 Cache.PUBLIC)
+		end;
+		
+		Absyn.WITHspec(SCON, ref interface, info ) 
+	)
+	| ABSTYPEspec LPAR ICON SEMICOLON tyvarseq SEMICOLON ident SEMICOLON info RPAR
+		( Absyn.ABSTYPEspec(if (ICON=0) then false else true, tyvarseq, ident, info) )
+	| TYPEspec LPAR typbind_plus SEMICOLON info RPAR
+		( Absyn.TYPEspec(typbind_plus, info) )
+	| DATAspec LPAR datbind_plus SEMICOLON typbind_plus SEMICOLON info RPAR
+		( Absyn.DATAspec(datbind_plus, typbind_plus, info) )
+	| VALspec LPAR ident SEMICOLON ty SEMICOLON info RPAR
+		( Absyn.VALspec(ident, ty, info) )
+	| RELspec LPAR ident SEMICOLON ty SEMICOLON info RPAR
+	( 
+		LexArgSimple.addRestriction(
+			lexArg, Absyn.identName ident,
+			Cache.FUN,
+			Cache.PUBLIC);
+	
+		Absyn.RELspec(ident, ty, info) 
+	)
+
+(* DECLARATIONS *)
+dec_star
+	: (*empty*)
+		( [] )
+	| dec
+		( [dec] )		
+	| dec COMMA dec_star
+		( dec :: dec_star )
+
+dec
+	: WITHdec LPAR SCON SEMICOLON REF LPAR interface RPAR SEMICOLON info RPAR
+	( 
+		let val Absyn.INFO(sp, ep) = info
+		in
+		 LexArgSimple.addImport(
+		 lexArg,
+		 SCON, 
+		 ((sp,~1,~1),(ep,~1,~1)),
+		 Cache.PROTECTED)
+		end;
+	
+		Absyn.WITHdec(SCON, ref interface, info) 
+	)
+	| TYPEdec LPAR typbind_plus SEMICOLON info RPAR
+		( Absyn.TYPEdec(typbind_plus,info) )
+	| DATAdec LPAR datbind_plus_protected SEMICOLON typbind_plus SEMICOLON info RPAR
+		( Absyn.DATAdec(datbind_plus_protected, typbind_plus, info) )
+	| VALdec LPAR ident SEMICOLON exp SEMICOLON info RPAR
+		( Absyn.VALdec(ident, exp, info) )
+	| RELdec LPAR relbind_plus SEMICOLON info RPAR
+		( Absyn.RELdec(relbind_plus, info) )
+
+(* Constructor, datatype, type, withtype, and relation bindings *)
+relbind_plus
+	: (* empty *)
+		( [] )
+	| relbind 
+		( [relbind] )
+	| relbind COMMA relbind_plus
+		( relbind :: relbind_plus )
+		
+matchexps_opt:
+		NON
+		(NONE)
+	|	SOM LPAR exp SEMICOLON info SEMICOLON pat SEMICOLON info RPAR
+		( SOME(exp, info1, pat, info2) )
+
+relbind
+	: RELBIND LPAR ident SEMICOLON relbind_ty_opt SEMICOLON 
+	  clause_plus SEMICOLON LPAR local_vars RPAR SEMICOLON matchexps_opt SEMICOLON info RPAR
+	( 
+		LexArgSimple.addRestriction(
+			lexArg, Absyn.identName ident,
+			Cache.FUN,
+			Cache.PROTECTED					
+			);
+	
+		Absyn.RELBIND(ident, relbind_ty_opt, clause_plus, local_vars, matchexps_opt, info) 
+	)
+
+relbind_ty_opt
+	: SOM LPAR ty RPAR
+		( SOME(ty) )
+	| NON 
+		( NONE )
+
+typbind_plus
+	: (* empty *)
+		( [] )
+	| typbind
+		( [typbind] )
+	| typbind COMMA typbind_plus
+		( typbind :: typbind_plus )
+
+typbind
+	: TYPBIND LPAR tyvarseq SEMICOLON ident SEMICOLON ty SEMICOLON info RPAR
+		( Absyn.TYPBIND(tyvarseq, ident, ty, info) )
+
+datbind_plus_protected
+	: (* empty *)
+		( [] )
+	| datbind_protected 
+	    ( [datbind_protected] )
+	| datbind_protected COMMA datbind_plus_protected
+		( datbind_protected :: datbind_plus_protected )
+
+
+datbind_plus
+	: (* empty *)
+		( [] )
+	| datbind 
+	    ( [datbind] )
+	| datbind COMMA datbind_plus
+		( datbind :: datbind_plus )
+
+datbind
+	: DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus SEMICOLON info RPAR
+		( Absyn.DATBIND(tyvarseq, ident, conbind_plus, info) )
+
+datbind_protected
+	: DATBIND LPAR tyvarseq SEMICOLON ident SEMICOLON conbind_plus_protected SEMICOLON info RPAR
+		( Absyn.DATBIND(tyvarseq, ident, conbind_plus_protected, info) )
+
+conbind_plus
+	: (* empty *)
+		( [] )
+	| conbind
+		( [conbind] )
+	| conbind COMMA conbind_plus
+		( conbind :: conbind_plus )
+
+conbind_plus_protected
+	: (* empty *)
+		( [] )
+	| conbind_protected
+		( [conbind_protected] )
+	| conbind_protected COMMA conbind_plus_protected
+		( conbind_protected :: conbind_plus_protected )
+
+conbind_protected
+	: CONcb LPAR ident SEMICOLON info RPAR
+	( 
+		 LexArgSimple.addRestriction(
+			lexArg, 
+			Absyn.identName ident,
+			Cache.REC,
+			Cache.PROTECTED
+			);
+		
+		Absyn.CONcb(ident, info) 
+	)
+	| CTORcb LPAR ident SEMICOLON ty_seq SEMICOLON info RPAR
+	( 
+		 LexArgSimple.addRestriction(
+			lexArg, 
+			Absyn.identName ident,
+			Cache.REC,
+			Cache.PROTECTED			
+			);
+	
+		Absyn.CTORcb(ident, ty_seq, info) 
+	)
+
+conbind
+	: CONcb LPAR ident SEMICOLON info RPAR
+	( 
+		 LexArgSimple.addRestriction(
+			lexArg, 
+			Absyn.identName ident,
+			Cache.REC,
+			Cache.PUBLIC
+			);
+		
+		Absyn.CONcb(ident, info) 
+	)
+	| CTORcb LPAR ident SEMICOLON ty_seq SEMICOLON info RPAR
+	( 
+		 LexArgSimple.addRestriction(
+			lexArg, 
+			Absyn.identName ident,
+			Cache.REC,
+			Cache.PUBLIC			
+			);
+	
+		Absyn.CTORcb(ident, ty_seq, info) 
+	)
+
+(* CLAUSES *)
+clause_plus
+	: clause 
+		( clause )
+	| CLAUSE2 LPAR clause SEMICOLON clause_plus SEMICOLON info RPAR
+		( Absyn.CLAUSE2(clause, clause_plus, info) )
+
+attributes
+	: ICON  
+		( makeAttr(ICON) )
+		
+ty_opt
+	: SOM LPAR ty RPAR
+		( SOME(ty) )
+	| NON
+		( NONE )
+
+exp_opt
+	: SOM LPAR exp RPAR
+		( SOME(exp) )
+	| NON
+		( NONE )
+
+local_var
+	: LV LPAR ident SEMICOLON ty_opt SEMICOLON exp_opt SEMICOLON attributes RPAR
+		( (ident, ty_opt, exp_opt, attributes) )	
+
+local_vars
+	: (* empty *)
+		( [] )
+	| local_var 
+		( [local_var] )
+	| local_var COMMA local_vars
+		( local_var::local_vars )
+	
+
+clause
+	: CLAUSE1 LPAR SOM LPAR goal RPAR SEMICOLON ident SEMICOLON 
+	  seq_pat SEMICOLON result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON 
+	  LPAR local_vars RPAR SEMICOLON info RPAR
+		( Absyn.CLAUSE1(SOME(goal), ident, seq_pat1, result, ref seq_pat2, local_vars, info) )
+	| CLAUSE1 LPAR ident SEMICOLON seq_pat SEMICOLON 
+	  result SEMICOLON REF LPAR seq_pat RPAR SEMICOLON 
+	  LPAR local_vars RPAR SEMICOLON info RPAR
+		( Absyn.CLAUSE1(NONE, ident, seq_pat1, result, ref seq_pat2, local_vars, info) )
+
+result
+	: RETURN LPAR seq_exp SEMICOLON info RPAR
+		( Absyn.RETURN(seq_exp, info) )
+	| FAIL LPAR info RPAR 
+		( Absyn.FAIL (info) )
+
+(* GOALS *)
+goal
+	: CALLgoal LPAR longorshortid SEMICOLON seq_exp SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR 
+		( Absyn.CALLgoal(longorshortid, seq_exp, seq_pat1, ref seq_pat2, info) )
+	| EQUALgoal LPAR ident SEMICOLON exp SEMICOLON info RPAR
+		( Absyn.EQUALgoal(ident, exp, info) )
+	| LETgoal LPAR pat SEMICOLON exp SEMICOLON info RPAR
+		( Absyn.LETgoal(pat1, exp, info) )
+	| NOTgoal LPAR goal SEMICOLON info RPAR
+		( Absyn.NOTgoal(goal, info) )	
+	| ANDgoal LPAR goal SEMICOLON goal SEMICOLON info RPAR
+		( Absyn.ANDgoal(goal1, goal2, info) )
+	| CONDgoal LPAR goal SEMICOLON goal SEMICOLON goal SEMICOLON info RPAR
+		( Absyn.CONDgoal(goal1, goal2, goal3, info) )
+
+(* EXPRESSIONS *)
+exp	(* expressions possibly starting with LPAREN *)
+	: STRUCTexp LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_exp SEMICOLON info RPAR 
+		( Absyn.STRUCTexp(SOME(longorshortid), seq_exp, info) )
+	| STRUCTexp LPAR NON SEMICOLON seq_exp SEMICOLON info RPAR
+		( Absyn.STRUCTexp(NONE, seq_exp, info) )
+	| LITexp LPAR literal SEMICOLON info RPAR
+		( Absyn.LITexp(literal, info) )
+	| CONexp LPAR longorshortid SEMICOLON info RPAR
+		( Absyn.CONexp(longorshortid, info) )
+	| IDENTexp LPAR longorshortid SEMICOLON REF LPAR exp RPAR SEMICOLON info RPAR
+		( Absyn.IDENTexp(longorshortid, ref exp, info) )
+
+seq_exp
+	: (* empty *)
+		( [] )
+	| exp
+	  ( [exp] )
+	| exp COMMA seq_exp
+	  ( exp :: seq_exp )
+
+(* PATTERNS *)
+pat	
+	: BINDpat LPAR ident SEMICOLON pat SEMICOLON info RPAR
+		( Absyn.BINDpat(ident, pat, info) )
+	| STRUCTpat LPAR SOM LPAR longorshortid RPAR SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR
+		( Absyn.STRUCTpat(SOME longorshortid, seq_pat1, ref seq_pat2, info) )
+	| STRUCTpat LPAR NON SEMICOLON seq_pat SEMICOLON REF LPAR seq_pat RPAR SEMICOLON info RPAR
+		( Absyn.STRUCTpat(NONE, seq_pat1, ref seq_pat2, info) )
+	| WILDpat LPAR info RPAR
+		( Absyn.WILDpat(info) )
+	| LITpat LPAR literal SEMICOLON info RPAR
+		( Absyn.LITpat(literal, info) )
+	| CONpat LPAR longorshortid SEMICOLON info RPAR
+		( Absyn.CONpat(longorshortid, info) )
+	| IDENTpat LPAR ident SEMICOLON REF LPAR pat RPAR SEMICOLON info RPAR
+		( Absyn.IDENTpat(ident, ref pat, info) )
+	| NAMEDpat LPAR ident SEMICOLON pat SEMICOLON info RPAR
+		( Absyn.NAMEDpat(ident, pat, info) )
+
+seq_pat
+	: (*empty*)
+		( [] )
+	| pat
+		( [pat] )
+	| pat COMMA seq_pat
+		( pat :: seq_pat )
+
+(* LITERALS *)
+literal
+	: LPAR CCON SEMICOLON info RPAR
+		( Absyn.CCONlit(CCON, info ) )
+	| LPAR ICON SEMICOLON info RPAR
+		( Absyn.ICONlit(ICON, info) )
+	| LPAR RCON SEMICOLON info RPAR
+		( Absyn.RCONlit(RCON, info) )
+	| LPAR SCON SEMICOLON info RPAR 
+		( Absyn.SCONlit(SCON, info) )
+
+ty
+	: RELty LPAR LPAR ty_seq RPAR SEMICOLON LPAR ty_seq RPAR SEMICOLON info RPAR
+		( Absyn.RELty(ty_seq1, ty_seq2, info) )
+	| TUPLEty LPAR LPAR ty_seq RPAR SEMICOLON info RPAR
+		( Absyn.TUPLEty(ty_seq, info) )
+	| NAMEDty LPAR ident SEMICOLON ty SEMICOLON info RPAR 
+		( Absyn.NAMEDty(ident, ty, info) )
+	| CONSty LPAR longorshortid SEMICOLON info RPAR
+		( Absyn.CONSty([], longorshortid, info) )
+	| CONSty LPAR ty_seq SEMICOLON longorshortid SEMICOLON info RPAR
+		( Absyn.CONSty(ty_seq, longorshortid, info) )
+	| VARty tyvar
+		( let val Absyn.IDENT(_, info) = tyvar
+		  in
+		    Absyn.VARty(tyvar, info) 
+		  end )
+
+ty_seq
+	: (* empty *)
+		( [] )
+	| ty
+	    ( [ty] )
+	| ty COMMA ty_seq
+		( ty::ty_seq )
+
+tyvarseq
+	: (*empty*)
+		( [] )
+	| tyvar 
+		( [tyvar] )
+	| tyvar COMMA tyvarseq
+		( tyvar::tyvarseq )
+
+(* LONG IDENTIFIERS *)
+longid
+	: LONGID LBRACE ident SEMICOLON ident SEMICOLON info RBRACE
+	( 
+		let val Absyn.INFO(sp, ep) = info
+		in
+			LexArgSimple.addExternal(
+				lexArg, 
+				(Absyn.identName ident1)^"."^(Absyn.identName ident2), 
+				((sp,~1,~1),(ep,~1,~1)))
+		end;
+		Absyn.LONGID(SOME ident1, ident2, info) 
+	)
+
+longorshortid
+	: longid
+		( longid )
+	| LONGID ident 
+		( let val Absyn.IDENT(_, info) = ident 
+		  in
+		  	Absyn.LONGID(NONE, ident, info)
+		  end )
+			
+(* SHORT IDENTIFIERS *)
+ident
+	: LPAR IDENT SEMICOLON info RPAR
+		( Absyn.makeIdent(IDENT, info) )
+	| LPAR IDENT SEMICOLON ICON RPAR
+		( Absyn.makeIdent(IDENT, Absyn.INFO(ICON, ICON+String.size(IDENT))) )
+		
+
+tyvar
+	: LPAR TYVAR SEMICOLON info RPAR
+		( Absyn.makeIdent(TYVAR, info) )
+	| LPAR TYVAR SEMICOLON ICON RPAR
+		( Absyn.makeIdent(TYVAR, Absyn.INFO(ICON, ICON+String.size(TYVAR)-2)) )
+		

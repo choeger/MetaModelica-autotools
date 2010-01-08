@@ -1,0 +1,36 @@
+(* add compiler flags common to all configurations here *)
+export RML
+
+source 
+ c:\bin\cygwin\home\adrpo\dev\rml\compiler\, 
+ c:\bin\cygwin\home\adrpo\dev\rml\compiler\library\common,
+ c:\bin\cygwin\home\adrpo\dev\rml\compiler\library\pickle, 
+ c:\bin\sml.net\lib\parsing\
+
+
+@c:\bin\sml.net\lib\parsing\sources
+
+structure Tokens=rml.grm.sml
+signature RML_TOKENS=rml.grm.sig, RML_LRVALS=rml.grm.sig
+functor   RMLLrValsFn=rml.grm.sml, RMLLexFn=rml.lex.sml
+
+structure Tokens=mod.grm.sml
+signature MOD_TOKENS=mod.grm.sig, MOD_LRVALS=mod.grm.sig
+functor   MODLrValsFn=mod.grm.sml, MODLexFn=mod.lex.sml
+
+structure Tokens=persistent.grm.sml
+signature PERSISTENT_TOKENS=persistent.grm.sig, PERSISTENT_LRVALS=persistent.grm.sig
+functor   PERSISTENTLrValsFn=persistent.grm.sml, PERSISTENTLexFn=persistent.lex.sml
+
+on debug
+on debug*
+on debug.*
+on debug.symFromLoc
+
+
+(*
+log log.txt
+on verbose
+on env.time
+on elab*
+*)

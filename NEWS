@@ -1,0 +1,606 @@
+RML-MMC SYSTEM RELEASE HISTORY
+==============================
+Adrian Pop, adrpo@ida.liu.se, http://www.ida.liu.se/~adrpo
+
+Release 2.3.8 2007-07-16
+-----------------------------------------------------------------
+- rml+mmc handles both .rml files and .mo files
+- faster .mo or .rml compilation due to smaller 
+  .srz files and less memory requirements
+- fixes of stringEqual (string_equal) function
+- rewriten the debugging part to work over sockets
+- debugging now works togheter with Modelica Development Tooling (MDT)
+- added debug_show_depth(int depth) to set the depth of variable showing
+  + debug_show_depth(15) is the default depth
+  + debug_show_depth(0) will display the full variable
+  
+- a lot of code refactoring and cleaning for faster compilation
+- dumped emacs-based debugging and readline library dependency
+- more platforms: 
+  + x86_64-darwin-gcc
+  + x86_64-linux-gcc
+  + x86-darwin-gcc 
+  + ppc-linux-gcc
+- a lot more i don't remember right now
+- rml -fdump-depends *.mo > file 
+  now dumps the dependency based on *.c files, not *.o
+
+Release 2.3.6 2006-09-18
+-----------------------------------------------------------------
+- rml+mmc bug fix release
+- rml-mmc compiler process exits with failure on error
+- svn co svn://mir20.ida.liu.se/rml/tags/2.3.6
+
+Release 2.3.5 2006-04-10
+-----------------------------------------------------------------
+- rml+mmc release
+- MetaModelica now works better
+- tests for local variable declarations and typechecking
+
+Source Release 2.3.4 2006-03-08
+-----------------------------------------------------------------
+- rml+mmc 
+- faster .mo or .rml compilation
+- better MetaModelica handling
+- unused import warnings
+- new operators and buildin functions:
+  + ==& string_equal(string, string) => bool
+  + +&  string_append
+  + if_exp or ifExp(bool, 'a, 'a)
+  + string_setnth(string, int, char) => string                (index from 0)
+  + string_setnth_string_char(string, int, string) => string  (index from 0)
+  + string_update(string, int, char) => string                (index from 1)
+  + string_update_string_char(string, int, string) => string  (index from 1)
+  + string_nth(string, int) => char                           (index from 0)
+  + string_nth_string_char(string, int) => string             (index from 0)
+  + string_get(string, int) => char                           (index from 1)
+  + string_get_string_char(string, int) => string             (index from 1)
+  + string_compare(string, string) => int (-1, 0, +1)         (calls strcmp)
+  + all these have duplicates using Java names ex: stringNth=string_nth
+  
+
+Source Release 2.3.3 with named arguments in patterns, 2006-01-26
+-----------------------------------------------------------------
+- rml+mmc (rml=Relational Meta-Language compiler, mmc=Meta-Modelica compiler)
+- new flags:
+  + -fdump-interface : dumps the interface of the module to stdout
+  + -fdump-depends   : dumps the module depencies in .depends format to stdout
+  + -ffix-java-names : causes to include in every .c file generated a file 
+                       called ExternalRMLDefines.h which can be used to re-define
+		       the names of the externally declared RML relations.
+		       look into doc/ExternalRMLDefines.h
+
+Enjoy!
+Adrian Pop/		    
+		       
+  
+Source Release 2.3.2 with named arguments in patterns, 2005-12-30
+-----------------------------------------------------------------
+- THIS IS A BETA RELEASE! Don't trust it!
+- fixes the VC7 compilation problem "program too complex" 
+  + blocks nested too deeply fixed!
+
+Source Release 2.3.1 with named arguments in patterns, 2005-11-11
+-----------------------------------------------------------------
+- THIS IS A BETA RELEASE! Don't trust it!
+- general:
+  - named arguments in patterns are now supported
+    for datatype definition: CONS of na1:ty1 * na2:ty2 ... nan:tyn 
+    + patterns: CONS(nan=patern1, na1=pattern2, na10=pattern3)
+    for relation definition: relation x: (na1:ty1, na2:ty2, na3:ty3) => (na4:ty4, na5:ty5, na6:ty6)
+    + pattern: rule x(v1, v2, v3) => (na5=v4)
+                    -------------------------
+                    x(na3=pattern) => ....
+  - of course named arguments in patterns for relations won't work if you don't
+    declare the relation signature type. 
+
+
+Binary Release 2.3.0 with operators, 2005-06-13
+---------------------------------------------------
+- general
+  + fixed some problems with arrays and vectors
+  + now the compiler can compile metamodelica files 
+    - look into examples/metamodelica/*
+  + compilation is now faster (hopefully) 
+
+
+Binary Release 2.2.2 with operators, 2005-01-27
+-------------------------------------------------------------------------
+- general
+  + fixed a segfault bug discovered by Peter Aronsson (in array/vector_add)
+  + major rewrite of the debug code to be more homogenous names, etc, etc
+  + operators now work!
+	int_add       | +
+	int_sub       | -
+	int_neg       | ~
+	int_mul       | *
+	int_div       | x / y
+	int_mod       | x % y
+	int_eq        | ==
+	int_ne        | !=
+	int_ge        | >=
+	int_gt        | >
+	int_le        | <=
+	int_lt        | >
+	----------------------
+	real_add      | +.
+	real_sub      | -.
+	real_neg      | ~.
+	real_mul      | *.
+	real_div      | x /. y
+	real_mod      | x %. y
+	real_pow      | x ^. y
+	real_eq       | ==.
+	real_ne       | !=.
+	real_ge       | >=.
+	real_gt       | >.
+	real_le       | <=.
+	real_lt       | >.
+	---------------------
+	string_append | x ^ y
+	---------------------
+	list_append   | x @ y
+  
+- debugger
+  + fixed positioning in the rml emacs mode and RMLDataTree
+  + added (still work in progress) callchain and real stack backtrace
+  + RMLDataTree
+    - better positioning
+    - the files are not reloaded again, if there exist a tab already
+    - various fixes and improvements
+  + [DEBUGER SHOULD BE REGARDED AS WORK IN PROGRESS!]
+    [ PLEASE LET ME KNOW WHAT DOES NOT WORK AS IT SHOULD]
+
+
+Binary Release 2.2.1 without operators, 2005-01-13
+--------------------------------------------------
+- debugger 
+  + command "next" that jumps over goals
+  + fixed a bug that instead of true was printed false and viceversa for
+    variable printing
+ 
+- cosmetic changes in the RMLDataTree 
+  + addition of array type
+  + now featuring tabs (more should be done here)
+  + font set to Courier New
+  + etc...
+- compiler/runtime changes:
+  + vector type is for kept for immutable arrays, with new functionality
+    - vector_add('a vector, 'a) => 'a vector (adds an element to a copy of vector)
+    - vector_setnth('a vector, i, 'a) => 'a vector (sets the nth element (starting from 0) into a new copy of the vector)
+    - vector_update('a vector, i, 'a) => 'a vector (same as setnth but starting from 1)
+    - vector_create(nr_elem, 'a) => 'a vector (creates a vector of nr_elem elements of type 'a)
+    - vector_array('a vector) => 'a array 
+  + new "array" type for mutable arrays:
+    same operations as for vectors, the only different is 
+    array_setnth and array_update which updates in place!
+    - array_vector('a array) => 'a vector
+    - list_array(list) => new_array
+    - array_add(arr, element) => new_array, 
+    - array_setnth(arr, i, elem) => (), (update in place: arr[i]=elem)
+    - array_update(arr, i, elem) => (), (update in place: arr[i-1]=elem)
+    - array_length(arr) => int
+    - array_create(nr_elem, init) => arr (arr of nr_elem initialized to init)
+    - array_list(array) => list
+    - array_nth(arr, i) => a (where a = arr[i], starting from 0)
+  + limitations of the new runtime is that between two collections only 62*1024 array_setnth or array_update can be made
+    if the array has elements of boxed type. This can be changed from a define in the runtime. In the new release this
+    limitation will be lifted.
+  + If the elements of the array are immediate, then no overhead is associated with the destructive update.  
+- look here and tell me what should I implement more:
+  http://www.standardml.org/Basis/array.html
+  http://www.standardml.org/Basis/vector.html
+
+Binary Release 2.2 without operators, 2004-12-20
+-------------------------------------------------
+Debugging:
+ a lot of new commands in the debugger,
+ showing of datatype constructors, etc, etc
+
+SML.NET generated exe
+ Into x86-cygwin-gcc/bin/ you will find rml.sml.net.exe
+ hack rml.bat to use that if you want, i don't know
+ if is faster or not.
+
+Runtime
+ - 32 parameters to relations
+ - -youngsize=xxx as command line to the generated .exe
+ 
+
+Binary Release 2.1.9 with operators, 16 June, 2004
+---------------------------------------------------------------------
+- added operators: (look in examples/exp1 and examples/assigntwotype)
+int_add       | +
+int_sub       | -
+int_neg       | ~
+int_mul       | *
+int_div       | x div y
+int_mod       | x mod y
+int_eq        | ==
+int_ne        | !=
+int_ge        | >=
+int_gt        | >
+int_le        | <=
+int_lt        | >
+----------------------
+real_add      | +.
+real_sub      | -.
+real_neg      | ~.
+real_mul      | *.
+real_div      | x / y
+real_mod      | x % y
+real_pow      | x ^. y
+real_eq       | ==.
+real_ne       | !=.
+real_ge       | >=.
+real_gt       | >.
+real_le       | <=.
+real_lt       | >.
+---------------------
+string_append | x ^ y
+
+
+Binary Release 2.1.9, September 28, 2003
+---------------------------------------------------------------------
+Created binary releases that do not depend on SMLNJ anymore.
+
+Releases are build with SMLNJ working version 110.43 
+http://www.smlnj.org/new.html#110.43 
+Using heap2exec 
+http://www.smlnj.org/doc/heap2exec/
+
+Available for:
+- Sparc Solaris
+- RedHat Linux 9
+- Cygwin
+
+Adrian/
+
+<From here up, developed by Adrian Pop adrpo@ida.liu.se>
+--------------------------------------------------------------
+********************* Author change **********************
+--------------------------------------------------------------
+<Until here created and maintained by Mikael Petterson>
+
+
+Release 2.1.8, October 14, 2000
+-------------------------------
+* Replaced the garbage collector's "xroots" interface (which
+  apparently was too difficult to use) with an interface based
+  on a user-defined gc callback function.
+* Fixed build failure with the SML/NJ 110.0.6 CM.
+
+Release 2.1.7, October 7, 2000
+------------------------------
+* Fixed runtime/common/real-str.c to handle nan/inf better.
+* CM fixes for SML/NJ 110.29. Dropped support for all SML/NJ
+  versions _except_ 110.0.6 and 110.<latest>.
+
+Release 2.1.6, May 15, 2000
+---------------------------
+* Added "-stack-size=X" option to main() to adjust the stack size
+  if necessary. Default is 65536 words (64K). "X" is written as
+  an unsigned integer, with an optional "K" or "M" suffix.
+  (Dynamic resizing at runtime is currently not feasible.)
+* The default now is to run the code with (probabilistic) stack
+  overflow checking enabled. The new "-no-stack-check" option to
+  main() turns off this checking.
+
+Release 2.1.5, May 12, 2000
+---------------------------
+* Fix compiler build failure with older SML/NJ versions.
+
+Release 2.1.4, May 12, 2000
+---------------------------
+* Fixed a problem which could cause rml_prim_alloc() to fail.
+* Configuration and compiler updates for SML/NJ 110.27.
+* Compiler 'make' fixes for CM changes in SML/NJ 110.25.
+
+Release 2.1.3, October 12, 1999
+-------------------------------
+* Increased the number of parameters in function and continuation calls
+  from 10 to 16. This is a bandaid, as a general solution whould require
+  major changes to the compiler's intermediate CPS form.
+* Fixed a bug in the configure script. Ported the compiler
+  to SML/NJ 110.22 and its "new" Compilation Manager.
+
+Release 2.1.2, February 11, 1999
+--------------------------------
+* Made the "mask" and "diff" runtime systems operational again.
+  (The change in release 2.1.1 which replaced symbolic links
+  by 'fake VPATH' rules made the C compiler pick up the wrong
+  version of "rml.h" for all runtime systems except "plain".)
+* Cygwin (B20.1 or later) can now build plain Win32 executables
+  which do not need the Cygwin DLLs to be present at runtime.
+  Do "./configure --build=x86-mingw32-gcc" to choose this mode.
+* The "diff" runtime now works on the Cygwin and Mingw32 targets.
+
+Release 2.1.1, December 31, 1998
+--------------------------------
+* It is now possible to build and use RML on Windows NT/95/98
+  (Microsoft's Win32 API). The target is named 'x86-cygwin-gcc'.
+  Both the Win32 version of SML/NJ and Cygwin Beta 20.1 or later
+  must be installed. (Cygwin is a free Unix emulation package
+  for Win32; see http://sourceware.cygnus.com/cygwin/ for details.)
+
+  This release has been tested on Windows NT 4.0 SP3 and Windows 95.
+  Windows 95 is not recommended though, since Cygwin seems to work
+  much better on Windows NT.
+  
+  Executable files generated by RML require Cygwin's dynamically
+  loadable libraries (DLLs) to be present at runtime. This
+  is a limitation of gcc as shipped with Cygwin B20.
+
+Release 2.1, November 29, 1998
+------------------------------
+* Modules may now be mutually recursive. That is, a module A may
+  use ("with") a module B, and B may use A. However, this only
+  applies to module _bodies_, not _interfaces_. Thus,
+
+	(* A.rml *)		(* B.rml *)
+	module A:		module B:
+	  with "B.rml"		  with "A.rml"
+	end			end
+	...			...
+
+  will not work. Moving one of the "with" declarations to its module's
+  body will eliminate the interface cycle.
+
+  The main problem with mutally recursive modules concerns the
+  initialization of global named values (single-assignment "variables").
+  Consider:
+
+	(* A.rml *)		(* B.rml *)
+	module A:		module B:
+	  val a: int		  val b: int
+	end			end
+	with "B.rml"		
+	val a = B.b		val b = <some value>
+
+  In the absence of mutually recursive modules, initializing a
+  module is easy: first call the initializers for all modules
+  we depend on, then initialize our global values. Above, A's
+  init would call B's init, and then copy B.b's value to A.a.
+
+  With mutually recursive modules, global values have to be
+  initialized in data-dependency order, requiring significant
+  changes to their representation and initialization code.
+  As a consequence, RML 2.1 is INCOMPATIBLE with RML 2.0 at the
+  levels of generated C and machine code. Existing RML code
+  should be recompiled. Hand-written C code needs adjustments to
+  their init functions (they actually become simpler), and code
+  which use global RML values must use the RML_GVAL_VALUE() macro.
+  See examples/miniml/parsutil.c and examples/etc/ccall.c.
+
+* Fixed a bug in CPS optimizer where a case expression applied to a
+  known constructed data object would cause a compile-time failure.
+* Generate an error message when a procedure/continuation has
+  too many parameters. (Used to fail with a "subscript" exception.)
+* Minor adjustments for SML/NJ 110.7 (no separate sml-cm any more).
+
+Release 2.0, April 14, 1998
+---------------------------
+* Added COPYRIGHT notice.
+* Simplified runtime/plain/p-gccore.c, and adjusted the heap
+  expansion code to avoid trashing. (If less than 25% is free
+  after a major gc, expand so that at least 50% is free.)
+* Removed `draft' status from the RML definition document,
+  and fixed a couple of harmless typos.
+
+Release 1.9.4, April 7, 1998
+----------------------------
+* The tag in a boxed object (anything except an integer, boolean, or plain
+  enumeration) is now 8 bits instead of 6 bits. This should help some
+  applications using "datatypes" with many constructors.
+  Note, however, that existing binary object files are incompatible with
+  the new runtime data representation, and must be recompiled.
+* The runtime heap will now be expanded dynamically, if it is found to be
+  too small after a major collection. For now, the heap size is adjusted
+  so that at least 1/3 is free after a major collection.
+* Improved type-error messages for top-level variable declarations.
+
+Release 1.9.3, March 17, 1998
+-----------------------------
+* The major change is that `fail' is now a keyword, and not a standard
+  procedure. When placed to the right of `=>' in the conclusion of an
+  inference rule, `fail' causes that rule to fail (backtrack) once all
+  the premisses have been executed. See e.g. examples/petrol/main.rml.
+  The main benefit of this arrangement is that it is no longer necessary
+  to introduce `fake' return values just to keep the typechecker happy.
+  Thus, old code like:
+
+	rule	print "error\n" & fail
+		----------------------
+		myrule(args) => bogusstuff
+
+  should be rewritten to:
+
+	rule	print "error\n"
+		--------------------
+		myrule(args) => fail
+
+* Improved indentation code in rml-mode.el.
+* A bug fix in the C-emitting part of the compiler. (The bug has been
+  there for several weeks, but the C code happened to work fine with gcc.)
+* Changed calling convention for module initialization procedures.
+  This allows better error messages if cyclic module dependencies occur.
+* The old typechecker is no longer available.
+
+Release 1.9.2, March 9, 1998
+----------------------------
+* RML now emits Emacs-compatible source-code regions in its error messages.
+* elisp/rml-mode.el has been improved.
+* In the default "plain" code generation scheme, the RML_TAILCALL{,Q}
+  macros now take a second argument, the number of live argument registers.
+  This is required by a new runtime system currently under development.
+* Major internal file-name cleanups.
+* ./configure now builds the debug/profile libraries by default again,
+  unless --small was specified.
+
+Release 1.9.1, February 27, 1998
+--------------------------------
+* The reporting of type errors has been improved.
+* The bug that caused the rmlc compiler driver to link with -lrml
+  before user-supplied linker arguments has been fixed.
+* Debug/profile libs are now only built if explicitly configured.
+
+Release 1.9.0, February 26, 1998
+--------------------------------
+* This is the first beta test release of RML Version 2.
+* The document "The Definition of RML" is now included in doc/def/.
+* The compiler uses a completely new static semantics checker:
+
+	* The goal "var = exp" is now by default interpreted as an
+	  equality constraint. It's an error for "var" to be unbound.
+	* The new goal "let pat = exp" performs a pattern-match test
+	  of the value of "exp". The simple form "let var = exp" is
+	  the preferred way of binding temporary local variables.
+	* Variables local to a rule are now permitted to shadow variables
+	  bound in the standard RML environment, at the top level of
+	  the current module, or earlier in the current rule.
+	* Equality types as in Standard ML are implemented.
+	  A user-visible change is that a relation which applies the
+	  "=" goal to a value of polymorphic type now gets the type ''a
+	  (an "equality type variable") for that type, instead of a
+	  a plain 'a as before. Module interfaces may need adjustments.
+	* The "abstype" specification in interfaces has been replaced
+	  by type/eqtype specifications as in SML:
+
+	  type t
+		(* specifies an abstract type without equality *)
+	  eqtype t
+		(* specifies an abstract type which permits equality *)
+
+	* Precise source-file name and context is given for identifier-
+	  related static semantics errors. Type constraint errors are given
+	  a useful but coarse source-file context. (This will be improved.)
+	* The "exists" goal and the "isvar" predicate have been removed.
+	  The mostly-implicit logical variables have been replaced by
+	  a separate type: 'a lvar. The following operations apply:
+
+	  relation lvar_new: () => 'a lvar
+		(* Creates a fresh unbound logical variable. *)
+	  relation lvar_set: ('a lvar, 'a) => ()
+		(* Binds the lvar to the value, if it is unbound;
+		   fails if the lvar already had been bound.
+		   The binding, if successful, will be undone
+		   during backtracking. *)
+	  relation lvar_get: 'a lvar => 'a option
+		(* Returns NONE if the lvar is unbound, and (SOME x)
+		   if the lvar has been bound to x. *)
+
+	  A consequence of this is that runtime data values are never
+	  dereferenced by generated code or the runtime systems.
+	  User-written C code may no longer use the INSPECTHDR, deref*,
+	  or UNBOUNDHDR macros.
+
+	* There are some command-line options which allow the old
+	  static semantics checker to be used instead. See man/man1/rml.1
+	  for details. These options will be removed in the near future.
+
+* The compiler now applies a dependency-analysis and declaration
+  reordering phase after parsing but before static semantics checking.
+  The purpose of this phase is to allow "forward" references to identifiers
+  (types, variables, relations, data constructors) defined further down
+  in the source file.
+
+  This does _not_ imply that arbitrary cyclic dependencies are allowed!
+  The reordering phase analyses a module, and reorders declarations
+  so that the standard ML-like rules apply: definitions precede their
+  uses, and groups of mutually recursive declarations are marked as such.
+
+  The detailed specification can be found in "The Definition of RML",
+  section 5.
+
+* Code generation and runtime system aspects are largely unchanged,
+  with the exception of the removal of the dereferencing of implicit
+  logical variables. Pattern-match compilation has been improved.
+
+Release 1.3.8, February 9, 1998
+-------------------------------
+* The compiler has undergone major code cleanups, in preparation
+  for merging with the current rml-V2 prototype.
+* User-visible changes should be few: `eqtype' is a new keyword,
+  `abstype' is an alias for `type', identifiers may no longer
+  use non-ASCII letters.
+* The rml2c and rmli SML/NJ heap images have been merged into a single
+  rml image. Users of the rmlc compiler driver are not affected.
+
+Release 1.3.7, February 5, 1998
+-------------------------------
+* Improved error message when a type constructor is applied to
+  an incorrect number of arguments.
+* Changed installation procedure to be more GNU-like.
+  The options to ./configure are now written --<foo>=<value>
+  instead of --foo <value>.
+  To build the system, a plain 'make' with default target is
+  used instead of the old 'make boot'.
+
+Release 1.3.6, October 7, 1997
+------------------------------
+* SML/NJ 109.32 is now required for building the RML compiler.
+  (Due to an incompatible change to the DATE signature in
+  the SML Standard Basis.)
+
+Release 1.3.5, September 15, 1997
+---------------------------------
+* It is no longer necessary to specify the location of the
+  SML/NJ installation to the configure script, IF 'sml-cm' is
+  in your $PATH. Now, most users should be able to just run
+  './configure' without supplying any options at all.
+
+Release 1.3.4, September 10, 1997
+---------------------------------
+* Renamed the 'ppc-*-*' ports to 'rs6000-*-*' to conform to
+  existing standards (GCC, SML/NJ). Besides, POWER != PowerPC.
+* Simplified the installation procedure. For most normal
+  non-cross-compiling configurations, the configure script
+  will be able to automatically select the configuration
+  files to use for the current host.
+
+Release 1.3.3, July 22, 1997
+----------------------------
+
+* Added support for the 'diff' (Differential Labels) code
+  generation scheme. Added ports ppc-aix-gcc, ppc-aix-xlc,
+  mips-irix-cc, and mips-irix-gcc.
+* The 'diff' scheme requires additional fairly obscure steps
+  during compilation, hence the 'rmlc' driver for the
+  compilation tools was added. As a benefit, users no longer
+  need to know where RML's include files and runtime libraries
+  are installed, everything is handled by 'rmlc'.
+* To move the system closer to RML Version 2, "print" now has
+  type "string => ()" instead of "'a => ()". Added standard
+  procedure "real_string: real => string". Updated the examples
+  accordingly. Some code cleanups in the 'mf' example.
+
+Release 1.3, June 1997
+----------------------
+
+* Minor release to move the system closer to RML Version 2.
+  The only difference for now is that built-in sequencing
+  operations, i.e. list_nth, list_delete, string_nth, and
+  vector_nth, now use [0,N-1] to index a sequence of N items,
+  instead of [1,N] as in previous versions.
+
+Release 1.2.3, Summer 1996
+--------------------------
+
+* Original release of the rml compiler and runtime libraries.
+  Changes from RML Version 1, as described in my thesis, are:
+	* More liberal syntax for identifiers. All ISO-8859-1
+	  letters are accepted.
+	* The "interface" keyword in module headings has been
+	  replaced by ":".
+	* The entry point for stand-alone applications is Main.main.
+	* A "default" keyword has been added. Placed between
+	  two groups of rules in a relation, it signifies that
+	  the latter group contains "default" actions. Due to
+	  the operational semantics, this keyword has no explicit
+	  operational effect, but it is good style to include it
+	  whenever you actually use "default" rules.
+	* A bug fix to the FOL optimizer. Rule (4) of the FOL-TRS
+	  described in my thesis omitted a precondition: two
+	  cases c1 and c3 can be merged only if no case c2 between
+	  them has "similar" patterns, i.e. there are no values
+	  that are matched by both cases c2 and c3.

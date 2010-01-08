@@ -1,0 +1,10 @@
+AC_INIT(MetaModelica, 2.3.8)
+AC_CONFIG_HEADER(include/config.h)
+AM_INIT_AUTOMAKE
+
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_LN_S
+
+AC_CONFIG_FILES( [Makefile compiler/Makefile])
+AC_OUTPUT

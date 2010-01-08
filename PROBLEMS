@@ -1,0 +1,31 @@
+* You cannot have more than 256 constructors in a single datatype, IF
+  that datatype has a boxed representation (i.e., there's at least
+  one constructor with arguments). A plain enumeration should work.
+  With more than 256 constructors, the generated code will contain bogus
+  values for "tags" in boxed nodes, and C switch statements will have
+  duplicate cases. (The problem is that only 8 bits are reserved for
+  the tags of user-defined boxed structures, and no checks are made.)
+
+* It is difficult, but not impossible, to call C code from RML. Both the
+  miniml and petrol examples contain code that (a) have C code that
+  constructs RML values, and (b) RML code that calls C code. The other
+  way around should also work, using the rml_prim_once() library function.
+
+* Extending RML with new primitive types is difficult. The only way,
+  currently, is to write an RML module interface for a hypothetical
+  module implementing the new type, including access operations,
+  and then implement that module in C. See the "parse.rml" and "ccall.c"
+  files in the miniml and petrol examples.
+
+  Your new type _should_ be represented either as a "string" node
+  or as a "struct" node, using existing tags. (This will not cause
+  any confusion since RML is statically strongly typed.) If you use new
+  tags, then the standard procedure for equality testing will not work.
+
+* The current backends and runtime systems limit the number of
+  procedure and continuation parameters to 32.
+
+* The gc does not inspect the contents of RML values allocated outside
+  of the RML heap, nor does it track external references into the RML
+  heap. To handle external references correctly, users must define a
+  function "rml_user_gc()" which the RML runtime will invoke at gc time.

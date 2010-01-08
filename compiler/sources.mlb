@@ -1,0 +1,2425 @@
+local
+  basis l4 = 
+    bas
+      (* $/basis.cm ====> *) $(SML_LIB)/basis/basis.mlb
+      $(SML_LIB)/basis/unsafe.mlb
+    end
+  basis l161 = 
+    bas
+      (* $/ml-yacc-lib.cm ====> *) $(SML_LIB)/mlyacc-lib/mlyacc-lib.mlb
+    end
+in
+local
+   $(SML_LIB)/basis/pervasive.mlb
+   local
+      open l4
+   in
+      structure gs_0 = String
+      structure gs_1 = Char
+      structure gs_1000 = CommandLine
+      structure gs_1001 = CharVector
+   end
+   local
+      MANGLE.sig
+   in
+      signature gs_2 = MANGLE
+   end
+   local
+      UTIL.sig
+   in
+      signature gs_3 = UTIL
+   end
+   local
+      structure Char = gs_1
+      signature MANGLE = gs_2
+      structure String = gs_0
+      signature UTIL = gs_3
+      MangleFn.sml
+   in
+      functor gs_4 = MangleFn
+   end
+   local
+      open l4
+   in
+      structure gs_5 = TextIO
+   end
+   local
+      ORD_KEY.sig
+   in
+      signature gs_6 = ORD_KEY
+   end
+   local
+      signature ORD_KEY = gs_6
+      ORD_DICT.sig
+   in
+      signature gs_7 = ORD_DICT
+   end
+   local
+      library/common/ARRAY_SOURCE_MAP.sig
+   in
+      signature gs_8 = ARRAY_SOURCE_MAP
+   end
+   local
+      signature ARRAY_SOURCE_MAP = gs_8
+      SOURCE.sig
+   in
+      signature gs_9 = SOURCE
+   end
+   local
+      signature ORD_DICT = gs_7
+      signature SOURCE = gs_9
+      ABSYN.sig
+   in
+      signature gs_10 = ABSYN
+   end
+   local
+      signature ABSYN = gs_10
+      structure TextIO = gs_5
+      ABSYN_PERSIST.sig
+   in
+      signature gs_11 = ABSYN_PERSIST
+   end
+   local
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      Util.sml
+   in
+      structure gs_12 = Util
+   end
+   local
+      functor MangleFn = gs_4
+      structure Util = gs_12
+      Mangle.sml
+   in
+      structure gs_13 = Mangle
+   end
+   local
+      open l4
+   in
+      structure gs_14 = List
+   end
+   local
+      open l4
+   in
+      structure gs_15 = Int
+   end
+   local
+      open l4
+   in
+      structure gs_16 = OS
+   end
+   local
+      MAIN.sig
+   in
+      signature gs_17 = MAIN
+   end
+   local
+      structure TextIO = gs_5
+      CONTROL.sig
+   in
+      signature gs_18 = CONTROL
+   end
+   local
+      CONREP.sig
+   in
+      signature gs_19 = CONREP
+   end
+   local
+      open l4
+   in
+      structure gs_75 = Array
+   end
+   local
+      library/common/DARRAY.sig
+   in
+      signature gs_76 = DARRAY
+   end
+   local
+      structure Array = gs_75
+      signature DARRAY = gs_76
+      structure Int = gs_15
+      library/common/DynIntArray.sml
+   in
+      structure gs_77 = DynIntArray
+   end
+   local
+      signature ARRAY_SOURCE_MAP = gs_8
+      structure DynIntArray = gs_77
+      structure Int = gs_15
+      library/common/ArraySourceMap.sml
+   in
+      structure gs_78 = ArraySourceMap
+   end
+   local
+      open l4
+   in
+      structure gs_79 = Time
+   end
+   local
+      open l4
+   in
+      structure gs_80 = Date
+   end
+   local
+      structure ArraySourceMap = gs_78
+      structure Date = gs_80
+      structure Int = gs_15
+      signature SOURCE = gs_9
+      structure TextIO = gs_5
+      structure Time = gs_79
+      structure Util = gs_12
+      Source.sml
+   in
+      structure gs_81 = Source
+   end   
+   local
+      signature CONREP = gs_19
+      signature SOURCE = gs_9 
+      structure Source = gs_81
+      CPS.sig
+   in
+      signature gs_20 = CPS
+   end
+   local
+      signature CPS = gs_20
+      structure TextIO = gs_5
+      CPSTOSML.sig
+   in
+      signature gs_21 = CPSTOSML
+   end
+   local
+      signature ABSYN = gs_10
+      INTERP.sig
+   in
+      signature gs_22 = INTERP
+   end
+   local
+      open l4
+   in
+      structure gs_23 = Vector
+   end
+   local
+      signature CONREP = gs_19
+      signature MANGLE = gs_2
+      structure TextIO = gs_5
+      structure Vector = gs_23
+      signature SOURCE = gs_9      
+      CODE.sig
+   in
+      signature gs_24 = CODE
+   end
+   local
+      signature CODE = gs_24
+      SWITCH.sig
+   in
+      signature gs_25 = SWITCH
+   end
+   local
+      signature SWITCH = gs_25
+      structure TextIO = gs_5
+      SWITCHTOC.sig
+   in
+      signature gs_26 = SWITCHTOC
+   end
+   local
+      signature CODE = gs_24
+      PLAIN.sig
+   in
+      signature gs_27 = PLAIN
+   end
+   local
+      signature PLAIN = gs_27
+      structure TextIO = gs_5
+      PLAINTOC.sig
+   in
+      signature gs_28 = PLAINTOC
+   end
+   local
+      signature CODE = gs_24
+      CODE_OPTIM.sig
+   in
+      signature gs_29 = CODE_OPTIM
+   end
+   local
+      signature CODE = gs_24
+      signature CPS = gs_20
+      CPSTOCODE.sig
+   in
+      signature gs_30 = CPSTOCODE
+   end
+   local
+      signature CPS = gs_20
+      structure TextIO = gs_5
+      CPS_PRINT.sig
+   in
+      signature gs_31 = CPS_PRINT
+   end
+   local
+      signature CPS = gs_20
+      structure TextIO = gs_5
+      CPS_OPTIM.sig
+   in
+      signature gs_32 = CPS_OPTIM
+   end
+   local
+      signature SOURCE = gs_9 
+      structure Source = gs_81   
+      FOL.sig
+   in
+      signature gs_33 = FOL
+   end
+   local
+      signature CPS = gs_20
+      signature FOL = gs_33
+      FOLTOCPS.sig
+   in
+      signature gs_34 = FOLTOCPS
+   end
+   local
+      signature FOL = gs_33
+      structure TextIO = gs_5
+      FOL_OPTIM.sig
+   in
+      signature gs_35 = FOL_OPTIM
+   end
+   local
+      signature FOL = gs_33
+      structure TextIO = gs_5
+      FOL_PRINT.sig
+   in
+      signature gs_36 = FOL_PRINT
+   end
+   local
+      signature ABSYN = gs_10
+      signature FOL = gs_33
+      ABSYNTOFOL.sig
+   in
+      signature gs_37 = ABSYNTOFOL
+   end
+   local
+      signature ORD_DICT = gs_7
+      STR_DICT.sig
+   in
+      signature gs_38 = STR_DICT
+   end
+   local
+      signature ABSYN = gs_10
+      signature STR_DICT = gs_38
+      FRONTEND.sig
+   in
+      signature gs_39 = FRONTEND
+   end
+   local
+      VERSION.sig
+   in
+      signature gs_40 = VERSION
+   end
+   local
+      signature ABSYN = gs_10
+      signature STR_DICT = gs_38
+      CACHE.sig
+   in
+      signature gs_41 = CACHE
+   end
+   local
+      signature ABSYNTOFOL = gs_37
+      signature CACHE = gs_41
+      signature CODE_OPTIM = gs_29
+      signature CONTROL = gs_18
+      signature CPSTOCODE = gs_30
+      signature CPSTOSML = gs_21
+      signature CPS_OPTIM = gs_32
+      signature CPS_PRINT = gs_31
+      signature FOLTOCPS = gs_34
+      signature FOL_OPTIM = gs_35
+      signature FOL_PRINT = gs_36
+      signature FRONTEND = gs_39
+      signature INTERP = gs_22
+      structure Int = gs_15
+      structure List = gs_14
+      signature MAIN = gs_17
+      structure OS = gs_16
+      signature PLAINTOC = gs_28
+      signature SWITCHTOC = gs_26
+      structure String = gs_0
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      signature VERSION = gs_40
+      MainFn.sml
+   in
+      functor gs_42 = MainFn
+   end
+   local
+      signature ABSYN = gs_10
+      PERSISTENT_PARSE.sig
+   in
+      signature gs_43 = PERSISTENT_PARSE
+   end
+   local
+      open l161
+   in
+      signature gs_44 = ARG_LEXER
+      signature gs_45 = ARG_PARSER
+      signature gs_46 = LEXER
+      signature gs_47 = LR_PARSER
+      signature gs_48 = LR_TABLE
+      signature gs_49 = PARSER
+      signature gs_50 = PARSER_DATA
+      signature gs_51 = STREAM
+      signature gs_52 = TOKEN
+   end
+   local
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature STREAM = gs_51
+      signature TOKEN = gs_52
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      mod.grm.sig
+   in
+      signature gs_53 = MOD_LRVALS
+      signature gs_54 = MOD_TOKENS
+   end
+   local
+      signature CODE = gs_24
+      structure TextIO = gs_5
+      CODETOC.sig
+   in
+      signature gs_55 = CODETOC
+   end
+   local
+      signature SWITCH = gs_25
+      SWITCH_INTRAS.sig
+   in
+      signature gs_56 = SWITCH_INTRAS
+   end
+   local
+      signature CODETOC = gs_55
+      structure List = gs_14
+      signature SWITCH = gs_25
+      signature SWITCHTOC = gs_26
+      signature SWITCH_INTRAS = gs_56
+      structure TextIO = gs_5
+      MaskToCFn.sml
+   in
+      functor gs_57 = MaskToCFn
+   end
+   local
+      signature CODE = gs_24
+      CODE_FVARS.sig
+   in
+      signature gs_58 = CODE_FVARS
+   end
+   local
+      signature CODE = gs_24
+      signature CODE_FVARS = gs_58
+      signature CODE_OPTIM = gs_29
+      structure List = gs_14
+      signature UTIL = gs_3
+      signature CONTROL = gs_18
+      CodeOptimFn.sml
+   in
+      functor gs_59 = CodeOptimFn
+   end
+   local
+      signature CODE = gs_24
+      signature CODE_FVARS = gs_58
+      structure List = gs_14
+      signature UTIL = gs_3
+      CodeFVarsFn.sml
+   in
+      functor gs_60 = CodeFVarsFn
+   end
+   local
+      MAKESTRING.sig
+   in
+      signature gs_61 = MAKESTRING
+   end
+   local
+      signature CONREP = gs_19
+      signature MAKESTRING = gs_61
+      signature MANGLE = gs_2
+      signature SWITCH = gs_25
+      structure TextIO = gs_5
+      structure Vector = gs_23
+      signature SOURCE = gs_9
+      structure Source = gs_81
+      SwitchFn.sml
+   in
+      functor gs_62 = SwitchFn
+   end
+   local
+      signature CONREP = gs_19
+      Conrep.sml
+   in
+      structure gs_63 = ConRep
+   end
+   local
+      structure Char = gs_1
+      structure Int = gs_15
+      signature MAKESTRING = gs_61
+      structure String = gs_0
+      MakeString.sml
+   in
+      structure gs_64 = MakeString
+   end
+   local
+      structure ConRep = gs_63
+      structure MakeString = gs_64
+      structure Mangle = gs_13
+      signature SOURCE = gs_9
+      structure Source = gs_81      
+      functor SwitchFn = gs_62
+      Switch.sml
+   in
+      structure gs_65 = Switch
+   end
+   local
+      functor CodeFVarsFn = gs_60
+      structure Switch = gs_65
+      structure Util = gs_12
+      SwitchFVars.sml
+   in
+      structure gs_66 = SwitchFVars
+   end
+   local
+      open l4
+   in
+      structure gs_68 = Unsafe
+   end
+   local
+      LEXUTIL.sig
+   in
+      signature gs_69 = LEXUTIL
+   end
+   local
+      signature SOURCE = gs_9
+      signature STR_DICT = gs_38
+      structure TextIO = gs_5
+      LEXARG.sig
+   in
+      signature gs_70 = LEXARG
+   end
+   local
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature CACHE = gs_41
+      structure Char = gs_1
+      signature LEXARG = gs_70
+      signature LEXER = gs_46
+      signature LEXUTIL = gs_69
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      signature MOD_LRVALS = gs_53
+      signature MOD_TOKENS = gs_54
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature STREAM = gs_51
+      structure String = gs_0
+      signature TOKEN = gs_52
+      structure Unsafe = gs_68
+      structure Vector = gs_23
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      mod.lex.sml
+   in
+      functor gs_71 = MODLexFn
+   end
+   local
+      open l4
+   in
+      structure gs_72 = Real
+   end
+   local
+      signature ORD_DICT = gs_7
+      signature ORD_KEY = gs_6
+      AADictFn.sml
+   in
+      functor gs_73 = AADictFn
+   end
+   local
+      functor AADictFn = gs_73
+      signature ABSYN = gs_10
+      signature MAKESTRING = gs_61
+      structure Real = gs_72
+      signature SOURCE = gs_9
+      structure String = gs_0
+      AbsynFn.sml
+   in
+      functor gs_74 = AbsynFn
+   end
+   local
+      functor AbsynFn = gs_74
+      structure MakeString = gs_64
+      structure Source = gs_81
+      Absyn.sml
+   in
+      structure gs_82 = Absyn
+   end
+   local
+      structure Absyn = gs_82
+      signature CACHE = gs_41
+      structure OS = gs_16
+      signature STR_DICT = gs_38
+      signature UTIL = gs_3
+      CacheFn.sml
+   in
+      functor gs_83 = CacheFn
+   end
+   local
+      signature ORD_KEY = gs_6
+      structure String = gs_0
+      StrKey.sml
+   in
+      structure gs_84 = StrKey
+   end
+   local
+      functor AADictFn = gs_73
+      structure StrKey = gs_84
+      StrDict.sml
+   in
+      structure gs_85 = StrDict
+   end
+   local
+      functor CacheFn = gs_83
+      structure StrDict = gs_85
+      structure Util = gs_12
+      Cache.sml
+   in
+      structure gs_86 = Cache
+   end
+   local
+      structure Char = gs_1
+      signature LEXUTIL = gs_69
+      structure List = gs_14
+      structure String = gs_0
+      LexUtil.sml
+   in
+      structure gs_87 = LexUtil
+   end
+   local
+      signature CACHE = gs_41
+      signature LEXARG = gs_70
+      signature SOURCE = gs_9
+      structure String = gs_0
+      structure TextIO = gs_5
+      LexArgFn.sml
+   in
+      functor gs_88 = LexArgFn
+   end
+   local
+      structure Cache = gs_86
+      functor LexArgFn = gs_88
+      structure Source = gs_81
+      LexArg.sml
+   in
+      structure gs_89 = LexArg
+   end
+   local
+      open l161
+   in
+      structure gs_90 = LrParser
+   end
+   local
+      signature ABSYN = gs_10
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      structure Array = gs_75
+      signature CACHE = gs_41
+      structure Char = gs_1
+      structure Int = gs_15
+      signature LEXARG = gs_70
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      structure List = gs_14
+      signature MOD_LRVALS = gs_53
+      signature MOD_TOKENS = gs_54
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature STREAM = gs_51
+      structure String = gs_0
+      signature TOKEN = gs_52
+      structure TextIO = gs_5
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      mod.grm.sml
+   in
+      functor gs_91 = MODLrValsFn
+   end
+   local
+      structure Absyn = gs_82
+      structure Cache = gs_86
+      structure LexArg = gs_89
+      structure LrParser = gs_90
+      functor MODLrValsFn = gs_91
+      MODLrVals.sml
+   in
+      structure gs_92 = MODLrVals
+   end
+   local
+      structure Cache = gs_86
+      structure LexArg = gs_89
+      structure LexUtil = gs_87
+      functor MODLexFn = gs_71
+      structure MODLrVals = gs_92
+      structure MakeString = gs_64
+      MODLex.sml
+   in
+      structure gs_93 = MODLex
+   end
+   local
+      signature ABSYN = gs_10
+      structure TextIO = gs_5
+      STAT_ELAB.sig
+   in
+      signature gs_94 = STAT_ELAB
+   end
+   local
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature STREAM = gs_51
+      signature TOKEN = gs_52
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      rml.grm.sig
+   in
+      signature gs_95 = RML_LRVALS
+      signature gs_96 = RML_TOKENS
+   end
+   local
+      signature ABSYN = gs_10
+      structure TextIO = gs_5
+      ABSYN_PRINT.sig
+   in
+      signature gs_97 = ABSYN_PRINT
+   end
+   local
+      signature ABSYN = gs_10
+      signature ABSYN_PRINT = gs_97
+      signature CONTROL = gs_18
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      AbsynPrintFn.sml
+   in
+      functor gs_98 = AbsynPrintFn
+   end
+   local
+      signature ABSYN = gs_10
+      RML_PARSE.sig
+   in
+      signature gs_99 = RML_PARSE
+   end
+   local
+      signature ABSYN = gs_10
+      INTERP_CORE.sig
+   in
+      signature gs_100 = INTERP_CORE
+   end
+   local
+      signature INTERP = gs_22
+      signature INTERP_CORE = gs_100
+      structure List = gs_14
+      signature UTIL = gs_3
+      InterpFn.sml
+   in
+      functor gs_101 = InterpFn
+   end
+   local
+      open l4
+   in
+      structure gs_102 = ListPair
+   end
+   local
+      open l4
+   in
+      structure gs_103 = Math
+   end
+   local
+      signature ABSYN = gs_10
+      structure Char = gs_1
+      signature INTERP_CORE = gs_100
+      signature LEXUTIL = gs_69
+      structure List = gs_14
+      structure ListPair = gs_102
+      signature MAKESTRING = gs_61
+      structure Math = gs_103
+      signature ORD_DICT = gs_7
+      structure Real = gs_72
+      structure String = gs_0
+      signature UTIL = gs_3
+      InterpCoreFn.sml
+   in
+      functor gs_104 = InterpCoreFn
+   end
+   local
+      structure Int = gs_15
+      signature ORD_KEY = gs_6
+      IntKey.sml
+   in
+      structure gs_105 = IntKey
+   end
+   local
+      functor AADictFn = gs_73
+      structure IntKey = gs_105
+      IntDict.sml
+   in
+      structure gs_106 = IntDict
+   end
+   local
+      structure Absyn = gs_82
+      structure IntDict = gs_106
+      functor InterpCoreFn = gs_104
+      structure LexUtil = gs_87
+      structure MakeString = gs_64
+      structure Util = gs_12
+      InterpCore.sml
+   in
+      structure gs_107 = InterpCore
+   end
+   local
+      structure InterpCore = gs_107
+      functor InterpFn = gs_101
+      structure Util = gs_12
+      Interp.sml
+   in
+      structure gs_108 = Interp
+   end
+   local
+      signature STR_DICT = gs_38
+      structure TextIO = gs_5
+      LEXARG_SIMPLE.sig
+   in
+      signature gs_113 = LEXARG_SIMPLE
+   end
+   local
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature STREAM = gs_51
+      signature TOKEN = gs_52
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      persistent.grm.sig
+   in
+      signature gs_114 = PERSISTENT_LRVALS
+      signature gs_115 = PERSISTENT_TOKENS
+   end
+   local
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature CACHE = gs_41
+      structure Char = gs_1
+      signature LEXARG_SIMPLE = gs_113
+      signature LEXER = gs_46
+      signature LEXUTIL = gs_69
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature PERSISTENT_LRVALS = gs_114
+      signature PERSISTENT_TOKENS = gs_115
+      signature STREAM = gs_51
+      structure String = gs_0
+      signature TOKEN = gs_52
+      structure Unsafe = gs_68
+      structure Vector = gs_23
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      persistent.lex.sml
+   in
+      functor gs_116 = PERSISTENTLexFn
+   end
+   local
+      signature CACHE = gs_41
+      structure Int = gs_15
+      signature LEXARG_SIMPLE = gs_113
+      structure String = gs_0
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      LexArgSimpleFn.sml
+   in
+      functor gs_117 = LexArgSimpleFn
+   end
+   local
+      structure Cache = gs_86
+      functor LexArgSimpleFn = gs_117
+      structure Util = gs_12
+      LexArgSimple.sml
+   in
+      structure gs_118 = LexArgSimple
+   end
+   local
+      signature ABSYN = gs_10
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      structure Array = gs_75
+      signature CACHE = gs_41
+      structure Char = gs_1
+      signature LEXARG_SIMPLE = gs_113
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature PERSISTENT_LRVALS = gs_114
+      signature PERSISTENT_TOKENS = gs_115
+      signature STREAM = gs_51
+      structure String = gs_0
+      signature TOKEN = gs_52
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      structure List = gs_14
+      persistent.grm.sml
+   in
+      functor gs_119 = PERSISTENTLrValsFn
+   end
+   local
+      structure Absyn = gs_82
+      structure Cache = gs_86
+      structure LexArgSimple = gs_118
+      structure LrParser = gs_90
+      functor PERSISTENTLrValsFn = gs_119
+      PERSISTENTLrVals.sml
+   in
+      structure gs_120 = PERSISTENTLrVals
+   end
+   local
+      structure Cache = gs_86
+      structure LexArgSimple = gs_118
+      structure LexUtil = gs_87
+      structure MakeString = gs_64
+      functor PERSISTENTLexFn = gs_116
+      structure PERSISTENTLrVals = gs_120
+      PERSISTENTLex.sml
+   in
+      structure gs_121 = PERSISTENTLex
+   end
+   local
+      signature CODETOC = gs_55
+      signature CONTROL = gs_18
+      structure List = gs_14
+      signature PLAIN = gs_27
+      signature PLAINTOC = gs_28
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      PlainToCFn.sml
+   in
+      functor gs_122 = PlainToCFn
+   end
+   local
+      signature ABSYN = gs_10
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature CACHE = gs_41
+      signature LEXARG_SIMPLE = gs_113
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature PERSISTENT_LRVALS = gs_114
+      signature PERSISTENT_PARSE = gs_43
+      signature PERSISTENT_TOKENS = gs_115
+      signature STREAM = gs_51
+      signature TOKEN = gs_52
+      structure TextIO = gs_5
+      structure Time = gs_79
+      structure Util = gs_12
+      PERSISTENTParseFn.sml
+   in
+      functor gs_123 = PERSISTENTParseFn
+   end
+   local
+      open l161
+   in
+      functor gs_124 = Join
+      functor gs_125 = JoinWithArg
+   end
+   local
+      functor Join = gs_124
+      functor JoinWithArg = gs_125
+      structure LrParser = gs_90
+      structure PERSISTENTLex = gs_121
+      structure PERSISTENTLrVals = gs_120
+      PERSISTENTParser.sml
+   in
+      structure gs_126 = PERSISTENTParser
+   end
+   local
+      structure Absyn = gs_82
+      structure Cache = gs_86
+      structure LexArgSimple = gs_118
+      structure PERSISTENTLrVals = gs_120
+      functor PERSISTENTParseFn = gs_123
+      structure PERSISTENTParser = gs_126
+      PERSISTENTParse.sml
+   in
+      structure gs_127 = PERSISTENTParse
+   end
+   local
+      signature CONTROL = gs_18
+      structure OS = gs_16
+      structure PERSISTENTParse = gs_127
+      structure String = gs_0
+      structure TextIO = gs_5
+      structure Time = gs_79
+      structure Util = gs_12
+      Control.sml
+   in
+      structure gs_128 = Control
+   end
+   local
+      functor CodeOptimFn = gs_59
+      structure Switch = gs_65
+      structure SwitchFVars = gs_66
+      structure Util = gs_12
+      structure Control = gs_128
+      SwitchOptim.sml
+   in
+      structure gs_67 = SwitchOptim
+   end   
+   local
+      signature CODE = gs_24
+      signature CODETOC = gs_55
+      signature CONTROL = gs_18
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      structure String = gs_0
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      structure OS = gs_16
+      CodeToCFn.sml
+   in
+      functor gs_129 = CodeToCFn
+   end
+   local
+      signature CONREP = gs_19
+      structure Int = gs_15
+      signature MAKESTRING = gs_61
+      signature MANGLE = gs_2
+      signature PLAIN = gs_27
+      structure TextIO = gs_5
+      structure Vector = gs_23
+      signature SOURCE = gs_9
+      structure Source = gs_81            
+      PlainFn.sml
+   in
+      functor gs_130 = PlainFn
+   end
+   local
+      structure ConRep = gs_63
+      structure MakeString = gs_64
+      structure Mangle = gs_13
+      signature SOURCE = gs_9
+      structure Source = gs_81            
+      functor PlainFn = gs_130
+      Plain.sml
+   in
+      structure gs_131 = Plain
+   end
+   local
+      functor CodeToCFn = gs_129
+      structure Control = gs_128
+      structure MakeString = gs_64
+      structure Plain = gs_131
+      structure Util = gs_12
+      PlainCodeToC.sml
+   in
+      structure gs_132 = PlainCodeToC
+   end
+   local
+      structure Control = gs_128
+      structure Plain = gs_131
+      structure PlainCodeToC = gs_132
+      functor PlainToCFn = gs_122
+      structure Util = gs_12
+      PlainToC.sml
+   in
+      structure gs_133 = PlainToC
+   end
+   local
+      signature CONREP = gs_19
+      signature CPS = gs_20
+      signature STR_DICT = gs_38
+      TRANSENV.sig
+   in
+      signature gs_134 = TRANSENV
+   end
+   local
+      signature CPS = gs_20
+      signature STR_DICT = gs_38
+      signature TRANSENV = gs_134
+      signature UTIL = gs_3
+      TransEnvFn.sml
+   in
+      functor gs_135 = TransEnvFn
+   end
+   local
+      signature CONREP = gs_19
+      signature SOURCE = gs_9
+      structure Source = gs_81      
+      signature CPS = gs_20
+      structure Real = gs_72
+      signature UTIL = gs_3
+      CPSFn.sml
+   in
+      functor gs_136 = CPSFn
+   end
+   local
+      signature SOURCE = gs_9
+      structure Source = gs_81   
+      functor CPSFn = gs_136
+      structure ConRep = gs_63
+      structure Util = gs_12
+      CPS.sml
+   in
+      structure gs_137 = CPS
+   end
+   local
+      structure CPS = gs_137
+      structure StrDict = gs_85
+      functor TransEnvFn = gs_135
+      structure Util = gs_12
+      TransEnv.sml
+   in
+      structure gs_138 = TransEnv
+   end
+   local
+      structure TextIO = gs_5
+      TY.sig
+   in
+      signature gs_139 = TY
+   end
+   local
+      signature TY = gs_139
+      TY_SCHEME.sig
+   in
+      signature gs_140 = TY_SCHEME
+   end
+   local
+      signature TY = gs_139
+      TY_COMB.sig
+   in
+      signature gs_141 = TY_COMB
+   end
+   local
+      structure String = gs_0
+      signature TY_COMB = gs_141
+      signature TY_SCHEME = gs_140
+      signature UTIL = gs_3
+      TySchemeFn.sml
+   in
+      functor gs_142 = TySchemeFn
+   end
+   local
+      functor CodeToCFn = gs_129
+      structure Control = gs_128
+      structure MakeString = gs_64
+      structure Switch = gs_65
+      structure Util = gs_12
+      SwitchCodeToC.sml
+   in
+      structure gs_143 = SwitchCodeToC
+   end
+   local
+      signature CPS = gs_20
+      CPS_USEFUL.sig
+   in
+      signature gs_144 = CPS_USEFUL
+   end
+   local
+      signature CPS = gs_20
+      signature CPS_USEFUL = gs_144
+      structure List = gs_14
+      signature UTIL = gs_3
+      CPSUsefulFn.sml
+   in
+      functor gs_145 = CPSUsefulFn
+   end
+   local
+      structure CPS = gs_137
+      functor CPSUsefulFn = gs_145
+      structure Util = gs_12
+      CPSUseful.sml
+   in
+      structure gs_146 = CPSUseful
+   end
+   local
+      signature CPS = gs_20
+      CPS_USAGES.sig
+   in
+      signature gs_147 = CPS_USAGES
+   end
+   local
+      signature CPS = gs_20
+      signature CPS_USAGES = gs_147
+      signature CPS_USEFUL = gs_144
+      structure List = gs_14
+      signature UTIL = gs_3
+      CPSUsagesFn.sml
+   in
+      functor gs_148 = CPSUsagesFn
+   end
+   local
+      structure CPS = gs_137
+      functor CPSUsagesFn = gs_148
+      structure CPSUseful = gs_146
+      structure Util = gs_12
+      CPSUsages.sml
+   in
+      structure gs_149 = CPSUsages
+   end
+   local
+      structure List = gs_14
+      signature TY = gs_139
+      signature TY_COMB = gs_141
+      signature UTIL = gs_3
+      structure Vector = gs_23
+      TyCombFn.sml
+   in
+      functor gs_150 = TyCombFn
+   end
+   local
+      structure Char = gs_1
+      structure List = gs_14
+      structure String = gs_0
+      signature TY = gs_139
+      structure TextIO = gs_5
+      Ty.sml
+   in
+      structure gs_151 = Ty
+   end
+   local
+      structure Ty = gs_151
+      functor TyCombFn = gs_150
+      structure Util = gs_12
+      TyComb.sml
+   in
+      structure gs_152 = TyComb
+   end
+   local
+      structure TyComb = gs_152
+      functor TySchemeFn = gs_142
+      structure Util = gs_12
+      TyScheme.sml
+   in
+      structure gs_153 = TyScheme
+   end
+   local
+      open l4
+   in
+      structure gs_154 = General
+   end
+   local
+      signature CPS = gs_20
+      CPS_FVARS.sig
+   in
+      signature gs_155 = CPS_FVARS
+   end
+   local
+      signature CODE = gs_24
+      signature CPS = gs_20
+      signature CPSTOCODE = gs_30
+      signature CPS_FVARS = gs_155
+      signature CPS_USAGES = gs_147
+      structure General = gs_154
+      structure Int = gs_15
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      structure Real = gs_72
+      signature UTIL = gs_3
+      structure Vector = gs_23
+      CPSToCodeFn.sml
+   in
+      functor gs_156 = CPSToCodeFn
+   end
+   local
+      signature CPS = gs_20
+      signature CPS_FVARS = gs_155
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      signature UTIL = gs_3
+      CPSFVarsFn.sml
+   in
+      functor gs_157 = CPSFVarsFn
+   end
+   local
+      structure CPS = gs_137
+      functor CPSFVarsFn = gs_157
+      structure MakeString = gs_64
+      structure Util = gs_12
+      CPSFVars.sml
+   in
+      structure gs_158 = CPSFVars
+   end
+   local
+      structure CPS = gs_137
+      structure CPSFVars = gs_158
+      functor CPSToCodeFn = gs_156
+      structure CPSUsages = gs_149
+      structure MakeString = gs_64
+      structure Switch = gs_65
+      structure Util = gs_12
+      CPSToSwitch.sml
+   in
+      structure gs_159 = CPSToSwitch
+   end
+   local
+      signature TY = gs_139
+      TY_FCN.sig
+   in
+      signature gs_160 = TY_FCN
+   end
+   local
+      signature ABSYN = gs_10
+      signature TY = gs_139
+      signature TY_FCN = gs_160
+      signature TY_SCHEME = gs_140
+      STAT_OBJ.sig
+   in
+      signature gs_161 = STAT_OBJ
+   end
+   local
+      signature ABSYN = gs_10
+      signature CONTROL = gs_18
+      structure Int = gs_15
+      signature STAT_OBJ = gs_161
+      signature TY_FCN = gs_160
+      signature TY_SCHEME = gs_140
+      StatObjFn.sml
+   in
+      functor gs_162 = StatObjFn
+   end
+   local
+      signature CPS = gs_20
+      signature CPSTOSML = gs_21
+      structure Int = gs_15
+      structure Real = gs_72
+      structure String = gs_0
+      structure TextIO = gs_5
+      CPSToSMLFn.sml
+   in
+      functor gs_163 = CPSToSMLFn
+   end
+   local
+      structure CPS = gs_137
+      functor CPSToSMLFn = gs_163
+      CPSToSML.sml
+   in
+      structure gs_164 = CPSToSML
+   end
+   local
+      structure TextIO = gs_5
+      PP.sig
+   in
+      signature gs_165 = PP
+   end
+   local
+      signature CPS = gs_20
+      signature CPS_PRINT = gs_31
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      signature PP = gs_165
+      signature UTIL = gs_3
+      CPSPrintFn.sml
+   in
+      functor gs_166 = CPSPrintFn
+   end
+   local
+      structure Array = gs_75
+      signature PP = gs_165
+      structure String = gs_0
+      structure TextIO = gs_5
+      PP.sml
+   in
+      structure gs_167 = PP
+   end
+   local
+      structure CPS = gs_137
+      functor CPSPrintFn = gs_166
+      structure MakeString = gs_64
+      structure PP = gs_167
+      structure Util = gs_12
+      CPSPrint.sml
+   in
+      structure gs_168 = CPSPrint
+   end
+   local
+      signature CPS = gs_20
+      signature CPS_OPTIM = gs_32
+      signature CPS_PRINT = gs_31
+      signature CPS_USAGES = gs_147
+      structure List = gs_14
+      structure TextIO = gs_5
+      structure Int = gs_15
+      signature UTIL = gs_3      
+      CPSOptimFn.sml
+   in
+      functor gs_169 = CPSOptimFn
+   end
+   local
+      structure CPS = gs_137
+      functor CPSOptimFn = gs_169
+      structure CPSPrint = gs_168
+      structure CPSUsages = gs_149
+      structure Int = gs_15
+      structure Util = gs_12
+      CPSOptim.sml
+   in
+      structure gs_170 = CPSOptim
+   end
+   local
+      structure List = gs_14
+      signature SWITCH = gs_25
+      signature SWITCH_INTRAS = gs_56
+      signature UTIL = gs_3
+      SwitchIntrasFn.sml
+   in
+      functor gs_171 = SwitchIntrasFn
+   end
+   local
+      signature ABSYN = gs_10
+      ABSYN_INSTRUMENTED.sig
+   in
+      signature gs_188 = ABSYN_INSTRUMENTED
+   end   
+   local
+      signature ABSYN = gs_10
+      signature ABSYN_INSTRUMENTED = gs_188
+      signature CONTROL = gs_18
+      structure Int = gs_15
+      structure List = gs_14
+      structure MakeString = gs_64
+      signature UTIL = gs_3
+      InstrumentFn.sml
+   in
+      functor gs_226 = InstrumentFn
+   end   
+   local
+      structure Absyn = gs_82
+      structure Control = gs_128
+      functor InstrumentFn = gs_226
+      structure Util = gs_12
+      Instrument.sml
+   in
+      structure gs_237 = Instrument
+   end   
+   local
+      signature ABSYN = gs_10
+      signature ABSYNTOFOL = gs_37
+      structure Char = gs_1
+      signature FOL = gs_33
+      structure List = gs_14
+      structure ListPair = gs_102
+      signature STR_DICT = gs_38
+      signature UTIL = gs_3
+      signature ABSYN_INSTRUMENTED = gs_188
+      AbsynToFOLFn.sml
+   in
+      functor gs_172 = AbsynToFOLFn
+   end
+   local
+      signature SOURCE = gs_9
+      structure Source = gs_81   
+      signature FOL = gs_33
+      structure Int = gs_15
+      structure Real = gs_72
+      signature UTIL = gs_3
+      FOLFn.sml
+   in
+      functor gs_173 = FOLFn
+   end
+   local
+      signature SOURCE = gs_9
+      structure Source = gs_81   
+      functor FOLFn = gs_173
+      structure Util = gs_12
+      FOL.sml
+   in
+      structure gs_174 = FOL
+   end
+   local
+      structure Absyn = gs_82
+      structure Instrument = gs_237      
+      functor AbsynToFOLFn = gs_172
+      structure FOL = gs_174
+      structure StrDict = gs_85
+      structure Util = gs_12
+      AbsynToFOL.sml
+   in
+      structure gs_175 = AbsynToFOL
+   end
+   local
+      structure Absyn = gs_82
+      functor AbsynPrintFn = gs_98
+      structure Control = gs_128
+      structure MakeString = gs_64
+      structure Util = gs_12
+      AbsynPrint.sml
+   in
+      structure gs_176 = AbsynPrint
+   end
+   local
+      signature ABSYN = gs_10
+      REORDER.sig
+   in
+      signature gs_177 = REORDER
+   end
+   local
+      signature ABSYN = gs_10
+      REORDER_VAL.sig
+   in
+      signature gs_178 = REORDER_VAL
+   end
+   local
+      signature ABSYN = gs_10
+      REORDER_TY.sig
+   in
+      signature gs_179 = REORDER_TY
+   end
+   local
+      signature CONTROL = gs_18
+      structure List = gs_14
+      signature REORDER = gs_177
+      signature REORDER_TY = gs_179
+      signature REORDER_VAL = gs_178
+      signature UTIL = gs_3
+      ReorderFn.sml
+   in
+      functor gs_180 = ReorderFn
+   end
+   local
+      REORDER_SCC.sig
+   in
+      signature gs_181 = REORDER_SCC
+   end
+   local
+      signature ABSYN = gs_10
+      structure Array = gs_75
+      structure List = gs_14
+      signature REORDER_SCC = gs_181
+      signature REORDER_VAL = gs_178
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      structure Vector = gs_23
+      ReorderValFn.sml
+   in
+      functor gs_182 = ReorderValFn
+   end
+   local
+      structure List = gs_14
+      signature REORDER_SCC = gs_181
+      structure Vector = gs_23
+      ReorderSCC.sml
+   in
+      structure gs_183 = ReorderSCC
+   end
+   local
+      structure Absyn = gs_82
+      structure ReorderSCC = gs_183
+      functor ReorderValFn = gs_182
+      structure Util = gs_12
+      ReorderVal.sml
+   in
+      structure gs_184 = ReorderVal
+   end
+   local
+      signature ABSYN = gs_10
+      structure Array = gs_75
+      structure List = gs_14
+      signature REORDER_SCC = gs_181
+      signature REORDER_TY = gs_179
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      structure Vector = gs_23
+      ReorderTyFn.sml
+   in
+      functor gs_185 = ReorderTyFn
+   end
+   local
+      structure Absyn = gs_82
+      structure ReorderSCC = gs_183
+      functor ReorderTyFn = gs_185
+      structure Util = gs_12
+      ReorderTy.sml
+   in
+      structure gs_186 = ReorderTy
+   end
+   local
+      structure Control = gs_128
+      functor ReorderFn = gs_180
+      structure ReorderTy = gs_186
+      structure ReorderVal = gs_184
+      structure Util = gs_12
+      Reorder.sml
+   in
+      structure gs_187 = Reorder
+   end
+   local
+      signature ABSYN_INSTRUMENTED = gs_188
+      signature ABSYN_PERSIST = gs_11
+      signature ABSYN_PRINT = gs_97
+      signature CACHE = gs_41
+      signature CONTROL = gs_18
+      structure General = gs_154
+      structure Int = gs_15
+      structure List = gs_14
+      signature STAT_ELAB = gs_94
+      signature STAT_OBJ = gs_161
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      structure String = gs_0
+      StatElabFn.sml
+   in
+      functor gs_189 = StatElabFn
+   end
+   local
+      signature FOL = gs_33
+      FOL_UNIFY.sig
+   in
+      signature gs_190 = FOL_UNIFY
+   end
+   local
+      signature ABSYN = gs_10
+      signature ABSYN_PERSIST = gs_11
+      signature CACHE = gs_41
+      signature CONTROL = gs_18
+      structure Int = gs_15
+      signature MAKESTRING = gs_61
+      signature PERSISTENT_PARSE = gs_43
+      signature SOURCE = gs_9
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      structure String = gs_0
+      structure List = gs_14
+      AbsynPersistFn.sml
+   in
+      functor gs_191 = AbsynPersistFn
+   end
+   local
+      structure Absyn = gs_82
+      functor AbsynPersistFn = gs_191
+      structure Cache = gs_86
+      structure Control = gs_128
+      structure MakeString = gs_64
+      structure PERSISTENTParse = gs_127
+      structure Source = gs_81
+      structure Util = gs_12
+      AbsynPersist.sml
+   in
+      structure gs_192 = AbsynPersist
+   end
+   local
+      signature ABSYN = gs_10
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      structure Array = gs_75
+      signature CACHE = gs_41
+      structure Char = gs_1
+      structure Int = gs_15
+      signature LEXARG = gs_70
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature RML_LRVALS = gs_95
+      signature RML_TOKENS = gs_96
+      signature STREAM = gs_51
+      structure String = gs_0
+      signature TOKEN = gs_52
+      structure TextIO = gs_5
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      rml.grm.sml
+   in
+      functor gs_193 = RMLLrValsFn
+   end
+   local
+      structure Absyn = gs_82
+      structure Cache = gs_86
+      structure LexArg = gs_89
+      structure LrParser = gs_90
+      functor RMLLrValsFn = gs_193
+      RMLLrVals.sml
+   in
+      structure gs_194 = RMLLrVals
+   end
+   local
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature CACHE = gs_41
+      structure Char = gs_1
+      signature LEXARG = gs_70
+      signature LEXER = gs_46
+      signature LEXUTIL = gs_69
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature RML_LRVALS = gs_95
+      signature RML_TOKENS = gs_96
+      signature STREAM = gs_51
+      structure String = gs_0
+      signature TOKEN = gs_52
+      structure Unsafe = gs_68
+      structure Vector = gs_23
+      structure Int = gs_15
+      structure CharVector = gs_1001
+      rml.lex.sml
+   in
+      functor gs_195 = RMLLexFn
+   end
+   local
+      structure Cache = gs_86
+      structure LexArg = gs_89
+      structure LexUtil = gs_87
+      structure MakeString = gs_64
+      functor RMLLexFn = gs_195
+      structure RMLLrVals = gs_194
+      RMLLex.sml
+   in
+      structure gs_196 = RMLLex
+   end
+   local
+      structure Control = gs_128
+      functor Join = gs_124
+      functor JoinWithArg = gs_125
+      structure LrParser = gs_90
+      structure RMLLex = gs_196
+      structure RMLLrVals = gs_194
+      RMLParser.sml
+   in
+      structure gs_197 = RMLParser
+   end
+   local
+      structure Switch = gs_65
+      functor SwitchIntrasFn = gs_171
+      structure Util = gs_12
+      SwitchIntras.sml
+   in
+      structure gs_198 = SwitchIntras
+   end
+   local
+      functor MaskToCFn = gs_57
+      structure Switch = gs_65
+      structure SwitchCodeToC = gs_143
+      structure SwitchIntras = gs_198
+      MaskToC.sml
+   in
+      structure gs_199 = MaskToC
+   end
+   local
+      signature CODETOC = gs_55
+      structure Int = gs_15
+      structure List = gs_14
+      signature SWITCH = gs_25
+      signature SWITCHTOC = gs_26
+      signature SWITCH_INTRAS = gs_56
+      structure TextIO = gs_5
+      DiffToCFn.sml
+   in
+      functor gs_200 = DiffToCFn
+   end
+   local
+      signature FOL = gs_33
+      signature FOL_UNIFY = gs_190
+      structure List = gs_14
+      structure String = gs_0
+      signature UTIL = gs_3
+      FOLUnifyFn.sml
+   in
+      functor gs_201 = FOLUnifyFn
+   end
+   local
+      structure FOL = gs_174
+      functor FOLUnifyFn = gs_201
+      structure Util = gs_12
+      FOLUnify.sml
+   in
+      structure gs_202 = FOLUnify
+   end
+   local
+      signature CPS = gs_20
+      PMC.sig
+   in
+      signature gs_203 = PMC
+   end
+   local
+      signature FOL = gs_33
+      FOL_USAGES.sig
+   in
+      signature gs_204 = FOL_USAGES
+   end
+   local
+      signature CONTROL = gs_18
+      signature FOLTOCPS = gs_34
+      signature FOL_USAGES = gs_204
+      structure List = gs_14
+      structure ListPair = gs_102
+      signature PMC = gs_203
+      signature TRANSENV = gs_134
+      signature UTIL = gs_3
+      structure Int = gs_15      
+      FOLToCPSFn.sml
+   in
+      functor gs_205 = FOLToCPSFn
+   end
+   local
+	  signature CONTROL = gs_18   
+      structure Control = gs_128	  
+      signature CPS = gs_20
+      structure Int = gs_15
+      structure List = gs_14
+      structure ListPair = gs_102
+      signature PMC = gs_203
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      PMCFn.sml
+   in
+      functor gs_206 = PMCFn
+   end
+   local
+	  signature CONTROL = gs_18   
+      structure Control = gs_128	  
+      structure CPS = gs_137
+      functor PMCFn = gs_206
+      structure Util = gs_12
+      PMC.sml
+   in
+      structure gs_207 = PMC
+   end
+   local
+      signature FOL = gs_33
+      signature FOL_USAGES = gs_204
+      structure List = gs_14
+      signature UTIL = gs_3
+      FOLUsagesFn.sml
+   in
+      functor gs_208 = FOLUsagesFn
+   end
+   local
+      structure FOL = gs_174
+      functor FOLUsagesFn = gs_208
+      structure Util = gs_12
+      FOLUsages.sml
+   in
+      structure gs_209 = FOLUsages
+   end
+   local
+      structure Control = gs_128
+      functor FOLToCPSFn = gs_205
+      structure FOLUsages = gs_209
+      structure PMC = gs_207
+      structure TransEnv = gs_138
+      structure Util = gs_12
+      FOLToCPS.sml
+   in
+      structure gs_210 = FOLToCPS
+   end
+   local
+      signature FOL_PRINT = gs_36
+      signature FOL_USAGES = gs_204
+      structure List = gs_14
+      signature MAKESTRING = gs_61
+      signature PP = gs_165
+      structure String = gs_0
+      signature UTIL = gs_3
+      structure Int = gs_15
+      FOLPrintFn.sml
+   in
+      functor gs_211 = FOLPrintFn
+   end
+   local
+	  structure Int = gs_15
+      functor FOLPrintFn = gs_211
+      structure FOLUsages = gs_209
+      structure MakeString = gs_64
+      structure PP = gs_167
+      structure Util = gs_12
+      FOLPrint.sml
+   in
+      structure gs_212 = FOLPrint
+   end
+   local
+      signature FOL_OPTIM = gs_35
+      signature FOL_PRINT = gs_36
+      signature FOL_UNIFY = gs_190
+      structure List = gs_14
+      structure String = gs_0
+      signature UTIL = gs_3
+      FOLOptimFn.sml
+   in
+      functor gs_213 = FOLOptimFn
+   end
+   local
+      functor FOLOptimFn = gs_213
+      structure FOLPrint = gs_212
+      structure FOLUnify = gs_202
+      structure Util = gs_12
+      FOLOptim.sml
+   in
+      structure gs_214 = FOLOptim
+   end
+   local
+      structure List = gs_14
+      signature TY_COMB = gs_141
+      signature TY_FCN = gs_160
+      signature UTIL = gs_3
+      TyFcnFn.sml
+   in
+      functor gs_215 = TyFcnFn
+   end
+   local
+      structure TyComb = gs_152
+      functor TyFcnFn = gs_215
+      structure Util = gs_12
+      TyFcn.sml
+   in
+      structure gs_216 = TyFcn
+   end
+   local
+      structure Absyn = gs_82
+      structure Control = gs_128
+      functor StatObjFn = gs_162
+      structure TyFcn = gs_216
+      structure TyScheme = gs_153
+      StatObj.sml
+   in
+      structure gs_217 = StatObj
+   end
+   local
+      structure OS = gs_16
+      START.sig
+   in
+      signature gs_218 = START
+   end
+   local
+      SYSDEP.sig
+   in
+      signature gs_219 = SYSDEP
+   end
+   local
+      structure General = gs_154
+      structure OS = gs_16
+      signature START = gs_218
+      signature SYSDEP = gs_219
+      structure TextIO = gs_5
+      StartFn.sml
+   in
+      functor gs_220 = StartFn
+   end
+   local
+      signature ABSYN = gs_10
+      MOTORML.sig
+   in
+      signature gs_221 = MOTORML
+   end
+   local
+      signature ABSYN = gs_10
+      MOD_PARSE.sig
+   in
+      signature gs_222 = MOD_PARSE
+   end
+   local
+      signature ABSYN = gs_10
+      signature ABSYN_INSTRUMENTED = gs_188
+      signature ABSYN_PERSIST = gs_11
+      signature ABSYN_PRINT = gs_97
+      signature CACHE = gs_41
+      signature CONTROL = gs_18
+      signature FRONTEND = gs_39
+      structure Int = gs_15
+      structure List = gs_14
+      signature MOD_PARSE = gs_222
+      signature MOTORML = gs_221
+      structure OS = gs_16
+      signature REORDER = gs_177
+      signature RML_PARSE = gs_99
+      signature STAT_ELAB = gs_94
+      structure String = gs_0
+      structure TextIO = gs_5
+      signature UTIL = gs_3
+      FrontEndFn.sml
+   in
+      functor gs_223 = FrontEndFn
+   end
+   local
+      signature ABSYN = gs_10
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature CACHE = gs_41
+      signature CONTROL = gs_18
+      signature LEXARG = gs_70
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature REORDER = gs_177
+      signature RML_LRVALS = gs_95
+      signature RML_PARSE = gs_99
+      signature RML_TOKENS = gs_96
+      signature STREAM = gs_51
+      signature TOKEN = gs_52
+      structure TextIO = gs_5
+      structure Time = gs_79
+      structure Util = gs_12
+      RMLParseFn.sml
+   in
+      functor gs_224 = RMLParseFn
+   end
+   local
+      structure Absyn = gs_82
+      structure Cache = gs_86
+      structure Control = gs_128
+      structure LexArg = gs_89
+      structure RMLLrVals = gs_194
+      functor RMLParseFn = gs_224
+      structure RMLParser = gs_197
+      structure Reorder = gs_187
+      RMLParse.sml
+   in
+      structure gs_225 = RMLParse
+   end
+   local
+      functor CodeFVarsFn = gs_60
+      structure Plain = gs_131
+      structure Util = gs_12
+      PlainFVars.sml
+   in
+      structure gs_227 = PlainFVars
+   end
+   local
+      functor CodeOptimFn = gs_59
+      structure Plain = gs_131
+      structure PlainFVars = gs_227
+      structure Util = gs_12
+      structure Control = gs_128
+      PlainOptim.sml
+   in
+      structure gs_228 = PlainOptim
+   end
+   local
+      structure Int = gs_15
+      signature SYSDEP = gs_219
+      SysDep.sml
+   in
+      structure gs_229 = SysDep
+   end
+   local
+      functor StartFn = gs_220
+      structure SysDep = gs_229
+      Start.sml
+   in
+      structure gs_230 = Start
+   end
+   local
+      functor DiffToCFn = gs_200
+      structure Switch = gs_65
+      structure SwitchCodeToC = gs_143
+      structure SwitchIntras = gs_198
+      DiffToC.sml
+   in
+      structure gs_231 = DiffToC
+   end
+   local
+      signature ABSYN = gs_10
+      signature ARG_LEXER = gs_44
+      signature ARG_PARSER = gs_45
+      signature CACHE = gs_41
+      signature LEXARG = gs_70
+      signature LEXER = gs_46
+      signature LR_PARSER = gs_47
+      signature LR_TABLE = gs_48
+      signature MOD_LRVALS = gs_53
+      signature MOD_PARSE = gs_222
+      signature MOD_TOKENS = gs_54
+      signature PARSER = gs_49
+      signature PARSER_DATA = gs_50
+      signature STREAM = gs_51
+      signature TOKEN = gs_52
+      structure TextIO = gs_5
+      structure Time = gs_79
+      signature UTIL = gs_3
+      structure OS = gs_16
+      structure Control = gs_128
+      MODParseFn.sml
+   in
+      functor gs_232 = MODParseFn
+   end
+   local
+      signature ABSYN = gs_10
+      signature ABSYN_PRINT = gs_97
+      signature CACHE = gs_41
+      signature CONTROL = gs_18
+      structure Int = gs_15
+      structure List = gs_14
+      signature MOTORML = gs_221
+      signature STR_DICT = gs_38
+      signature UTIL = gs_3
+      MOToRMLFn.sml
+   in
+      functor gs_233 = MOToRMLFn
+   end
+   local
+      structure Absyn = gs_82
+      structure AbsynPrint = gs_176
+      structure Cache = gs_86
+      structure Control = gs_128
+      functor MOToRMLFn = gs_233
+      structure StrDict = gs_85
+      structure Util = gs_12
+      MOToRML.sml
+   in
+      structure gs_234 = MOToRML
+   end
+   local
+      functor Join = gs_124
+      functor JoinWithArg = gs_125
+      structure LrParser = gs_90
+      structure MODLex = gs_93
+      structure MODLrVals = gs_92
+      structure MOToRML = gs_234
+      MODParser.sml
+   in
+      structure gs_235 = MODParser
+   end
+   local
+      structure Absyn = gs_82
+      structure Cache = gs_86
+      structure LexArg = gs_89
+      structure MODLrVals = gs_92
+      functor MODParseFn = gs_232
+      structure MODParser = gs_235
+      structure Util = gs_12
+      MODParse.sml
+   in
+      structure gs_236 = MODParse
+   end
+   local
+      structure AbsynPersist = gs_192
+      structure AbsynPrint = gs_176
+      structure Cache = gs_86
+      structure Control = gs_128
+      structure Instrument = gs_237
+      functor StatElabFn = gs_189
+      structure StatObj = gs_217
+      structure Util = gs_12
+      structure String = gs_0
+      StatElab.sml
+   in
+      structure gs_238 = StatElab
+   end
+   local
+      structure Absyn = gs_82
+      structure AbsynPersist = gs_192
+      structure AbsynPrint = gs_176
+      structure Cache = gs_86
+      structure Control = gs_128
+      functor FrontEndFn = gs_223
+      structure Instrument = gs_237
+      structure MODParse = gs_236
+      structure MOToRML = gs_234
+      structure RMLParse = gs_225
+      structure Reorder = gs_187
+      structure StatElab = gs_238
+      structure Util = gs_12
+      FrontEnd.sml
+   in
+      structure gs_239 = FrontEnd
+   end
+   local
+      structure Date = gs_80
+      signature SYSDEP = gs_219
+      structure Time = gs_79
+      signature VERSION = gs_40
+      VersionFn.sml
+   in
+      functor gs_240 = VersionFn
+   end
+   local
+      structure SysDep = gs_229
+      functor VersionFn = gs_240
+      Version.sml
+   in
+      structure gs_241 = Version
+   end
+   local
+      structure CPS = gs_137
+      structure CPSFVars = gs_158
+      functor CPSToCodeFn = gs_156
+      structure CPSUsages = gs_149
+      structure MakeString = gs_64
+      structure Plain = gs_131
+      structure Util = gs_12
+      CPSToPlain.sml
+   in
+      structure gs_242 = CPSToPlain
+   end
+   local
+      structure AbsynToFOL = gs_175
+      structure CPSOptim = gs_170
+      structure CPSPrint = gs_168
+      structure CPSToPlain = gs_242
+      structure CPSToSML = gs_164
+      structure CPSToSwitch = gs_159
+      structure Cache = gs_86
+      structure Control = gs_128
+      structure DiffToC = gs_231
+      structure FOLOptim = gs_214
+      structure FOLPrint = gs_212
+      structure FOLToCPS = gs_210
+      structure FrontEnd = gs_239
+      structure Interp = gs_108
+      functor MainFn = gs_42
+      structure MaskToC = gs_199
+      structure PlainOptim = gs_228
+      structure PlainToC = gs_133
+      structure SwitchOptim = gs_67
+      structure Util = gs_12
+      structure Version = gs_241
+      Main.sml
+   in
+      structure gs_243 = Main
+   end
+in
+   functor AADictFn = gs_73
+   signature ABSYN = gs_10
+   signature ABSYNTOFOL = gs_37
+   signature ABSYN_INSTRUMENTED = gs_188
+   signature ABSYN_PERSIST = gs_11
+   signature ABSYN_PRINT = gs_97
+   signature ARRAY_SOURCE_MAP = gs_8
+   structure Absyn = gs_82
+   functor AbsynFn = gs_74
+   structure AbsynPersist = gs_192
+   functor AbsynPersistFn = gs_191
+   structure AbsynPrint = gs_176
+   functor AbsynPrintFn = gs_98
+   structure AbsynToFOL = gs_175
+   functor AbsynToFOLFn = gs_172
+   structure ArraySourceMap = gs_78
+   signature CACHE = gs_41
+   signature CODE = gs_24
+   signature CODETOC = gs_55
+   signature CODE_FVARS = gs_58
+   signature CODE_OPTIM = gs_29
+   signature CONREP = gs_19
+   signature CONTROL = gs_18
+   signature CPS = gs_20
+   structure CPS = gs_137
+   structure CPSFVars = gs_158
+   functor CPSFVarsFn = gs_157
+   functor CPSFn = gs_136
+   structure CPSOptim = gs_170
+   functor CPSOptimFn = gs_169
+   structure CPSPrint = gs_168
+   functor CPSPrintFn = gs_166
+   signature CPSTOCODE = gs_30
+   signature CPSTOSML = gs_21
+   functor CPSToCodeFn = gs_156
+   structure CPSToPlain = gs_242
+   structure CPSToSML = gs_164
+   functor CPSToSMLFn = gs_163
+   structure CPSToSwitch = gs_159
+   structure CPSUsages = gs_149
+   functor CPSUsagesFn = gs_148
+   structure CPSUseful = gs_146
+   functor CPSUsefulFn = gs_145
+   signature CPS_FVARS = gs_155
+   signature CPS_OPTIM = gs_32
+   signature CPS_PRINT = gs_31
+   signature CPS_USAGES = gs_147
+   signature CPS_USEFUL = gs_144
+   structure Cache = gs_86
+   functor CacheFn = gs_83
+   functor CodeFVarsFn = gs_60
+   functor CodeOptimFn = gs_59
+   functor CodeToCFn = gs_129
+   structure ConRep = gs_63
+   structure Control = gs_128
+   signature DARRAY = gs_76
+   structure DiffToC = gs_231
+   functor DiffToCFn = gs_200
+   structure DynIntArray = gs_77
+   signature FOL = gs_33
+   structure FOL = gs_174
+   functor FOLFn = gs_173
+   structure FOLOptim = gs_214
+   functor FOLOptimFn = gs_213
+   structure FOLPrint = gs_212
+   functor FOLPrintFn = gs_211
+   signature FOLTOCPS = gs_34
+   structure FOLToCPS = gs_210
+   functor FOLToCPSFn = gs_205
+   structure FOLUnify = gs_202
+   functor FOLUnifyFn = gs_201
+   structure FOLUsages = gs_209
+   functor FOLUsagesFn = gs_208
+   signature FOL_OPTIM = gs_35
+   signature FOL_PRINT = gs_36
+   signature FOL_UNIFY = gs_190
+   signature FOL_USAGES = gs_204
+   signature FRONTEND = gs_39
+   structure FrontEnd = gs_239
+   functor FrontEndFn = gs_223
+   signature INTERP = gs_22
+   signature INTERP_CORE = gs_100
+   structure Instrument = gs_237
+   functor InstrumentFn = gs_226
+   structure IntDict = gs_106
+   structure IntKey = gs_105
+   structure Interp = gs_108
+   structure InterpCore = gs_107
+   functor InterpCoreFn = gs_104
+   functor InterpFn = gs_101
+   signature LEXARG = gs_70
+   signature LEXARG_SIMPLE = gs_113
+   signature LEXUTIL = gs_69
+   structure LexArg = gs_89
+   functor LexArgFn = gs_88
+   structure LexArgSimple = gs_118
+   functor LexArgSimpleFn = gs_117
+   structure LexUtil = gs_87
+   signature MAIN = gs_17
+   signature MAKESTRING = gs_61
+   signature MANGLE = gs_2
+   structure MODLex = gs_93
+   functor MODLexFn = gs_71
+   structure MODLrVals = gs_92
+   functor MODLrValsFn = gs_91
+   structure MODParse = gs_236
+   functor MODParseFn = gs_232
+   structure MODParser = gs_235
+   signature MOD_LRVALS = gs_53
+   signature MOD_PARSE = gs_222
+   signature MOD_TOKENS = gs_54
+   signature MOTORML = gs_221
+   structure MOToRML = gs_234
+   functor MOToRMLFn = gs_233
+   structure Main = gs_243
+   functor MainFn = gs_42
+   structure MakeString = gs_64
+   structure Mangle = gs_13
+   functor MangleFn = gs_4
+   structure MaskToC = gs_199
+   functor MaskToCFn = gs_57
+   signature ORD_DICT = gs_7
+   signature ORD_KEY = gs_6
+   structure PERSISTENTLex = gs_121
+   functor PERSISTENTLexFn = gs_116
+   structure PERSISTENTLrVals = gs_120
+   functor PERSISTENTLrValsFn = gs_119
+   structure PERSISTENTParse = gs_127
+   functor PERSISTENTParseFn = gs_123
+   structure PERSISTENTParser = gs_126
+   signature PERSISTENT_LRVALS = gs_114
+   signature PERSISTENT_PARSE = gs_43
+   signature PERSISTENT_TOKENS = gs_115
+   signature PLAIN = gs_27
+   signature PLAINTOC = gs_28
+   signature PMC = gs_203
+   structure PMC = gs_207
+   functor PMCFn = gs_206
+   signature PP = gs_165
+   structure PP = gs_167
+   structure Plain = gs_131
+   structure PlainCodeToC = gs_132
+   structure PlainFVars = gs_227
+   functor PlainFn = gs_130
+   structure PlainOptim = gs_228
+   structure PlainToC = gs_133
+   functor PlainToCFn = gs_122
+   signature REORDER = gs_177
+   signature REORDER_SCC = gs_181
+   signature REORDER_TY = gs_179
+   signature REORDER_VAL = gs_178
+   structure RMLLex = gs_196
+   functor RMLLexFn = gs_195
+   structure RMLLrVals = gs_194
+   functor RMLLrValsFn = gs_193
+   structure RMLParse = gs_225
+   functor RMLParseFn = gs_224
+   structure RMLParser = gs_197
+   signature RML_LRVALS = gs_95
+   signature RML_PARSE = gs_99
+   signature RML_TOKENS = gs_96
+   structure Reorder = gs_187
+   functor ReorderFn = gs_180
+   structure ReorderSCC = gs_183
+   structure ReorderTy = gs_186
+   functor ReorderTyFn = gs_185
+   structure ReorderVal = gs_184
+   functor ReorderValFn = gs_182
+   signature SOURCE = gs_9
+   signature START = gs_218
+   signature STAT_ELAB = gs_94
+   signature STAT_OBJ = gs_161
+   signature STR_DICT = gs_38
+   signature SWITCH = gs_25
+   signature SWITCHTOC = gs_26
+   signature SWITCH_INTRAS = gs_56
+   signature SYSDEP = gs_219
+   structure Source = gs_81
+   structure Start = gs_230
+   functor StartFn = gs_220
+   structure StatElab = gs_238
+   functor StatElabFn = gs_189
+   structure StatObj = gs_217
+   functor StatObjFn = gs_162
+   structure StrDict = gs_85
+   structure StrKey = gs_84
+   structure Switch = gs_65
+   structure SwitchCodeToC = gs_143
+   structure SwitchFVars = gs_66
+   functor SwitchFn = gs_62
+   structure SwitchIntras = gs_198
+   functor SwitchIntrasFn = gs_171
+   structure SwitchOptim = gs_67
+   structure SysDep = gs_229
+   signature TRANSENV = gs_134
+   signature TY = gs_139
+   signature TY_COMB = gs_141
+   signature TY_FCN = gs_160
+   signature TY_SCHEME = gs_140
+   structure TransEnv = gs_138
+   functor TransEnvFn = gs_135
+   structure Ty = gs_151
+   structure TyComb = gs_152
+   functor TyCombFn = gs_150
+   structure TyFcn = gs_216
+   functor TyFcnFn = gs_215
+   structure TyScheme = gs_153
+   functor TySchemeFn = gs_142
+   signature UTIL = gs_3
+   structure Util = gs_12
+   signature VERSION = gs_40
+   structure Version = gs_241
+   functor VersionFn = gs_240
+   structure CommandLine = gs_1000
+end
+end

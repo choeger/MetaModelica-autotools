@@ -1,0 +1,34 @@
+This directory contains a snapshot of the currently working version
+of the RML system, an executable specification language for using
+Natural Semantics in programming language implementations.
+
+Please read the file INSTALL for installation instructions.
+
+Please read the file NEWS for a summary of user-visible changes
+made in each intermediate release.
+
+Please read the file PROBLEMS for a list of known bugs in the RML compiler
+and its runtime libraries. Please read config/PROBLEMS for a list of
+known problems with certain operating systems and C compilers.
+
+The elisp directory contains a simple RML mode for Gnu Emacs.
+
+The examples hierarchy contains some working applications constructed
+using RML.
+
+COPYRIGHT contains the RML copyright notice, license and disclaimer.
+
+More information about RML can be found in
+http://www.ida.liu.se/~pelab/rml
+or by contacting the author.
+
+Author:2002-2008 (versions above rml-2.1.8)
+Adrian Pop
+adrpo@ida.liu.se
+http://www.ida.liu.se/~adrpo
+
+Author:1994-2000 (versions up to rml-2.1.8)
+Mikael Pettersson
+mikpe@csd.uu.se
+http://www.csd.uu.se/~mikpe
+

@@ -1,0 +1,9 @@
+local
+  local
+	sources.mlb
+  in
+   MainMLton.sml
+  end
+in
+  call-main.sml
+end

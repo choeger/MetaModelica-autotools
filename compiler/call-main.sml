@@ -1,0 +1,2 @@
+
+val _ = MainMLton.main()
