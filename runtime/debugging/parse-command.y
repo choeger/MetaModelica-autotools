@@ -21,7 +21,7 @@ extern int aalex(void);
 }
 
 /* uncomment this shit on linux and comment it on solaris damn incompatibilities */
-/* %name-prefix="aa" */
+%name-prefix="aa"
 
 %token T_BREAKPOINT T_DELETE_BREAKPOINT T_CLEAR_BREAKPOINTS
 %token T_FUNCTION_BREAKPOINT T_DELETE_FUNCTION_BREAKPOINT

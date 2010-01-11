@@ -25,7 +25,7 @@ extern int aarmldblex(void);
 /* uncomment this shit on linux and comment it on solaris
    damn incompatibilities
 */
-/* %name-prefix="aarmldb" */
+%name-prefix="aarmldb" 
 
 /* Here are $$  =  types for all productions that $$  =  nodes (ie, the
    $$  =  type of the bison $$ construct).

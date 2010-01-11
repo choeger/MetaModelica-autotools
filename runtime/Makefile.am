@@ -1,1 +1,2 @@
 SUBDIRS=plain
+AM_YFLAGS= -d

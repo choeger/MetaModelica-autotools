@@ -15,7 +15,7 @@ int aarmldb_lineno = 1;
 
 %option 8bit
 %option nodefault
-%option outfile = "scan-rdb.c"
+%option outfile = "lex.yy.c"
 %option prefix = "aarmldb"
 %option noyywrap
 

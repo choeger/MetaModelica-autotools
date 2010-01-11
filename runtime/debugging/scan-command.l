@@ -65,7 +65,7 @@ static void socket_input (buf, result, max)
 %option 8bit
 %option caseless
 %option nodefault
-%option outfile = "scan-command.c"
+%option outfile = "lex.yy.c"
 %option prefix = "aa"
 %option always-interactive
 /* %option debug */
