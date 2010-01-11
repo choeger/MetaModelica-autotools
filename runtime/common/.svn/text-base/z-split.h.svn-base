@@ -1,0 +1,3 @@
+#undef RML_STATE_JOIN
+#undef RML_STATE_APTR
+#undef RML_STATE_LPTR
