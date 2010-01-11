@@ -3,7 +3,8 @@
  */
 #include <stdio.h>
 #include "rml.h"
-#include "z-ysize.h"
+// Removed - seems unused
+//#include "z-ysize.h"
 #include "p-gccore.h"
 
 void *rml_prim_gcalloc(rml_uint_t nwords, rml_uint_t nargs) {
