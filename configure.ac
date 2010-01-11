@@ -26,5 +26,5 @@ if test "z$MLTON" == "z"; then
 fi
 
 
-AC_CONFIG_FILES( [Makefile compiler/Makefile runtime/Makefile runtime/diff/Makefile])
+AC_CONFIG_FILES( [Makefile compiler/Makefile runtime/Makefile runtime/plain/Makefile])
 AC_OUTPUT
