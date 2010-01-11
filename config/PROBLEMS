@@ -1,0 +1,46 @@
+TARGETS WITH KNOWN PROBLEMS
+===========================
+
+
+hppa-hpux-cc
+------------
+The HP-UX C compiler generates incorrect code for the miniml
+and petrol examples, when using the pushy runtime.
+
+
+mips-ultrix-cc
+--------------
+The Ultrix C compiler dies when mf is compiled
+with -no-Ocps: yacc stack overflow. Had to manually
+move all locals to the top in mf/plain.b/test.c.
+Perhaps the plain/switch/warped code generators should
+do this automatically, rather than producing zillions
+of nested scopes?
+
+The C compiler does not implement 'const', and it does not use
+ANSI-C semantics for char arrays initialized from string literals
+(the terminating NUL is not included in the size).
+
+
+rs6000-parix-*
+--------------
+Needs a faster run script.
+/px/parix/bin/run zaps stdin! (XXX: Perhaps not any more??)
+
+
+sparc-sos4-gcc
+--------------
+The SunOS 4 libc doesn't have "char *strerror(int errnum)", which
+causes problems when building the miniml and petrol examples.
+
+
+x86-*-gcc
+---------
+If you are using a version of gcc older than 2.8.0, then
+please read the GCC.X86.PATCH file in this directory.
+
+
+x86-sol2-*
+----------
+Used to work, but as I no longer have access to a machine
+with Solaris x86, I cannot test this configuration.

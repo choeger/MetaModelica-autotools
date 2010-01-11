@@ -1,0 +1,59 @@
+RML on MacOS X
+--------------
+
+Please consider the message below 
+when installing RML on MacOS X. 
+Many thanks to Morgan Ericsson.
+
+I edited the message a bit 
+and removed email addresses.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+From __no_spam_please__ Thu Mar  3 00:12:13 2005
+Date: Thu, 03 Mar 2005 00:03:10 +0100
+From: Morgan Ericsson <__no_spam_please__>
+To: Adrian Pop <__no_spam_please__>
+Subject: Re: RML update for Types and Programming Language Kursen
+
+Adrian Pop wrote:
+> Hej all,
+> 
+> I cleaned and added more info on the RML page.
+> http://www.ida.liu.se/~pelab/rml
+
+I got this one working on mac after a few small fixes. First of all, the 
+bison shipped with os x 10.3 is too old, so I upgraded it (to 2.0). Then 
+there was a problem with the termio. rml seems to use the old, 
+non-posix, api which the mac doesn't support. This was fixed by creating 
+a termio.h-file containing the following.
+
+--8<--
+#include <termios.h>
+#include <sys/ioctl.h>
+--8<--
+
+Once this was done everything compiles and it 
+seems to work (I've been running the examples). 
+The config entry is attached (see the ppc-darwin-gcc directory). 
+I added the following to etc/config.guess
+
+--8<--
+  Darwin)
+     OPSYS=darwin
+     case `uname -m` in
+       Power\ Macintosh) ARCH=ppc;;
+       *) exit 1;;
+     esac
+     ;;
+--8<--
+
+
+-- 
+Morgan.Ericsson (@no_spam_please) * Living is great
+Dept of CS @ MSI/Växjö University * of course it is
+http://www.msi.vxu.se/~mogge      * what else did you think?
+
+
+
+
+

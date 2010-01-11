@@ -1,0 +1,24 @@
+Each port is supposed to have a "labtab.h" file.
+This file should contain CPP definitions for two macros generated
+by the 'diff' C code generation scheme to construct certain tables.
+
+A table in the 'diff' scheme is represented by the sequence of macros:
+
+RML_LABTAB_SETUP(FUN)
+RML_LABTAB_ENTRY(LAB1,FUN)
+...
+RML_LABTAB_ENTRY(LABn,FUN)
+
+Each label LABi has C type "extern const struct rml_label"; a structure
+type that contains a single pointer-to-function field.
+The elements must be laid out in memory as if declared as an array.
+
+RML_LABTAB_SETUP(FUN) should expand into a sequence of assembly
+directives that first select a read-only data segment, and then align
+the current position according to the natural alignment of pointers.
+In some cases, an "extern" declaration of the C function FUN is also needed.
+
+RML_LABTAB_ENTRY(LAB,FUN) should expand into a sequence of assembly
+directives that associate LAB as a global symbol with the current
+position, and then store the value FUN as a pointer at the current position,
+implicitly advancing the position by the appropriate amount.

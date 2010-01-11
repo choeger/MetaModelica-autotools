@@ -1,0 +1,4 @@
+
+
+all:
+	cl /O2 /Ot /Oy /D "WIN32" /D "NDEBUG" /D "_MBCS" /FD /EHsc /MT /TC /W3 repchk-vc.c

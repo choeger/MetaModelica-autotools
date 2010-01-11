@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/MetaModelica/!svn/ver/125/trunk/config/mips-irix-gcc
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/MetaModelica/!svn/ver/125/trunk/config/mips-irix-gcc/config.h
+END
+labtab.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/MetaModelica/!svn/ver/2/trunk/config/mips-irix-gcc/labtab.h
+END
+variables.mk
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MetaModelica/!svn/ver/9/trunk/config/mips-irix-gcc/variables.mk
+END

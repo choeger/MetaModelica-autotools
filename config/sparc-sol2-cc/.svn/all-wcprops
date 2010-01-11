@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/MetaModelica/!svn/ver/125/trunk/config/sparc-sol2-cc
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/MetaModelica/!svn/ver/125/trunk/config/sparc-sol2-cc/config.h
+END
+labtab.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/MetaModelica/!svn/ver/2/trunk/config/sparc-sol2-cc/labtab.h
+END
+variables.mk
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/MetaModelica/!svn/ver/2/trunk/config/sparc-sol2-cc/variables.mk
+END
