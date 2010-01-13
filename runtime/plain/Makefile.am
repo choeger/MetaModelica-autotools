@@ -1,8 +1,5 @@
 include $(top_srcdir)/config/$(TARGET)/variables.mk
 
-%.g.o: %.c
-	$(CC) $(CGFLAGS) -o $@ $<
-
 AM_YFLAGS=-d
 lib_LTLIBRARIES=librml_plain.la librml_plain_debug.la librml_plain_prof.la
 
