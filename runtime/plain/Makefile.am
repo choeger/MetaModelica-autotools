@@ -22,11 +22,11 @@ librml_plain_la_SOURCES=$(CSOURCES)
 librml_plain_debug_la_SOURCES=$(CSOURCES)
 librml_plain_debug_la_CFLAGS=$(CGFLAGS)
 librml_plain_prof_la_SOURCES=$(CSOURCES)
-librml_plain_prof_la_CFLAGS=$(CPFLAGS)
+librml_plain_prof_la_CFLAGS=$(CFLAGS) $(CPFLAGS)
 
 
 BUILT_SOURCES=rml.h parse-command.h parse-rdb.h
-CLEANFILES = rml.h
+CLEANFILES = rml.h parse-command.h parse-command.c parse-rdb.h parse-rdb.c scan-command.c scan-rdb.c
 
 # create the platform specific include header 
 rml.h:  ../../config.status rml-select.h ../../config/$(TARGET)/config.h $(RMLHSRC)
