@@ -1,2 +1,2 @@
-SUBDIRS=plain
+SUBDIRS=plain mask
 AM_YFLAGS= -d

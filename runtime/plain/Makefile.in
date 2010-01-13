@@ -40,7 +40,10 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	parse-command.c parse-command.h parse-rdb.c parse-rdb.h \
 	scan-command.c scan-rdb.c
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
+	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
+	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
@@ -1178,9 +1181,6 @@ uninstall-am: uninstall-libLTLIBRARIES
 	tags uninstall uninstall-am uninstall-libLTLIBRARIES
 
 include $(top_srcdir)/config/$(TARGET)/variables.mk
-
-%.g.o: %.c
-	$(CC) $(CGFLAGS) -o $@ $<
 
 # create the platform specific include header 
 rml.h:  ../../config.status rml-select.h ../../config/$(TARGET)/config.h $(RMLHSRC)
