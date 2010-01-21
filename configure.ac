@@ -36,5 +36,5 @@ if test ! -e config/$TARGET/config.h; then
 fi
 AC_SUBST(TARGET)
 
-AC_CONFIG_FILES( [Makefile compiler/Makefile runtime/Makefile runtime/mask/Makefile runtime/plain/Makefile])
+AC_CONFIG_FILES( [Makefile compiler/Makefile runtime/Makefile runtime/mask/Makefile runtime/plain/Makefile runtime/diff/Makefile])
 AC_OUTPUT
