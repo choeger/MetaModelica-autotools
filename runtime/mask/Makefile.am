@@ -1,7 +1,7 @@
 include $(top_srcdir)/config/$(TARGET)/variables.mk
 
 AM_YFLAGS=-d
-lib_LTLIBRARIES=librml_mask.la librml_mask_debug.la librml_mask_prof.la
+lib_LTLIBRARIES=librml_mm_mask.la librml_mm_mask_debug.la librml_mm_mask_prof.la
 
 RMLHSRC=../common/rml-start.h ../common/rml-core.h rml-labels.h ../common/rml-predef.h\
         ../debugging/command.h ../debugging/socket.h ../debugging/handler.h ../debugging/load.h \
@@ -13,11 +13,11 @@ CSOURCES= ../common/array.c ../common/boolean.c ../common/integer.c ../common/li
  ../debugging/socket.c ../debugging/command.c ../debugging/handler.c ../debugging/debug.c \
 ../common/main.c p-mask.c
 
-librml_mask_la_SOURCES=$(CSOURCES)
-librml_mask_debug_la_SOURCES=$(CSOURCES)
-librml_mask_debug_la_CFLAGS=$(CGFLAGS)
-librml_mask_prof_la_SOURCES=$(CSOURCES)
-librml_mask_prof_la_CFLAGS=$(CFLAGS) $(CPFLAGS)
+librml_mm_mask_la_SOURCES=$(CSOURCES)
+librml_mm_mask_debug_la_SOURCES=$(CSOURCES)
+librml_mm_mask_debug_la_CFLAGS=$(CGFLAGS)
+librml_mm_mask_prof_la_SOURCES=$(CSOURCES)
+librml_mm_mask_prof_la_CFLAGS=$(CFLAGS) $(CPFLAGS)
 
 BUILT_SOURCES=rml.h parse-command.h parse-rdb.h
 CLEANFILES = rml.h parse-command.h parse-command.c parse-rdb.h parse-rdb.c scan-command.c scan-rdb.c

@@ -1,7 +1,7 @@
 include $(top_srcdir)/config/$(TARGET)/variables.mk
 
 AM_YFLAGS=-d
-lib_LTLIBRARIES=librml_diff.la librml_diff_debug.la librml_diff_prof.la
+lib_LTLIBRARIES=librml_mm_diff.la librml_mm_diff_debug.la librml_mm_diff_prof.la
 
 RMLHSRC=../common/rml-start.h ../common/rml-core.h rml-labels.h ../common/rml-predef.h\
         ../debugging/command.h ../debugging/socket.h ../debugging/handler.h ../debugging/load.h \
@@ -13,11 +13,11 @@ CSOURCES= ../common/array.c ../common/boolean.c ../common/integer.c ../common/li
  ../debugging/socket.c ../debugging/command.c ../debugging/handler.c ../debugging/debug.c \
 ../common/main.c
 
-librml_diff_la_SOURCES=$(CSOURCES)
-librml_diff_debug_la_SOURCES=$(CSOURCES)
-librml_diff_debug_la_CFLAGS=$(CGFLAGS)
-librml_diff_prof_la_SOURCES=$(CSOURCES)
-librml_diff_prof_la_CFLAGS=$(CFLAGS) $(CPFLAGS)
+librml_mm_diff_la_SOURCES=$(CSOURCES)
+librml_mm_diff_debug_la_SOURCES=$(CSOURCES)
+librml_mm_diff_debug_la_CFLAGS=$(CGFLAGS)
+librml_mm_diff_prof_la_SOURCES=$(CSOURCES)
+librml_mm_diff_prof_la_CFLAGS=$(CFLAGS) $(CPFLAGS)
 
 
 BUILT_SOURCES=rml.h parse-command.h parse-rdb.h

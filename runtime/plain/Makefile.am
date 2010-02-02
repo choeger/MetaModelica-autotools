@@ -1,7 +1,7 @@
 include $(top_srcdir)/config/$(TARGET)/variables.mk
 
 AM_YFLAGS=-d
-lib_LTLIBRARIES=librml_plain.la librml_plain_debug.la librml_plain_prof.la
+lib_LTLIBRARIES=librml_mm_plain.la librml_mm_plain_debug.la librml_mm_plain_prof.la
 
 
 
@@ -15,11 +15,11 @@ CSOURCES= ../common/array.c ../common/boolean.c ../common/integer.c ../common/li
  ../debugging/socket.c ../debugging/command.c ../debugging/handler.c ../debugging/debug.c \
 ../common/main.c
 
-librml_plain_la_SOURCES=$(CSOURCES)
-librml_plain_debug_la_SOURCES=$(CSOURCES)
-librml_plain_debug_la_CFLAGS=$(CGFLAGS)
-librml_plain_prof_la_SOURCES=$(CSOURCES)
-librml_plain_prof_la_CFLAGS=$(CFLAGS) $(CPFLAGS)
+librml_mm_plain_la_SOURCES=$(CSOURCES)
+librml_mm_plain_debug_la_SOURCES=$(CSOURCES)
+librml_mm_plain_debug_la_CFLAGS=$(CGFLAGS)
+librml_mm_plain_prof_la_SOURCES=$(CSOURCES)
+librml_mm_plain_prof_la_CFLAGS=$(CFLAGS) $(CPFLAGS)
 
 
 BUILT_SOURCES=rml.h parse-command.h parse-rdb.h

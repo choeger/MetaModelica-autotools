@@ -1,4 +1,4 @@
-AC_INIT(MetaModelica, 2.3.8)
+AC_INIT(rml-mm, 2.3.8)
 AC_CANONICAL_SYSTEM
 AC_CONFIG_HEADER(include/config.h)
 AM_INIT_AUTOMAKE
@@ -28,7 +28,6 @@ if test "z$MLTON" == "z"; then
 	AC_MSG_ERROR([Cannot find mllex])
 fi
 
-
 TARGET=$build_cpu-$build_os-$CC
 
 if test ! -e config/$TARGET/config.h; then
@@ -36,5 +35,5 @@ if test ! -e config/$TARGET/config.h; then
 fi
 AC_SUBST(TARGET)
 
-AC_CONFIG_FILES( [Makefile compiler/Makefile runtime/Makefile runtime/mask/Makefile runtime/plain/Makefile runtime/diff/Makefile])
+AC_CONFIG_FILES( [Makefile compiler/Makefile runtime/Makefile runtime/mask/Makefile runtime/plain/Makefile runtime/diff/Makefile rmlc/Makefile])
 AC_OUTPUT

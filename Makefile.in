@@ -230,7 +230,9 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 ACLOCAL_AMFLAGS = -I m4
-SUBDIRS = compiler runtime
+SUBDIRS = compiler runtime rmlc
+TESTSUITE = ./run_tests.sh
+TESTSUITEFLAGS = $(prefix)
 all: all-recursive
 
 .SUFFIXES:
@@ -683,7 +685,7 @@ install-ps: install-ps-recursive
 
 install-ps-am:
 
-installcheck-am:
+installcheck-am: installcheck-local
 
 maintainer-clean: maintainer-clean-recursive
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
@@ -719,11 +721,16 @@ uninstall-am:
 	install-dvi-am install-exec install-exec-am install-html \
 	install-html-am install-info install-info-am install-man \
 	install-pdf install-pdf-am install-ps install-ps-am \
-	install-strip installcheck installcheck-am installdirs \
-	installdirs-am maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-generic mostlyclean-libtool pdf pdf-am \
-	ps ps-am tags tags-recursive uninstall uninstall-am
+	install-strip installcheck installcheck-am installcheck-local \
+	installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-recursive \
+	uninstall uninstall-am
 
+
+# Run the test suite on the *installed* tree.
+installcheck-local: $(TESTSUITE)
+	$(SHELL) $(TESTSUITE) $(TESTSUITEFLAGS)
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

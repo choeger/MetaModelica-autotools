@@ -73,64 +73,75 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-librml_plain_la_LIBADD =
+librml_mm_plain_la_LIBADD =
 am__objects_1 = array.lo boolean.lo integer.lo list.lo logicalvar.lo \
 	real.lo string.lo vector.lo internal.lo p-gccore.lo \
 	p-gcuser-plain.lo p-usergc.lo controlflow.lo parse-command.lo \
 	scan-command.lo parse-rdb.lo scan-rdb.lo load.lo socket.lo \
 	command.lo handler.lo debug.lo main.lo
-am_librml_plain_la_OBJECTS = $(am__objects_1)
-librml_plain_la_OBJECTS = $(am_librml_plain_la_OBJECTS)
-librml_plain_debug_la_LIBADD =
-am__objects_2 = librml_plain_debug_la-array.lo \
-	librml_plain_debug_la-boolean.lo \
-	librml_plain_debug_la-integer.lo librml_plain_debug_la-list.lo \
-	librml_plain_debug_la-logicalvar.lo \
-	librml_plain_debug_la-real.lo librml_plain_debug_la-string.lo \
-	librml_plain_debug_la-vector.lo \
-	librml_plain_debug_la-internal.lo \
-	librml_plain_debug_la-p-gccore.lo \
-	librml_plain_debug_la-p-gcuser-plain.lo \
-	librml_plain_debug_la-p-usergc.lo \
-	librml_plain_debug_la-controlflow.lo \
-	librml_plain_debug_la-parse-command.lo \
-	librml_plain_debug_la-scan-command.lo \
-	librml_plain_debug_la-parse-rdb.lo \
-	librml_plain_debug_la-scan-rdb.lo \
-	librml_plain_debug_la-load.lo librml_plain_debug_la-socket.lo \
-	librml_plain_debug_la-command.lo \
-	librml_plain_debug_la-handler.lo \
-	librml_plain_debug_la-debug.lo librml_plain_debug_la-main.lo
-am_librml_plain_debug_la_OBJECTS = $(am__objects_2)
-librml_plain_debug_la_OBJECTS = $(am_librml_plain_debug_la_OBJECTS)
-librml_plain_debug_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+am_librml_mm_plain_la_OBJECTS = $(am__objects_1)
+librml_mm_plain_la_OBJECTS = $(am_librml_mm_plain_la_OBJECTS)
+librml_mm_plain_debug_la_LIBADD =
+am__objects_2 = librml_mm_plain_debug_la-array.lo \
+	librml_mm_plain_debug_la-boolean.lo \
+	librml_mm_plain_debug_la-integer.lo \
+	librml_mm_plain_debug_la-list.lo \
+	librml_mm_plain_debug_la-logicalvar.lo \
+	librml_mm_plain_debug_la-real.lo \
+	librml_mm_plain_debug_la-string.lo \
+	librml_mm_plain_debug_la-vector.lo \
+	librml_mm_plain_debug_la-internal.lo \
+	librml_mm_plain_debug_la-p-gccore.lo \
+	librml_mm_plain_debug_la-p-gcuser-plain.lo \
+	librml_mm_plain_debug_la-p-usergc.lo \
+	librml_mm_plain_debug_la-controlflow.lo \
+	librml_mm_plain_debug_la-parse-command.lo \
+	librml_mm_plain_debug_la-scan-command.lo \
+	librml_mm_plain_debug_la-parse-rdb.lo \
+	librml_mm_plain_debug_la-scan-rdb.lo \
+	librml_mm_plain_debug_la-load.lo \
+	librml_mm_plain_debug_la-socket.lo \
+	librml_mm_plain_debug_la-command.lo \
+	librml_mm_plain_debug_la-handler.lo \
+	librml_mm_plain_debug_la-debug.lo \
+	librml_mm_plain_debug_la-main.lo
+am_librml_mm_plain_debug_la_OBJECTS = $(am__objects_2)
+librml_mm_plain_debug_la_OBJECTS =  \
+	$(am_librml_mm_plain_debug_la_OBJECTS)
+librml_mm_plain_debug_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(librml_plain_debug_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-librml_plain_prof_la_LIBADD =
-am__objects_3 = librml_plain_prof_la-array.lo \
-	librml_plain_prof_la-boolean.lo \
-	librml_plain_prof_la-integer.lo librml_plain_prof_la-list.lo \
-	librml_plain_prof_la-logicalvar.lo \
-	librml_plain_prof_la-real.lo librml_plain_prof_la-string.lo \
-	librml_plain_prof_la-vector.lo \
-	librml_plain_prof_la-internal.lo \
-	librml_plain_prof_la-p-gccore.lo \
-	librml_plain_prof_la-p-gcuser-plain.lo \
-	librml_plain_prof_la-p-usergc.lo \
-	librml_plain_prof_la-controlflow.lo \
-	librml_plain_prof_la-parse-command.lo \
-	librml_plain_prof_la-scan-command.lo \
-	librml_plain_prof_la-parse-rdb.lo \
-	librml_plain_prof_la-scan-rdb.lo librml_plain_prof_la-load.lo \
-	librml_plain_prof_la-socket.lo librml_plain_prof_la-command.lo \
-	librml_plain_prof_la-handler.lo librml_plain_prof_la-debug.lo \
-	librml_plain_prof_la-main.lo
-am_librml_plain_prof_la_OBJECTS = $(am__objects_3)
-librml_plain_prof_la_OBJECTS = $(am_librml_plain_prof_la_OBJECTS)
-librml_plain_prof_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+librml_mm_plain_prof_la_LIBADD =
+am__objects_3 = librml_mm_plain_prof_la-array.lo \
+	librml_mm_plain_prof_la-boolean.lo \
+	librml_mm_plain_prof_la-integer.lo \
+	librml_mm_plain_prof_la-list.lo \
+	librml_mm_plain_prof_la-logicalvar.lo \
+	librml_mm_plain_prof_la-real.lo \
+	librml_mm_plain_prof_la-string.lo \
+	librml_mm_plain_prof_la-vector.lo \
+	librml_mm_plain_prof_la-internal.lo \
+	librml_mm_plain_prof_la-p-gccore.lo \
+	librml_mm_plain_prof_la-p-gcuser-plain.lo \
+	librml_mm_plain_prof_la-p-usergc.lo \
+	librml_mm_plain_prof_la-controlflow.lo \
+	librml_mm_plain_prof_la-parse-command.lo \
+	librml_mm_plain_prof_la-scan-command.lo \
+	librml_mm_plain_prof_la-parse-rdb.lo \
+	librml_mm_plain_prof_la-scan-rdb.lo \
+	librml_mm_plain_prof_la-load.lo \
+	librml_mm_plain_prof_la-socket.lo \
+	librml_mm_plain_prof_la-command.lo \
+	librml_mm_plain_prof_la-handler.lo \
+	librml_mm_plain_prof_la-debug.lo \
+	librml_mm_plain_prof_la-main.lo
+am_librml_mm_plain_prof_la_OBJECTS = $(am__objects_3)
+librml_mm_plain_prof_la_OBJECTS =  \
+	$(am_librml_mm_plain_prof_la_OBJECTS)
+librml_mm_plain_prof_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(librml_plain_prof_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/include
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -152,11 +163,12 @@ YLWRAP = $(top_srcdir)/ylwrap
 YACCCOMPILE = $(YACC) $(YFLAGS) $(AM_YFLAGS)
 LTYACCCOMPILE = $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=compile $(YACC) $(YFLAGS) $(AM_YFLAGS)
-SOURCES = $(librml_plain_la_SOURCES) $(librml_plain_debug_la_SOURCES) \
-	$(librml_plain_prof_la_SOURCES)
-DIST_SOURCES = $(librml_plain_la_SOURCES) \
-	$(librml_plain_debug_la_SOURCES) \
-	$(librml_plain_prof_la_SOURCES)
+SOURCES = $(librml_mm_plain_la_SOURCES) \
+	$(librml_mm_plain_debug_la_SOURCES) \
+	$(librml_mm_plain_prof_la_SOURCES)
+DIST_SOURCES = $(librml_mm_plain_la_SOURCES) \
+	$(librml_mm_plain_debug_la_SOURCES) \
+	$(librml_mm_plain_prof_la_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -284,7 +296,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_YFLAGS = -d
-lib_LTLIBRARIES = librml_plain.la librml_plain_debug.la librml_plain_prof.la
+lib_LTLIBRARIES = librml_mm_plain.la librml_mm_plain_debug.la librml_mm_plain_prof.la
 RMLHSRC = ../common/rml-start.h ../common/rml-core.h rml-labels.h ../common/rml-predef.h\
         ../debugging/command.h ../debugging/socket.h ../debugging/handler.h ../debugging/load.h \
         ../debugging/debug.h ../common/rml-end.h
@@ -295,11 +307,11 @@ CSOURCES = ../common/array.c ../common/boolean.c ../common/integer.c ../common/l
  ../debugging/socket.c ../debugging/command.c ../debugging/handler.c ../debugging/debug.c \
 ../common/main.c
 
-librml_plain_la_SOURCES = $(CSOURCES)
-librml_plain_debug_la_SOURCES = $(CSOURCES)
-librml_plain_debug_la_CFLAGS = $(CGFLAGS)
-librml_plain_prof_la_SOURCES = $(CSOURCES)
-librml_plain_prof_la_CFLAGS = $(CFLAGS) $(CPFLAGS)
+librml_mm_plain_la_SOURCES = $(CSOURCES)
+librml_mm_plain_debug_la_SOURCES = $(CSOURCES)
+librml_mm_plain_debug_la_CFLAGS = $(CGFLAGS)
+librml_mm_plain_prof_la_SOURCES = $(CSOURCES)
+librml_mm_plain_prof_la_CFLAGS = $(CFLAGS) $(CPFLAGS)
 BUILT_SOURCES = rml.h parse-command.h parse-rdb.h
 CLEANFILES = rml.h parse-command.h parse-command.c parse-rdb.h parse-rdb.c scan-command.c scan-rdb.c
 all: $(BUILT_SOURCES)
@@ -378,12 +390,12 @@ parse-rdb.h: parse-rdb.c
 	  rm -f parse-rdb.c; \
 	  $(MAKE) $(AM_MAKEFLAGS) parse-rdb.c; \
 	else :; fi
-librml_plain.la: $(librml_plain_la_OBJECTS) $(librml_plain_la_DEPENDENCIES) 
-	$(LINK) -rpath $(libdir) $(librml_plain_la_OBJECTS) $(librml_plain_la_LIBADD) $(LIBS)
-librml_plain_debug.la: $(librml_plain_debug_la_OBJECTS) $(librml_plain_debug_la_DEPENDENCIES) 
-	$(librml_plain_debug_la_LINK) -rpath $(libdir) $(librml_plain_debug_la_OBJECTS) $(librml_plain_debug_la_LIBADD) $(LIBS)
-librml_plain_prof.la: $(librml_plain_prof_la_OBJECTS) $(librml_plain_prof_la_DEPENDENCIES) 
-	$(librml_plain_prof_la_LINK) -rpath $(libdir) $(librml_plain_prof_la_OBJECTS) $(librml_plain_prof_la_LIBADD) $(LIBS)
+librml_mm_plain.la: $(librml_mm_plain_la_OBJECTS) $(librml_mm_plain_la_DEPENDENCIES) 
+	$(LINK) -rpath $(libdir) $(librml_mm_plain_la_OBJECTS) $(librml_mm_plain_la_LIBADD) $(LIBS)
+librml_mm_plain_debug.la: $(librml_mm_plain_debug_la_OBJECTS) $(librml_mm_plain_debug_la_DEPENDENCIES) 
+	$(librml_mm_plain_debug_la_LINK) -rpath $(libdir) $(librml_mm_plain_debug_la_OBJECTS) $(librml_mm_plain_debug_la_LIBADD) $(LIBS)
+librml_mm_plain_prof.la: $(librml_mm_plain_prof_la_OBJECTS) $(librml_mm_plain_prof_la_DEPENDENCIES) 
+	$(librml_mm_plain_prof_la_LINK) -rpath $(libdir) $(librml_mm_plain_prof_la_OBJECTS) $(librml_mm_plain_prof_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -399,52 +411,52 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/handler.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/integer.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/internal.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-array.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-boolean.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-command.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-controlflow.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-debug.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-handler.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-integer.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-internal.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-list.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-load.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-logicalvar.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-main.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-p-gccore.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-p-gcuser-plain.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-p-usergc.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-parse-command.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-parse-rdb.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-real.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-scan-command.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-scan-rdb.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-socket.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-string.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_debug_la-vector.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-array.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-boolean.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-command.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-controlflow.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-debug.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-handler.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-integer.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-internal.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-list.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-load.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-logicalvar.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-main.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-p-gccore.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-p-gcuser-plain.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-p-usergc.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-parse-command.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-parse-rdb.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-real.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-scan-command.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-scan-rdb.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-socket.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-string.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_plain_prof_la-vector.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-array.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-boolean.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-command.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-controlflow.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-debug.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-handler.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-integer.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-internal.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-list.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-load.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-logicalvar.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-main.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-p-gccore.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-p-gcuser-plain.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-p-usergc.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-parse-command.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-parse-rdb.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-real.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-scan-command.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-scan-rdb.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-socket.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-string.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_debug_la-vector.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-array.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-boolean.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-command.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-controlflow.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-debug.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-handler.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-integer.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-internal.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-list.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-load.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-logicalvar.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-main.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-p-gccore.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-p-gcuser-plain.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-p-usergc.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-parse-command.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-parse-rdb.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-real.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-scan-command.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-scan-rdb.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-socket.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-string.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/librml_mm_plain_prof_la-vector.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/load.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/logicalvar.Plo@am__quote@
@@ -615,327 +627,327 @@ main.lo: ../common/main.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
 
-librml_plain_debug_la-array.lo: ../common/array.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-array.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-array.Tpo -c -o librml_plain_debug_la-array.lo `test -f '../common/array.c' || echo '$(srcdir)/'`../common/array.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-array.Tpo $(DEPDIR)/librml_plain_debug_la-array.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/array.c' object='librml_plain_debug_la-array.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-array.lo: ../common/array.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-array.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-array.Tpo -c -o librml_mm_plain_debug_la-array.lo `test -f '../common/array.c' || echo '$(srcdir)/'`../common/array.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-array.Tpo $(DEPDIR)/librml_mm_plain_debug_la-array.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/array.c' object='librml_mm_plain_debug_la-array.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-array.lo `test -f '../common/array.c' || echo '$(srcdir)/'`../common/array.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-array.lo `test -f '../common/array.c' || echo '$(srcdir)/'`../common/array.c
 
-librml_plain_debug_la-boolean.lo: ../common/boolean.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-boolean.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-boolean.Tpo -c -o librml_plain_debug_la-boolean.lo `test -f '../common/boolean.c' || echo '$(srcdir)/'`../common/boolean.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-boolean.Tpo $(DEPDIR)/librml_plain_debug_la-boolean.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/boolean.c' object='librml_plain_debug_la-boolean.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-boolean.lo: ../common/boolean.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-boolean.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-boolean.Tpo -c -o librml_mm_plain_debug_la-boolean.lo `test -f '../common/boolean.c' || echo '$(srcdir)/'`../common/boolean.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-boolean.Tpo $(DEPDIR)/librml_mm_plain_debug_la-boolean.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/boolean.c' object='librml_mm_plain_debug_la-boolean.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-boolean.lo `test -f '../common/boolean.c' || echo '$(srcdir)/'`../common/boolean.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-boolean.lo `test -f '../common/boolean.c' || echo '$(srcdir)/'`../common/boolean.c
 
-librml_plain_debug_la-integer.lo: ../common/integer.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-integer.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-integer.Tpo -c -o librml_plain_debug_la-integer.lo `test -f '../common/integer.c' || echo '$(srcdir)/'`../common/integer.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-integer.Tpo $(DEPDIR)/librml_plain_debug_la-integer.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/integer.c' object='librml_plain_debug_la-integer.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-integer.lo: ../common/integer.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-integer.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-integer.Tpo -c -o librml_mm_plain_debug_la-integer.lo `test -f '../common/integer.c' || echo '$(srcdir)/'`../common/integer.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-integer.Tpo $(DEPDIR)/librml_mm_plain_debug_la-integer.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/integer.c' object='librml_mm_plain_debug_la-integer.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-integer.lo `test -f '../common/integer.c' || echo '$(srcdir)/'`../common/integer.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-integer.lo `test -f '../common/integer.c' || echo '$(srcdir)/'`../common/integer.c
 
-librml_plain_debug_la-list.lo: ../common/list.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-list.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-list.Tpo -c -o librml_plain_debug_la-list.lo `test -f '../common/list.c' || echo '$(srcdir)/'`../common/list.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-list.Tpo $(DEPDIR)/librml_plain_debug_la-list.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/list.c' object='librml_plain_debug_la-list.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-list.lo: ../common/list.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-list.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-list.Tpo -c -o librml_mm_plain_debug_la-list.lo `test -f '../common/list.c' || echo '$(srcdir)/'`../common/list.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-list.Tpo $(DEPDIR)/librml_mm_plain_debug_la-list.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/list.c' object='librml_mm_plain_debug_la-list.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-list.lo `test -f '../common/list.c' || echo '$(srcdir)/'`../common/list.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-list.lo `test -f '../common/list.c' || echo '$(srcdir)/'`../common/list.c
 
-librml_plain_debug_la-logicalvar.lo: ../common/logicalvar.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-logicalvar.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-logicalvar.Tpo -c -o librml_plain_debug_la-logicalvar.lo `test -f '../common/logicalvar.c' || echo '$(srcdir)/'`../common/logicalvar.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-logicalvar.Tpo $(DEPDIR)/librml_plain_debug_la-logicalvar.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/logicalvar.c' object='librml_plain_debug_la-logicalvar.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-logicalvar.lo: ../common/logicalvar.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-logicalvar.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-logicalvar.Tpo -c -o librml_mm_plain_debug_la-logicalvar.lo `test -f '../common/logicalvar.c' || echo '$(srcdir)/'`../common/logicalvar.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-logicalvar.Tpo $(DEPDIR)/librml_mm_plain_debug_la-logicalvar.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/logicalvar.c' object='librml_mm_plain_debug_la-logicalvar.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-logicalvar.lo `test -f '../common/logicalvar.c' || echo '$(srcdir)/'`../common/logicalvar.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-logicalvar.lo `test -f '../common/logicalvar.c' || echo '$(srcdir)/'`../common/logicalvar.c
 
-librml_plain_debug_la-real.lo: ../common/real.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-real.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-real.Tpo -c -o librml_plain_debug_la-real.lo `test -f '../common/real.c' || echo '$(srcdir)/'`../common/real.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-real.Tpo $(DEPDIR)/librml_plain_debug_la-real.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/real.c' object='librml_plain_debug_la-real.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-real.lo: ../common/real.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-real.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-real.Tpo -c -o librml_mm_plain_debug_la-real.lo `test -f '../common/real.c' || echo '$(srcdir)/'`../common/real.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-real.Tpo $(DEPDIR)/librml_mm_plain_debug_la-real.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/real.c' object='librml_mm_plain_debug_la-real.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-real.lo `test -f '../common/real.c' || echo '$(srcdir)/'`../common/real.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-real.lo `test -f '../common/real.c' || echo '$(srcdir)/'`../common/real.c
 
-librml_plain_debug_la-string.lo: ../common/string.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-string.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-string.Tpo -c -o librml_plain_debug_la-string.lo `test -f '../common/string.c' || echo '$(srcdir)/'`../common/string.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-string.Tpo $(DEPDIR)/librml_plain_debug_la-string.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/string.c' object='librml_plain_debug_la-string.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-string.lo: ../common/string.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-string.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-string.Tpo -c -o librml_mm_plain_debug_la-string.lo `test -f '../common/string.c' || echo '$(srcdir)/'`../common/string.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-string.Tpo $(DEPDIR)/librml_mm_plain_debug_la-string.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/string.c' object='librml_mm_plain_debug_la-string.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-string.lo `test -f '../common/string.c' || echo '$(srcdir)/'`../common/string.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-string.lo `test -f '../common/string.c' || echo '$(srcdir)/'`../common/string.c
 
-librml_plain_debug_la-vector.lo: ../common/vector.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-vector.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-vector.Tpo -c -o librml_plain_debug_la-vector.lo `test -f '../common/vector.c' || echo '$(srcdir)/'`../common/vector.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-vector.Tpo $(DEPDIR)/librml_plain_debug_la-vector.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/vector.c' object='librml_plain_debug_la-vector.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-vector.lo: ../common/vector.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-vector.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-vector.Tpo -c -o librml_mm_plain_debug_la-vector.lo `test -f '../common/vector.c' || echo '$(srcdir)/'`../common/vector.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-vector.Tpo $(DEPDIR)/librml_mm_plain_debug_la-vector.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/vector.c' object='librml_mm_plain_debug_la-vector.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-vector.lo `test -f '../common/vector.c' || echo '$(srcdir)/'`../common/vector.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-vector.lo `test -f '../common/vector.c' || echo '$(srcdir)/'`../common/vector.c
 
-librml_plain_debug_la-internal.lo: ../common/internal.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-internal.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-internal.Tpo -c -o librml_plain_debug_la-internal.lo `test -f '../common/internal.c' || echo '$(srcdir)/'`../common/internal.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-internal.Tpo $(DEPDIR)/librml_plain_debug_la-internal.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/internal.c' object='librml_plain_debug_la-internal.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-internal.lo: ../common/internal.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-internal.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-internal.Tpo -c -o librml_mm_plain_debug_la-internal.lo `test -f '../common/internal.c' || echo '$(srcdir)/'`../common/internal.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-internal.Tpo $(DEPDIR)/librml_mm_plain_debug_la-internal.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/internal.c' object='librml_mm_plain_debug_la-internal.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-internal.lo `test -f '../common/internal.c' || echo '$(srcdir)/'`../common/internal.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-internal.lo `test -f '../common/internal.c' || echo '$(srcdir)/'`../common/internal.c
 
-librml_plain_debug_la-p-gccore.lo: ../common/p-gccore.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-p-gccore.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-p-gccore.Tpo -c -o librml_plain_debug_la-p-gccore.lo `test -f '../common/p-gccore.c' || echo '$(srcdir)/'`../common/p-gccore.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-p-gccore.Tpo $(DEPDIR)/librml_plain_debug_la-p-gccore.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-gccore.c' object='librml_plain_debug_la-p-gccore.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-p-gccore.lo: ../common/p-gccore.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-p-gccore.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-p-gccore.Tpo -c -o librml_mm_plain_debug_la-p-gccore.lo `test -f '../common/p-gccore.c' || echo '$(srcdir)/'`../common/p-gccore.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-p-gccore.Tpo $(DEPDIR)/librml_mm_plain_debug_la-p-gccore.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-gccore.c' object='librml_mm_plain_debug_la-p-gccore.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-p-gccore.lo `test -f '../common/p-gccore.c' || echo '$(srcdir)/'`../common/p-gccore.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-p-gccore.lo `test -f '../common/p-gccore.c' || echo '$(srcdir)/'`../common/p-gccore.c
 
-librml_plain_debug_la-p-gcuser-plain.lo: ../common/p-gcuser-plain.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-p-gcuser-plain.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-p-gcuser-plain.Tpo -c -o librml_plain_debug_la-p-gcuser-plain.lo `test -f '../common/p-gcuser-plain.c' || echo '$(srcdir)/'`../common/p-gcuser-plain.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-p-gcuser-plain.Tpo $(DEPDIR)/librml_plain_debug_la-p-gcuser-plain.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-gcuser-plain.c' object='librml_plain_debug_la-p-gcuser-plain.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-p-gcuser-plain.lo: ../common/p-gcuser-plain.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-p-gcuser-plain.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-p-gcuser-plain.Tpo -c -o librml_mm_plain_debug_la-p-gcuser-plain.lo `test -f '../common/p-gcuser-plain.c' || echo '$(srcdir)/'`../common/p-gcuser-plain.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-p-gcuser-plain.Tpo $(DEPDIR)/librml_mm_plain_debug_la-p-gcuser-plain.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-gcuser-plain.c' object='librml_mm_plain_debug_la-p-gcuser-plain.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-p-gcuser-plain.lo `test -f '../common/p-gcuser-plain.c' || echo '$(srcdir)/'`../common/p-gcuser-plain.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-p-gcuser-plain.lo `test -f '../common/p-gcuser-plain.c' || echo '$(srcdir)/'`../common/p-gcuser-plain.c
 
-librml_plain_debug_la-p-usergc.lo: ../common/p-usergc.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-p-usergc.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-p-usergc.Tpo -c -o librml_plain_debug_la-p-usergc.lo `test -f '../common/p-usergc.c' || echo '$(srcdir)/'`../common/p-usergc.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-p-usergc.Tpo $(DEPDIR)/librml_plain_debug_la-p-usergc.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-usergc.c' object='librml_plain_debug_la-p-usergc.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-p-usergc.lo: ../common/p-usergc.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-p-usergc.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-p-usergc.Tpo -c -o librml_mm_plain_debug_la-p-usergc.lo `test -f '../common/p-usergc.c' || echo '$(srcdir)/'`../common/p-usergc.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-p-usergc.Tpo $(DEPDIR)/librml_mm_plain_debug_la-p-usergc.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-usergc.c' object='librml_mm_plain_debug_la-p-usergc.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-p-usergc.lo `test -f '../common/p-usergc.c' || echo '$(srcdir)/'`../common/p-usergc.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-p-usergc.lo `test -f '../common/p-usergc.c' || echo '$(srcdir)/'`../common/p-usergc.c
 
-librml_plain_debug_la-controlflow.lo: ../common/controlflow.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-controlflow.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-controlflow.Tpo -c -o librml_plain_debug_la-controlflow.lo `test -f '../common/controlflow.c' || echo '$(srcdir)/'`../common/controlflow.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-controlflow.Tpo $(DEPDIR)/librml_plain_debug_la-controlflow.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/controlflow.c' object='librml_plain_debug_la-controlflow.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-controlflow.lo: ../common/controlflow.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-controlflow.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-controlflow.Tpo -c -o librml_mm_plain_debug_la-controlflow.lo `test -f '../common/controlflow.c' || echo '$(srcdir)/'`../common/controlflow.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-controlflow.Tpo $(DEPDIR)/librml_mm_plain_debug_la-controlflow.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/controlflow.c' object='librml_mm_plain_debug_la-controlflow.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-controlflow.lo `test -f '../common/controlflow.c' || echo '$(srcdir)/'`../common/controlflow.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-controlflow.lo `test -f '../common/controlflow.c' || echo '$(srcdir)/'`../common/controlflow.c
 
-librml_plain_debug_la-parse-command.lo: parse-command.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-parse-command.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-parse-command.Tpo -c -o librml_plain_debug_la-parse-command.lo `test -f 'parse-command.c' || echo '$(srcdir)/'`parse-command.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-parse-command.Tpo $(DEPDIR)/librml_plain_debug_la-parse-command.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='parse-command.c' object='librml_plain_debug_la-parse-command.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-parse-command.lo: parse-command.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-parse-command.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-parse-command.Tpo -c -o librml_mm_plain_debug_la-parse-command.lo `test -f 'parse-command.c' || echo '$(srcdir)/'`parse-command.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-parse-command.Tpo $(DEPDIR)/librml_mm_plain_debug_la-parse-command.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='parse-command.c' object='librml_mm_plain_debug_la-parse-command.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-parse-command.lo `test -f 'parse-command.c' || echo '$(srcdir)/'`parse-command.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-parse-command.lo `test -f 'parse-command.c' || echo '$(srcdir)/'`parse-command.c
 
-librml_plain_debug_la-scan-command.lo: scan-command.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-scan-command.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-scan-command.Tpo -c -o librml_plain_debug_la-scan-command.lo `test -f 'scan-command.c' || echo '$(srcdir)/'`scan-command.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-scan-command.Tpo $(DEPDIR)/librml_plain_debug_la-scan-command.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scan-command.c' object='librml_plain_debug_la-scan-command.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-scan-command.lo: scan-command.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-scan-command.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-scan-command.Tpo -c -o librml_mm_plain_debug_la-scan-command.lo `test -f 'scan-command.c' || echo '$(srcdir)/'`scan-command.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-scan-command.Tpo $(DEPDIR)/librml_mm_plain_debug_la-scan-command.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scan-command.c' object='librml_mm_plain_debug_la-scan-command.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-scan-command.lo `test -f 'scan-command.c' || echo '$(srcdir)/'`scan-command.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-scan-command.lo `test -f 'scan-command.c' || echo '$(srcdir)/'`scan-command.c
 
-librml_plain_debug_la-parse-rdb.lo: parse-rdb.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-parse-rdb.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-parse-rdb.Tpo -c -o librml_plain_debug_la-parse-rdb.lo `test -f 'parse-rdb.c' || echo '$(srcdir)/'`parse-rdb.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-parse-rdb.Tpo $(DEPDIR)/librml_plain_debug_la-parse-rdb.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='parse-rdb.c' object='librml_plain_debug_la-parse-rdb.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-parse-rdb.lo: parse-rdb.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-parse-rdb.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-parse-rdb.Tpo -c -o librml_mm_plain_debug_la-parse-rdb.lo `test -f 'parse-rdb.c' || echo '$(srcdir)/'`parse-rdb.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-parse-rdb.Tpo $(DEPDIR)/librml_mm_plain_debug_la-parse-rdb.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='parse-rdb.c' object='librml_mm_plain_debug_la-parse-rdb.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-parse-rdb.lo `test -f 'parse-rdb.c' || echo '$(srcdir)/'`parse-rdb.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-parse-rdb.lo `test -f 'parse-rdb.c' || echo '$(srcdir)/'`parse-rdb.c
 
-librml_plain_debug_la-scan-rdb.lo: scan-rdb.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-scan-rdb.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-scan-rdb.Tpo -c -o librml_plain_debug_la-scan-rdb.lo `test -f 'scan-rdb.c' || echo '$(srcdir)/'`scan-rdb.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-scan-rdb.Tpo $(DEPDIR)/librml_plain_debug_la-scan-rdb.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scan-rdb.c' object='librml_plain_debug_la-scan-rdb.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-scan-rdb.lo: scan-rdb.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-scan-rdb.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-scan-rdb.Tpo -c -o librml_mm_plain_debug_la-scan-rdb.lo `test -f 'scan-rdb.c' || echo '$(srcdir)/'`scan-rdb.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-scan-rdb.Tpo $(DEPDIR)/librml_mm_plain_debug_la-scan-rdb.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scan-rdb.c' object='librml_mm_plain_debug_la-scan-rdb.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-scan-rdb.lo `test -f 'scan-rdb.c' || echo '$(srcdir)/'`scan-rdb.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-scan-rdb.lo `test -f 'scan-rdb.c' || echo '$(srcdir)/'`scan-rdb.c
 
-librml_plain_debug_la-load.lo: ../debugging/load.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-load.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-load.Tpo -c -o librml_plain_debug_la-load.lo `test -f '../debugging/load.c' || echo '$(srcdir)/'`../debugging/load.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-load.Tpo $(DEPDIR)/librml_plain_debug_la-load.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/load.c' object='librml_plain_debug_la-load.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-load.lo: ../debugging/load.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-load.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-load.Tpo -c -o librml_mm_plain_debug_la-load.lo `test -f '../debugging/load.c' || echo '$(srcdir)/'`../debugging/load.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-load.Tpo $(DEPDIR)/librml_mm_plain_debug_la-load.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/load.c' object='librml_mm_plain_debug_la-load.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-load.lo `test -f '../debugging/load.c' || echo '$(srcdir)/'`../debugging/load.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-load.lo `test -f '../debugging/load.c' || echo '$(srcdir)/'`../debugging/load.c
 
-librml_plain_debug_la-socket.lo: ../debugging/socket.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-socket.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-socket.Tpo -c -o librml_plain_debug_la-socket.lo `test -f '../debugging/socket.c' || echo '$(srcdir)/'`../debugging/socket.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-socket.Tpo $(DEPDIR)/librml_plain_debug_la-socket.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/socket.c' object='librml_plain_debug_la-socket.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-socket.lo: ../debugging/socket.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-socket.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-socket.Tpo -c -o librml_mm_plain_debug_la-socket.lo `test -f '../debugging/socket.c' || echo '$(srcdir)/'`../debugging/socket.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-socket.Tpo $(DEPDIR)/librml_mm_plain_debug_la-socket.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/socket.c' object='librml_mm_plain_debug_la-socket.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-socket.lo `test -f '../debugging/socket.c' || echo '$(srcdir)/'`../debugging/socket.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-socket.lo `test -f '../debugging/socket.c' || echo '$(srcdir)/'`../debugging/socket.c
 
-librml_plain_debug_la-command.lo: ../debugging/command.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-command.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-command.Tpo -c -o librml_plain_debug_la-command.lo `test -f '../debugging/command.c' || echo '$(srcdir)/'`../debugging/command.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-command.Tpo $(DEPDIR)/librml_plain_debug_la-command.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/command.c' object='librml_plain_debug_la-command.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-command.lo: ../debugging/command.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-command.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-command.Tpo -c -o librml_mm_plain_debug_la-command.lo `test -f '../debugging/command.c' || echo '$(srcdir)/'`../debugging/command.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-command.Tpo $(DEPDIR)/librml_mm_plain_debug_la-command.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/command.c' object='librml_mm_plain_debug_la-command.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-command.lo `test -f '../debugging/command.c' || echo '$(srcdir)/'`../debugging/command.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-command.lo `test -f '../debugging/command.c' || echo '$(srcdir)/'`../debugging/command.c
 
-librml_plain_debug_la-handler.lo: ../debugging/handler.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-handler.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-handler.Tpo -c -o librml_plain_debug_la-handler.lo `test -f '../debugging/handler.c' || echo '$(srcdir)/'`../debugging/handler.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-handler.Tpo $(DEPDIR)/librml_plain_debug_la-handler.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/handler.c' object='librml_plain_debug_la-handler.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-handler.lo: ../debugging/handler.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-handler.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-handler.Tpo -c -o librml_mm_plain_debug_la-handler.lo `test -f '../debugging/handler.c' || echo '$(srcdir)/'`../debugging/handler.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-handler.Tpo $(DEPDIR)/librml_mm_plain_debug_la-handler.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/handler.c' object='librml_mm_plain_debug_la-handler.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-handler.lo `test -f '../debugging/handler.c' || echo '$(srcdir)/'`../debugging/handler.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-handler.lo `test -f '../debugging/handler.c' || echo '$(srcdir)/'`../debugging/handler.c
 
-librml_plain_debug_la-debug.lo: ../debugging/debug.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-debug.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-debug.Tpo -c -o librml_plain_debug_la-debug.lo `test -f '../debugging/debug.c' || echo '$(srcdir)/'`../debugging/debug.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-debug.Tpo $(DEPDIR)/librml_plain_debug_la-debug.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/debug.c' object='librml_plain_debug_la-debug.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-debug.lo: ../debugging/debug.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-debug.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-debug.Tpo -c -o librml_mm_plain_debug_la-debug.lo `test -f '../debugging/debug.c' || echo '$(srcdir)/'`../debugging/debug.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-debug.Tpo $(DEPDIR)/librml_mm_plain_debug_la-debug.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/debug.c' object='librml_mm_plain_debug_la-debug.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-debug.lo `test -f '../debugging/debug.c' || echo '$(srcdir)/'`../debugging/debug.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-debug.lo `test -f '../debugging/debug.c' || echo '$(srcdir)/'`../debugging/debug.c
 
-librml_plain_debug_la-main.lo: ../common/main.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_plain_debug_la-main.lo -MD -MP -MF $(DEPDIR)/librml_plain_debug_la-main.Tpo -c -o librml_plain_debug_la-main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_debug_la-main.Tpo $(DEPDIR)/librml_plain_debug_la-main.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/main.c' object='librml_plain_debug_la-main.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_debug_la-main.lo: ../common/main.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_debug_la-main.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_debug_la-main.Tpo -c -o librml_mm_plain_debug_la-main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_debug_la-main.Tpo $(DEPDIR)/librml_mm_plain_debug_la-main.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/main.c' object='librml_mm_plain_debug_la-main.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_plain_debug_la-main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_debug_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_debug_la-main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
 
-librml_plain_prof_la-array.lo: ../common/array.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-array.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-array.Tpo -c -o librml_plain_prof_la-array.lo `test -f '../common/array.c' || echo '$(srcdir)/'`../common/array.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-array.Tpo $(DEPDIR)/librml_plain_prof_la-array.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/array.c' object='librml_plain_prof_la-array.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-array.lo: ../common/array.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-array.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-array.Tpo -c -o librml_mm_plain_prof_la-array.lo `test -f '../common/array.c' || echo '$(srcdir)/'`../common/array.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-array.Tpo $(DEPDIR)/librml_mm_plain_prof_la-array.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/array.c' object='librml_mm_plain_prof_la-array.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-array.lo `test -f '../common/array.c' || echo '$(srcdir)/'`../common/array.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-array.lo `test -f '../common/array.c' || echo '$(srcdir)/'`../common/array.c
 
-librml_plain_prof_la-boolean.lo: ../common/boolean.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-boolean.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-boolean.Tpo -c -o librml_plain_prof_la-boolean.lo `test -f '../common/boolean.c' || echo '$(srcdir)/'`../common/boolean.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-boolean.Tpo $(DEPDIR)/librml_plain_prof_la-boolean.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/boolean.c' object='librml_plain_prof_la-boolean.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-boolean.lo: ../common/boolean.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-boolean.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-boolean.Tpo -c -o librml_mm_plain_prof_la-boolean.lo `test -f '../common/boolean.c' || echo '$(srcdir)/'`../common/boolean.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-boolean.Tpo $(DEPDIR)/librml_mm_plain_prof_la-boolean.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/boolean.c' object='librml_mm_plain_prof_la-boolean.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-boolean.lo `test -f '../common/boolean.c' || echo '$(srcdir)/'`../common/boolean.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-boolean.lo `test -f '../common/boolean.c' || echo '$(srcdir)/'`../common/boolean.c
 
-librml_plain_prof_la-integer.lo: ../common/integer.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-integer.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-integer.Tpo -c -o librml_plain_prof_la-integer.lo `test -f '../common/integer.c' || echo '$(srcdir)/'`../common/integer.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-integer.Tpo $(DEPDIR)/librml_plain_prof_la-integer.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/integer.c' object='librml_plain_prof_la-integer.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-integer.lo: ../common/integer.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-integer.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-integer.Tpo -c -o librml_mm_plain_prof_la-integer.lo `test -f '../common/integer.c' || echo '$(srcdir)/'`../common/integer.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-integer.Tpo $(DEPDIR)/librml_mm_plain_prof_la-integer.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/integer.c' object='librml_mm_plain_prof_la-integer.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-integer.lo `test -f '../common/integer.c' || echo '$(srcdir)/'`../common/integer.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-integer.lo `test -f '../common/integer.c' || echo '$(srcdir)/'`../common/integer.c
 
-librml_plain_prof_la-list.lo: ../common/list.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-list.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-list.Tpo -c -o librml_plain_prof_la-list.lo `test -f '../common/list.c' || echo '$(srcdir)/'`../common/list.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-list.Tpo $(DEPDIR)/librml_plain_prof_la-list.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/list.c' object='librml_plain_prof_la-list.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-list.lo: ../common/list.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-list.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-list.Tpo -c -o librml_mm_plain_prof_la-list.lo `test -f '../common/list.c' || echo '$(srcdir)/'`../common/list.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-list.Tpo $(DEPDIR)/librml_mm_plain_prof_la-list.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/list.c' object='librml_mm_plain_prof_la-list.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-list.lo `test -f '../common/list.c' || echo '$(srcdir)/'`../common/list.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-list.lo `test -f '../common/list.c' || echo '$(srcdir)/'`../common/list.c
 
-librml_plain_prof_la-logicalvar.lo: ../common/logicalvar.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-logicalvar.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-logicalvar.Tpo -c -o librml_plain_prof_la-logicalvar.lo `test -f '../common/logicalvar.c' || echo '$(srcdir)/'`../common/logicalvar.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-logicalvar.Tpo $(DEPDIR)/librml_plain_prof_la-logicalvar.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/logicalvar.c' object='librml_plain_prof_la-logicalvar.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-logicalvar.lo: ../common/logicalvar.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-logicalvar.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-logicalvar.Tpo -c -o librml_mm_plain_prof_la-logicalvar.lo `test -f '../common/logicalvar.c' || echo '$(srcdir)/'`../common/logicalvar.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-logicalvar.Tpo $(DEPDIR)/librml_mm_plain_prof_la-logicalvar.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/logicalvar.c' object='librml_mm_plain_prof_la-logicalvar.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-logicalvar.lo `test -f '../common/logicalvar.c' || echo '$(srcdir)/'`../common/logicalvar.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-logicalvar.lo `test -f '../common/logicalvar.c' || echo '$(srcdir)/'`../common/logicalvar.c
 
-librml_plain_prof_la-real.lo: ../common/real.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-real.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-real.Tpo -c -o librml_plain_prof_la-real.lo `test -f '../common/real.c' || echo '$(srcdir)/'`../common/real.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-real.Tpo $(DEPDIR)/librml_plain_prof_la-real.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/real.c' object='librml_plain_prof_la-real.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-real.lo: ../common/real.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-real.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-real.Tpo -c -o librml_mm_plain_prof_la-real.lo `test -f '../common/real.c' || echo '$(srcdir)/'`../common/real.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-real.Tpo $(DEPDIR)/librml_mm_plain_prof_la-real.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/real.c' object='librml_mm_plain_prof_la-real.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-real.lo `test -f '../common/real.c' || echo '$(srcdir)/'`../common/real.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-real.lo `test -f '../common/real.c' || echo '$(srcdir)/'`../common/real.c
 
-librml_plain_prof_la-string.lo: ../common/string.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-string.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-string.Tpo -c -o librml_plain_prof_la-string.lo `test -f '../common/string.c' || echo '$(srcdir)/'`../common/string.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-string.Tpo $(DEPDIR)/librml_plain_prof_la-string.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/string.c' object='librml_plain_prof_la-string.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-string.lo: ../common/string.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-string.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-string.Tpo -c -o librml_mm_plain_prof_la-string.lo `test -f '../common/string.c' || echo '$(srcdir)/'`../common/string.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-string.Tpo $(DEPDIR)/librml_mm_plain_prof_la-string.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/string.c' object='librml_mm_plain_prof_la-string.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-string.lo `test -f '../common/string.c' || echo '$(srcdir)/'`../common/string.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-string.lo `test -f '../common/string.c' || echo '$(srcdir)/'`../common/string.c
 
-librml_plain_prof_la-vector.lo: ../common/vector.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-vector.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-vector.Tpo -c -o librml_plain_prof_la-vector.lo `test -f '../common/vector.c' || echo '$(srcdir)/'`../common/vector.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-vector.Tpo $(DEPDIR)/librml_plain_prof_la-vector.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/vector.c' object='librml_plain_prof_la-vector.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-vector.lo: ../common/vector.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-vector.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-vector.Tpo -c -o librml_mm_plain_prof_la-vector.lo `test -f '../common/vector.c' || echo '$(srcdir)/'`../common/vector.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-vector.Tpo $(DEPDIR)/librml_mm_plain_prof_la-vector.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/vector.c' object='librml_mm_plain_prof_la-vector.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-vector.lo `test -f '../common/vector.c' || echo '$(srcdir)/'`../common/vector.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-vector.lo `test -f '../common/vector.c' || echo '$(srcdir)/'`../common/vector.c
 
-librml_plain_prof_la-internal.lo: ../common/internal.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-internal.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-internal.Tpo -c -o librml_plain_prof_la-internal.lo `test -f '../common/internal.c' || echo '$(srcdir)/'`../common/internal.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-internal.Tpo $(DEPDIR)/librml_plain_prof_la-internal.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/internal.c' object='librml_plain_prof_la-internal.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-internal.lo: ../common/internal.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-internal.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-internal.Tpo -c -o librml_mm_plain_prof_la-internal.lo `test -f '../common/internal.c' || echo '$(srcdir)/'`../common/internal.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-internal.Tpo $(DEPDIR)/librml_mm_plain_prof_la-internal.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/internal.c' object='librml_mm_plain_prof_la-internal.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-internal.lo `test -f '../common/internal.c' || echo '$(srcdir)/'`../common/internal.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-internal.lo `test -f '../common/internal.c' || echo '$(srcdir)/'`../common/internal.c
 
-librml_plain_prof_la-p-gccore.lo: ../common/p-gccore.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-p-gccore.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-p-gccore.Tpo -c -o librml_plain_prof_la-p-gccore.lo `test -f '../common/p-gccore.c' || echo '$(srcdir)/'`../common/p-gccore.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-p-gccore.Tpo $(DEPDIR)/librml_plain_prof_la-p-gccore.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-gccore.c' object='librml_plain_prof_la-p-gccore.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-p-gccore.lo: ../common/p-gccore.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-p-gccore.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-p-gccore.Tpo -c -o librml_mm_plain_prof_la-p-gccore.lo `test -f '../common/p-gccore.c' || echo '$(srcdir)/'`../common/p-gccore.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-p-gccore.Tpo $(DEPDIR)/librml_mm_plain_prof_la-p-gccore.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-gccore.c' object='librml_mm_plain_prof_la-p-gccore.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-p-gccore.lo `test -f '../common/p-gccore.c' || echo '$(srcdir)/'`../common/p-gccore.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-p-gccore.lo `test -f '../common/p-gccore.c' || echo '$(srcdir)/'`../common/p-gccore.c
 
-librml_plain_prof_la-p-gcuser-plain.lo: ../common/p-gcuser-plain.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-p-gcuser-plain.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-p-gcuser-plain.Tpo -c -o librml_plain_prof_la-p-gcuser-plain.lo `test -f '../common/p-gcuser-plain.c' || echo '$(srcdir)/'`../common/p-gcuser-plain.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-p-gcuser-plain.Tpo $(DEPDIR)/librml_plain_prof_la-p-gcuser-plain.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-gcuser-plain.c' object='librml_plain_prof_la-p-gcuser-plain.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-p-gcuser-plain.lo: ../common/p-gcuser-plain.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-p-gcuser-plain.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-p-gcuser-plain.Tpo -c -o librml_mm_plain_prof_la-p-gcuser-plain.lo `test -f '../common/p-gcuser-plain.c' || echo '$(srcdir)/'`../common/p-gcuser-plain.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-p-gcuser-plain.Tpo $(DEPDIR)/librml_mm_plain_prof_la-p-gcuser-plain.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-gcuser-plain.c' object='librml_mm_plain_prof_la-p-gcuser-plain.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-p-gcuser-plain.lo `test -f '../common/p-gcuser-plain.c' || echo '$(srcdir)/'`../common/p-gcuser-plain.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-p-gcuser-plain.lo `test -f '../common/p-gcuser-plain.c' || echo '$(srcdir)/'`../common/p-gcuser-plain.c
 
-librml_plain_prof_la-p-usergc.lo: ../common/p-usergc.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-p-usergc.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-p-usergc.Tpo -c -o librml_plain_prof_la-p-usergc.lo `test -f '../common/p-usergc.c' || echo '$(srcdir)/'`../common/p-usergc.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-p-usergc.Tpo $(DEPDIR)/librml_plain_prof_la-p-usergc.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-usergc.c' object='librml_plain_prof_la-p-usergc.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-p-usergc.lo: ../common/p-usergc.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-p-usergc.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-p-usergc.Tpo -c -o librml_mm_plain_prof_la-p-usergc.lo `test -f '../common/p-usergc.c' || echo '$(srcdir)/'`../common/p-usergc.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-p-usergc.Tpo $(DEPDIR)/librml_mm_plain_prof_la-p-usergc.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/p-usergc.c' object='librml_mm_plain_prof_la-p-usergc.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-p-usergc.lo `test -f '../common/p-usergc.c' || echo '$(srcdir)/'`../common/p-usergc.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-p-usergc.lo `test -f '../common/p-usergc.c' || echo '$(srcdir)/'`../common/p-usergc.c
 
-librml_plain_prof_la-controlflow.lo: ../common/controlflow.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-controlflow.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-controlflow.Tpo -c -o librml_plain_prof_la-controlflow.lo `test -f '../common/controlflow.c' || echo '$(srcdir)/'`../common/controlflow.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-controlflow.Tpo $(DEPDIR)/librml_plain_prof_la-controlflow.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/controlflow.c' object='librml_plain_prof_la-controlflow.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-controlflow.lo: ../common/controlflow.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-controlflow.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-controlflow.Tpo -c -o librml_mm_plain_prof_la-controlflow.lo `test -f '../common/controlflow.c' || echo '$(srcdir)/'`../common/controlflow.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-controlflow.Tpo $(DEPDIR)/librml_mm_plain_prof_la-controlflow.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/controlflow.c' object='librml_mm_plain_prof_la-controlflow.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-controlflow.lo `test -f '../common/controlflow.c' || echo '$(srcdir)/'`../common/controlflow.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-controlflow.lo `test -f '../common/controlflow.c' || echo '$(srcdir)/'`../common/controlflow.c
 
-librml_plain_prof_la-parse-command.lo: parse-command.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-parse-command.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-parse-command.Tpo -c -o librml_plain_prof_la-parse-command.lo `test -f 'parse-command.c' || echo '$(srcdir)/'`parse-command.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-parse-command.Tpo $(DEPDIR)/librml_plain_prof_la-parse-command.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='parse-command.c' object='librml_plain_prof_la-parse-command.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-parse-command.lo: parse-command.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-parse-command.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-parse-command.Tpo -c -o librml_mm_plain_prof_la-parse-command.lo `test -f 'parse-command.c' || echo '$(srcdir)/'`parse-command.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-parse-command.Tpo $(DEPDIR)/librml_mm_plain_prof_la-parse-command.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='parse-command.c' object='librml_mm_plain_prof_la-parse-command.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-parse-command.lo `test -f 'parse-command.c' || echo '$(srcdir)/'`parse-command.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-parse-command.lo `test -f 'parse-command.c' || echo '$(srcdir)/'`parse-command.c
 
-librml_plain_prof_la-scan-command.lo: scan-command.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-scan-command.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-scan-command.Tpo -c -o librml_plain_prof_la-scan-command.lo `test -f 'scan-command.c' || echo '$(srcdir)/'`scan-command.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-scan-command.Tpo $(DEPDIR)/librml_plain_prof_la-scan-command.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scan-command.c' object='librml_plain_prof_la-scan-command.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-scan-command.lo: scan-command.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-scan-command.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-scan-command.Tpo -c -o librml_mm_plain_prof_la-scan-command.lo `test -f 'scan-command.c' || echo '$(srcdir)/'`scan-command.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-scan-command.Tpo $(DEPDIR)/librml_mm_plain_prof_la-scan-command.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scan-command.c' object='librml_mm_plain_prof_la-scan-command.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-scan-command.lo `test -f 'scan-command.c' || echo '$(srcdir)/'`scan-command.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-scan-command.lo `test -f 'scan-command.c' || echo '$(srcdir)/'`scan-command.c
 
-librml_plain_prof_la-parse-rdb.lo: parse-rdb.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-parse-rdb.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-parse-rdb.Tpo -c -o librml_plain_prof_la-parse-rdb.lo `test -f 'parse-rdb.c' || echo '$(srcdir)/'`parse-rdb.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-parse-rdb.Tpo $(DEPDIR)/librml_plain_prof_la-parse-rdb.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='parse-rdb.c' object='librml_plain_prof_la-parse-rdb.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-parse-rdb.lo: parse-rdb.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-parse-rdb.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-parse-rdb.Tpo -c -o librml_mm_plain_prof_la-parse-rdb.lo `test -f 'parse-rdb.c' || echo '$(srcdir)/'`parse-rdb.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-parse-rdb.Tpo $(DEPDIR)/librml_mm_plain_prof_la-parse-rdb.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='parse-rdb.c' object='librml_mm_plain_prof_la-parse-rdb.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-parse-rdb.lo `test -f 'parse-rdb.c' || echo '$(srcdir)/'`parse-rdb.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-parse-rdb.lo `test -f 'parse-rdb.c' || echo '$(srcdir)/'`parse-rdb.c
 
-librml_plain_prof_la-scan-rdb.lo: scan-rdb.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-scan-rdb.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-scan-rdb.Tpo -c -o librml_plain_prof_la-scan-rdb.lo `test -f 'scan-rdb.c' || echo '$(srcdir)/'`scan-rdb.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-scan-rdb.Tpo $(DEPDIR)/librml_plain_prof_la-scan-rdb.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scan-rdb.c' object='librml_plain_prof_la-scan-rdb.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-scan-rdb.lo: scan-rdb.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-scan-rdb.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-scan-rdb.Tpo -c -o librml_mm_plain_prof_la-scan-rdb.lo `test -f 'scan-rdb.c' || echo '$(srcdir)/'`scan-rdb.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-scan-rdb.Tpo $(DEPDIR)/librml_mm_plain_prof_la-scan-rdb.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='scan-rdb.c' object='librml_mm_plain_prof_la-scan-rdb.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-scan-rdb.lo `test -f 'scan-rdb.c' || echo '$(srcdir)/'`scan-rdb.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-scan-rdb.lo `test -f 'scan-rdb.c' || echo '$(srcdir)/'`scan-rdb.c
 
-librml_plain_prof_la-load.lo: ../debugging/load.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-load.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-load.Tpo -c -o librml_plain_prof_la-load.lo `test -f '../debugging/load.c' || echo '$(srcdir)/'`../debugging/load.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-load.Tpo $(DEPDIR)/librml_plain_prof_la-load.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/load.c' object='librml_plain_prof_la-load.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-load.lo: ../debugging/load.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-load.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-load.Tpo -c -o librml_mm_plain_prof_la-load.lo `test -f '../debugging/load.c' || echo '$(srcdir)/'`../debugging/load.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-load.Tpo $(DEPDIR)/librml_mm_plain_prof_la-load.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/load.c' object='librml_mm_plain_prof_la-load.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-load.lo `test -f '../debugging/load.c' || echo '$(srcdir)/'`../debugging/load.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-load.lo `test -f '../debugging/load.c' || echo '$(srcdir)/'`../debugging/load.c
 
-librml_plain_prof_la-socket.lo: ../debugging/socket.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-socket.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-socket.Tpo -c -o librml_plain_prof_la-socket.lo `test -f '../debugging/socket.c' || echo '$(srcdir)/'`../debugging/socket.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-socket.Tpo $(DEPDIR)/librml_plain_prof_la-socket.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/socket.c' object='librml_plain_prof_la-socket.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-socket.lo: ../debugging/socket.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-socket.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-socket.Tpo -c -o librml_mm_plain_prof_la-socket.lo `test -f '../debugging/socket.c' || echo '$(srcdir)/'`../debugging/socket.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-socket.Tpo $(DEPDIR)/librml_mm_plain_prof_la-socket.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/socket.c' object='librml_mm_plain_prof_la-socket.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-socket.lo `test -f '../debugging/socket.c' || echo '$(srcdir)/'`../debugging/socket.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-socket.lo `test -f '../debugging/socket.c' || echo '$(srcdir)/'`../debugging/socket.c
 
-librml_plain_prof_la-command.lo: ../debugging/command.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-command.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-command.Tpo -c -o librml_plain_prof_la-command.lo `test -f '../debugging/command.c' || echo '$(srcdir)/'`../debugging/command.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-command.Tpo $(DEPDIR)/librml_plain_prof_la-command.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/command.c' object='librml_plain_prof_la-command.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-command.lo: ../debugging/command.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-command.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-command.Tpo -c -o librml_mm_plain_prof_la-command.lo `test -f '../debugging/command.c' || echo '$(srcdir)/'`../debugging/command.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-command.Tpo $(DEPDIR)/librml_mm_plain_prof_la-command.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/command.c' object='librml_mm_plain_prof_la-command.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-command.lo `test -f '../debugging/command.c' || echo '$(srcdir)/'`../debugging/command.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-command.lo `test -f '../debugging/command.c' || echo '$(srcdir)/'`../debugging/command.c
 
-librml_plain_prof_la-handler.lo: ../debugging/handler.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-handler.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-handler.Tpo -c -o librml_plain_prof_la-handler.lo `test -f '../debugging/handler.c' || echo '$(srcdir)/'`../debugging/handler.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-handler.Tpo $(DEPDIR)/librml_plain_prof_la-handler.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/handler.c' object='librml_plain_prof_la-handler.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-handler.lo: ../debugging/handler.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-handler.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-handler.Tpo -c -o librml_mm_plain_prof_la-handler.lo `test -f '../debugging/handler.c' || echo '$(srcdir)/'`../debugging/handler.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-handler.Tpo $(DEPDIR)/librml_mm_plain_prof_la-handler.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/handler.c' object='librml_mm_plain_prof_la-handler.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-handler.lo `test -f '../debugging/handler.c' || echo '$(srcdir)/'`../debugging/handler.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-handler.lo `test -f '../debugging/handler.c' || echo '$(srcdir)/'`../debugging/handler.c
 
-librml_plain_prof_la-debug.lo: ../debugging/debug.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-debug.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-debug.Tpo -c -o librml_plain_prof_la-debug.lo `test -f '../debugging/debug.c' || echo '$(srcdir)/'`../debugging/debug.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-debug.Tpo $(DEPDIR)/librml_plain_prof_la-debug.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/debug.c' object='librml_plain_prof_la-debug.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-debug.lo: ../debugging/debug.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-debug.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-debug.Tpo -c -o librml_mm_plain_prof_la-debug.lo `test -f '../debugging/debug.c' || echo '$(srcdir)/'`../debugging/debug.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-debug.Tpo $(DEPDIR)/librml_mm_plain_prof_la-debug.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../debugging/debug.c' object='librml_mm_plain_prof_la-debug.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-debug.lo `test -f '../debugging/debug.c' || echo '$(srcdir)/'`../debugging/debug.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-debug.lo `test -f '../debugging/debug.c' || echo '$(srcdir)/'`../debugging/debug.c
 
-librml_plain_prof_la-main.lo: ../common/main.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_plain_prof_la-main.lo -MD -MP -MF $(DEPDIR)/librml_plain_prof_la-main.Tpo -c -o librml_plain_prof_la-main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_plain_prof_la-main.Tpo $(DEPDIR)/librml_plain_prof_la-main.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/main.c' object='librml_plain_prof_la-main.lo' libtool=yes @AMDEPBACKSLASH@
+librml_mm_plain_prof_la-main.lo: ../common/main.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -MT librml_mm_plain_prof_la-main.lo -MD -MP -MF $(DEPDIR)/librml_mm_plain_prof_la-main.Tpo -c -o librml_mm_plain_prof_la-main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/librml_mm_plain_prof_la-main.Tpo $(DEPDIR)/librml_mm_plain_prof_la-main.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='../common/main.c' object='librml_mm_plain_prof_la-main.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_plain_prof_la-main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(librml_mm_plain_prof_la_CFLAGS) $(CFLAGS) -c -o librml_mm_plain_prof_la-main.lo `test -f '../common/main.c' || echo '$(srcdir)/'`../common/main.c
 
 .l.c:
 	$(am__skiplex) $(SHELL) $(YLWRAP) $< $(LEX_OUTPUT_ROOT).c $@ -- $(LEXCOMPILE)
