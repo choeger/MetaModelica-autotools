@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/MetaModelica/!svn/ver/127/trunk/examples/metamodelica/assignment
+END
+runme.sh
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/MetaModelica/!svn/ver/103/trunk/examples/metamodelica/assignment/runme.sh
+END
+assignment.mo
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/MetaModelica/!svn/ver/127/trunk/examples/metamodelica/assignment/assignment.mo
+END
+run-program.sh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/MetaModelica/!svn/ver/2/trunk/examples/metamodelica/assignment/run-program.sh
+END
+Make.mk
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/MetaModelica/!svn/ver/9/trunk/examples/metamodelica/assignment/Make.mk
+END
+parser.y
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/MetaModelica/!svn/ver/9/trunk/examples/metamodelica/assignment/parser.y
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/MetaModelica/!svn/ver/9/trunk/examples/metamodelica/assignment/main.c
+END
+program.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/MetaModelica/!svn/ver/2/trunk/examples/metamodelica/assignment/program.txt
+END
+yacclib.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/MetaModelica/!svn/ver/2/trunk/examples/metamodelica/assignment/yacclib.c
+END
+lexer.l
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/MetaModelica/!svn/ver/9/trunk/examples/metamodelica/assignment/lexer.l
+END
+Assignment-nap-none.mo
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/MetaModelica/!svn/ver/9/trunk/examples/metamodelica/assignment/Assignment-nap-none.mo
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/MetaModelica/!svn/ver/2/trunk/examples/metamodelica/assignment/README.txt
+END
+yacclib.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/MetaModelica/!svn/ver/2/trunk/examples/metamodelica/assignment/yacclib.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/MetaModelica/!svn/ver/9/trunk/examples/metamodelica/assignment/Makefile
+END

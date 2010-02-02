@@ -1,0 +1,8 @@
+AC_INIT(rml_test_assignment, 2.3.8)
+AM_INIT_AUTOMAKE
+AC_PROG_CC
+
+AC_PROG_LEX
+AC_PROG_YACC
+
+AC_CONFIG_FILES([Makefile])
