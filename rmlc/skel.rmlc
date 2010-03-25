@@ -1,0 +1,287 @@
+# synthesized parameters
+RMLINCLDIR=\"$PREFIX/include\"
+RMLEXE=\"$PREFIX/bin/rml\"
+RMLLIBDIR=\"$PREFIX/lib\"
+#
+# Usage: rmlc [options] files
+#
+# Standard options are:
+#
+# -c		suppress linking
+# -D..		option for cpp
+# -dryrun	like -v, but do not actually execute the components
+# -f*		option for the RML translator
+# -g		produce additional information for symbolic debugging
+# -I..		option for cpp
+# -keeptmp	retain temporary files created during compilation
+# -L..		option for ld
+# -l..		option for ld
+# -o outfile	if linking, place executable in outfile instead of a.out
+#		if not linking, place object code in outfile instead of infile.o
+# -p		generate extra code to write profile information
+# -U..		option for cpp
+# -v		verbose mode: show each component as it is invoked
+# -Wc,args	pass on args (separated by commas) to the C compiler
+# -Wr,args	pass on args (separated by commas) to the RML translator
+# -W*		option for the RML translator (unless one of the above)
+#
+# RML-specific options are:
+#
+# +C		compile rml files to C only; implies -c
+# +Rrts		use runtime system rts instead of the default
+# -Idir     add the directory dir to the list of directories to be search for RML sources
+#
+# Files have extension .rml, .c, .o, or .a
+#
+
+# flags and variables
+
+COPTS=
+CPPFLAGS=
+CXFLAGS=$COFLAGS
+DO_COMPILE_C=yes
+DO_LINK=yes
+DRYRUN=no
+KEEPTMP=yes
+LIBRML=rml
+# put LIBS=-lsocket -lnls for Solaris
+LIBS=
+OBJS=
+ONERROR=
+OUTFILE=
+RMLARGS=""
+RTS=plain
+VERBOSE=yes
+
+# functions
+
+expand_commas() {
+  echo "$1" | sed -e 's/\\,//g' -e 's/,/ /g' -e 's//,/g'
+}
+
+execute() {
+  if [ $VERBOSE = yes ]; then
+    echo $1
+  fi
+  if [ $DRYRUN = no ]; then
+    eval $1 || { tmp=$ONERROR; ONERROR=; eval $tmp; exit 1; }
+  fi
+}
+
+compile_c() {
+  execute "$CC $CFLAGS $CPPFLAGS $COPTS -c $CXFLAGS -I$RMLINCLDIR/$RTS -o $2 $1"
+}
+
+preprocess_t() {
+  execute "$CPP -P -I$RMLINCLDIR/$RTS $1 $ASLABTABFIX > $2"
+}
+
+assemble() {
+  execute "$AS -o $2 $1"
+}
+
+glue2() {
+  execute "$LD -r -o $3 $1 $2"
+}
+
+copy() {
+  execute "cp $1 $2"
+}
+
+remove() {
+  if [ $KEEPTMP = no ]; then
+    execute "rm -f $*"
+  fi
+}
+
+process_c() {
+  if [ $DO_COMPILE_C = yes ]; then
+    if [ $DO_LINK = no ] && [ ! -z "$OUTFILE" ]; then
+      obj=$OUTFILE
+    else
+      obj=`basename $1 .c`.o
+    fi
+    compile_c $1 $obj
+    if [ $RTS = diff ] && fgrep -s RML_LABTAB $1 >/dev/null; then
+      tmp=/tmp/rmlc$$
+      ONERROR="remove $tmp.t $tmp.s $tmp.o $tmp.oo"
+      execute "echo '#include \"labtab.h\"' > $tmp.t"
+      execute "fgrep RML_LABTAB $1 >> $tmp.t"
+      preprocess_t $tmp.t $tmp.s
+      assemble $tmp.s $tmp.o
+      glue2 $tmp.o $obj $tmp.oo
+      copy $tmp.oo $obj
+      ONERROR=
+      remove $tmp.t $tmp.s $tmp.o $tmp.oo
+    fi
+    if [ $DO_LINK = yes ]; then
+      OBJS="$OBJS $obj"
+    fi
+  fi
+}
+
+process_rml() {
+  execute "$RMLEXE -E$RTS $RMLARGS $1"
+  csrc=`basename $1 .rml`.c
+  process_c $csrc
+}
+
+process_mo() {
+  execute "$RMLEXE -E$RTS $RMLARGS $1"
+  csrc=`basename $1 .mo`.c
+  process_c $csrc
+}
+
+link_objs_libs() {
+  if [ -z "$OUTFILE" ]; then
+    OUTFILE=a.out
+  fi
+  RML_LIBDIR_TMP="$PREFIX/lib/$RTS/lib$LIBRML.a"
+  if [ ! -f "$RML_LIBDIR_TMP" ]; then
+    echo "$RML_LIBDIR_TMP, switching to default -lrml"
+    LIBRML=rml
+  fi
+  execute "$CC $CXFLAGS -o $OUTFILE $OBJS -L$RMLLIBDIR/$RTS -l$LIBRML $LIBS"
+}
+
+# main loop
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -c)
+	DO_LINK=no
+	;;
+    -D)
+	echo option "'-D'" is incomplete
+	exit 1
+	;;
+    -D*)
+	CPPFLAGS="$CPPFLAGS $1"
+	;;
+    -dryrun)
+	DRYRUN=yes
+	VERBOSE=yes
+	;;
+    -f)
+	echo option "'-f'" is incomplete
+	exit 1
+	;;
+    -f*)
+	RMLARGS="$RMLARGS $1"
+	;;
+    -g)
+	LIBRML=rml_g
+	RMLARGS="$RMLARGS -fdebug"
+         echo "compiling/linking in debug mode with LIBRML=$LIBRML and RMLARGS=$RMLARGS"
+	#CXFLAGS=$CGFLAGS
+	;;
+    -I)
+	echo option "'-I'" is incomplete
+	exit 1
+	;;
+    -I*)
+	CPPFLAGS="$CPPFLAGS $1"
+	;;
+    -keeptmp)
+	KEEPTMP=yes
+	;;
+    -L)
+	echo option "'-L'" is incomplete
+	exit 1
+	;;
+    -L*)
+	LIBS="$LIBS $1"
+	;;
+    -l)
+	echo option "'-l'" is incomplete
+	exit 1
+	;;
+    -l*)
+	LIBS="$LIBS $1"
+	;;
+    -o)
+	shift
+	if [ $# -eq 0 ]; then
+	  echo option "'-o'" requires an argument
+	  exit 1
+	fi
+	OUTFILE="$1"
+	;;
+    -p)
+	CXFLAGS="$COFLAGS $CPFLAGS"
+	LIBRML=rml_p
+	;;
+    -U)
+	echo option "'-U'" is incomplete
+	exit 1
+	;;
+    -U*)
+	CPPFLAGS="$CPPFLAGS $1"
+	;;
+    -v)
+	VERBOSE=yes
+	;;
+    -W)
+	echo option "'-W'" is incomplete
+	exit 1
+	;;
+    -Wc,*)
+	tmp=`echo "$1" | sed 's/-Wc,//'`
+	tmp=`expand_commas "$tmp"`
+	COPTS="$COPTS $tmp"
+	;;
+    -Wr,*)
+	tmp=`echo "$1" | sed 's/-Wr,//'`
+	tmp=`expand_commas "$tmp"`
+	RMLARGS="$RMLARGS $tmp"
+	;;
+    -W*)
+	RMLARGS="$RMLARGS $1"
+	;;
+    +C)
+	DO_COMPILE_C=no
+	DO_LINK=no
+	;;
+    +R)
+	echo option "'+R'" is incomplete
+	exit 1
+	;;
+    +R*)
+	RTS=`echo "$1" | sed s/+R//`
+	;;
+    -*)
+	echo unknown option "$1"
+	exit 1
+	;;
+    +*)
+	echo unknown option "$1"
+	exit 1
+	;;
+    *.a)
+	LIBS="$LIBS $1"
+	;;
+    *.c)
+	process_c $1
+	;;
+    *.o)
+	OBJS="$OBJS $1"
+	;;
+    *.rml)
+	process_rml $1
+	;;
+    *.mo)
+	process_mo $1
+	;;
+    *)
+	echo unknown argument "$1"
+	exit 1
+	;;
+  esac
+  shift
+done
+
+# optional link phase
+
+if [ $DO_LINK = yes ]; then
+  link_objs_libs
+fi
